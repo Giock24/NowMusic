@@ -12,7 +12,7 @@ h1, form>div>label, a {
 }
 
 a:hover {
-    color: #FFB300 !important;
+    color: white !important;
 }
 
 .form-control, form>div>input[type="submit"] {
