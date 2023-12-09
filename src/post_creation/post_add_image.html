@@ -32,11 +32,11 @@
                 <div class="text-center pb-5">
                     <h1>Create Your Post</h1>
                 </div>
-                <form  class="mb-5" action="#">
-                    <img id="image-previous" src="../../assets/images/no_image.jpg" width="100%"/>
-                    <div class="input-group mb-3  mt-5">
+                <form  class="add-image" action="#">
+                    <div class="input-group mb-3">
+                        <img id="image-previous" src="../../assets/images/no_image.jpg"/>
+                        <label class="input-group" hidden>Upload a photo</label>
                         <input type="file" class="form-control"  accept="image/*" onchange="loadFile(event)">
-                        <label class="input-group-text">Upload</label>
                     </div>
                     <button type="button" class="align-content-center">
                         Next
