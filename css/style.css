@@ -112,3 +112,7 @@ nav>a>i{
     justify-content: space-between;
     height: 70%;
 }
+
+#added-hashtags {
+    color: #FFFFFF;
+}
