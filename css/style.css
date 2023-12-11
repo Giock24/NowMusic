@@ -115,4 +115,16 @@ nav>a>i{
 
 #added-hashtags {
     color: #FFFFFF;
+.info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 50%;
+}
+
+.like-and-comment {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 50%;
 }
