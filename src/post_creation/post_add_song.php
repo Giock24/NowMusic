@@ -27,6 +27,10 @@
                 </a>
             </div>
         </nav>
+        <?php
+            include '../../php/call_api.php';
+            //echo CallAPI("GET", "https://api.sampleapis.com/beers/ale");
+        ?>
         <div class="row justify-content-center mt-4 h-100">
             <div class="col-10 col-md-4">
                 <div class="text-center pb-5">
