@@ -109,35 +109,44 @@
                     <img class="card-img-bottom" src="../assets/images/post_image.png" alt="immagine-post">
                 </div>
             </div>
-            <!-- Full screen modal -->
-            <div class="modal fade" id="notifications" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                <div class="modal-dialog modal-dialog-scrollable">
-                  <div class="modal-content">
+        </div>
+        <!-- Full screen modal -->
+        <div class="modal fade" id="notifications" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="notificationsLabel">Notification</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h1 class="modal-title fs-5" id="notificationsLabel">Notification</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-4 col-4">
-                                <h5>gianluca.consoli</h5> 
-                            </div>
-                            <div class="col-md-7 col-7 px-1">
-                                <p>ha messo mi piace al tuo post.</p>
+                        <div class="card card-notification">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-1 col-1 center-block">
+                                        <img class="nav-item my-2 mx-1" src="../assets/images/user_icon.png" width="27" height="27"/>
+                                    </div>
+                                    <div class="col-md-2 col-2">
+                                        <h5>gianluca.consoli</h5> 
+                                    </div>
+                                    <div class="col-md-7 col-7 px-1">
+                                        <p>ha messo mi piace al tuo post.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        
+                    
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
+        </div>
         <footer class="fixed-bottom m-3">
-            <button type="button" data-bs-target="#notifications" data-bs-toggle="modal" class="btn-circle">
-                <i class="bi bi-plus"></i>
-            </button>
+            <a href="./post_creation/post_add_image.html">
+                <button type="button" class="btn-circle">
+                    <i class="bi bi-plus"></i>
+                </button>
+            </a>
         </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

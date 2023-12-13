@@ -76,6 +76,10 @@ nav>a>i{
     color: white;
 }
 
+.card-notification {
+    background: #282828;
+}
+
 .card-footer {
     color: white;
 }
