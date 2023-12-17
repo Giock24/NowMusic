@@ -13,7 +13,7 @@
     <script type="module" src="../../js/post_creation/add_song.js"></script>
 </head>
 <body>
-    <div class="container-fluid p-0 overflow-hidden h-100">
+    <div class="container-fluid p-0 overflow-auto h-100">
         <nav class="navbar px-2 navbar-dark bg-dark">
             <div class="col-7 align-items-center">
                 <a class="navbar-brand" href="#">NowMusic</a>
@@ -39,8 +39,8 @@
                         <input class="form-control" id="SearchSong" type="search" placeholder="Search a song"/>
                     </div>
                 </form>
-                <div id="search_results">
-                <div>
+                <ul id="search_results" style="list-style-type: none; padding:0;">
+                <ul>
             </div>
         </div>
     </div>

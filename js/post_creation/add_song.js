@@ -6,7 +6,7 @@ const _addSongToPost = (song) => {
 
 const _createSongElement = (song) => {
     // Create the main article element
-    let songElement = document.createElement('article');
+    let songElement = document.createElement('li');
     songElement.setAttribute('class', 'mb-3');
 
     // Create the iframe element
@@ -39,6 +39,7 @@ const _createSongElement = (song) => {
 document.getElementById("search_song").onsubmit = function(event) {
     event.preventDefault();
     var songName = event.target.SearchSong.value;
+    document.getElementById("search_results").innerHTML = "";
     APIController.getToken().then(token => {
         APIController.searchTracks(token,songName).then(tracks => {
             tracks.forEach(track => {
