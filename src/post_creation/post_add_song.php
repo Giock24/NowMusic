@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../css/style.css">
+    <script type="module" src="../../js/post_creation/spotify_api.js"></script>
 </head>
 <body>
     <div class="container-fluid p-0 overflow-hidden h-100">
@@ -27,10 +28,6 @@
                 </a>
             </div>
         </nav>
-        <?php
-            include '../../php/call_api.php';
-            //echo CallAPI("GET", "https://api.sampleapis.com/beers/ale");
-        ?>
         <div class="row justify-content-center mt-4 h-100">
             <div class="col-10 col-md-4">
                 <div class="text-center pb-5">
@@ -44,7 +41,7 @@
                 </form>
                 <article class="mb-3">
                     <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0GWNtMohuYUEHVZ40tcnHF?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>    
-                    <button type="button" class="align-content-center">
+                    <button id="add_song_button" type="button" class="align-content-center">
                         Add to Post
                         <i class="bi bi-plus"></i>
                     </button>

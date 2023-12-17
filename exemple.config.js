@@ -1,0 +1,4 @@
+const SPOTIFY_CLIENT_ID = '???'
+const SPOTIFY_CLIENT_SECRET = '???'
+
+export default { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET }
