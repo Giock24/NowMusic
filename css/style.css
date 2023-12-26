@@ -88,6 +88,25 @@ nav>a>i{
     border-radius:12px;
 }
 
+iframe {
+    width: 100%;
+    border-radius: 12px;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+article {
+    margin-bottom: 10px;
+}
+
 #image-previous {
     width: 100%;
     max-height: 700px;
