@@ -30,9 +30,9 @@
         </nav>
         <div class="row justify-content-center mt-4 h-100">
             <div class="col-10 col-md-4">
-                <div class="text-center pb-5">
+                <header class="text-center pb-5">
                     <h1>Create Your Post</h1>
-                </div>
+                </header>
                 <form id="search_song" class="mb-5">
                     <div class="row pb-2 px-3">
                         <label class="form-label" for="SearchSong" hidden>Search</label>
