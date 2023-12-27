@@ -1,0 +1,44 @@
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(180deg, #738EFB , #15BAE9);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav {
+    color: white;
+    font-size: 15px;
+    background-color: #282828;
+    /*height: 10%;*/
+}
+
+nav>a>i{
+    font-size: 32px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;  
+}
+
+a>span>em {
+    font-size: 20px;
+    color: white;
+}
+
+.info-user {
+    border-right: 1px solid black;
+   /* height: 90%; */
+   flex: 1;
+}
+
+.img-profile {
+    background:transparent;
+}
+
+.img-profile img {
+    width: 10%;
+    height: 100%;
+}
