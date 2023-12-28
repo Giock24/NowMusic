@@ -40,6 +40,7 @@ button>i {
     font-size: 24px
 }
 
+/*una volta premuto il bottone cambia di colore il bordo*/
 button:active {
     /*background: #C318FA;*/
     border: 1px solid #FFFFFF;
@@ -54,28 +55,9 @@ nav>a>i{
     font-size: 32px;
 }
 
-.card {
-    background: var(--darker-gradient, linear-gradient(271deg, #C318FA 3%, #2B5A7E 97.8%));
-    border-radius:12px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    color: white;
-}
-
 .card-notification {
     background: #282828;
-}
-
-.card-footer {
-    color: white;
-}
-
-.card>img {
-    border-radius:12px;
-}
-
-iframe {
-    width: 100%;
-    border-radius: 12px;
+    margin-bottom: 10px;
 }
 
 p {
@@ -88,28 +70,11 @@ a {
     font-size: 20px;
 }
 
-article {
-    margin-bottom: 10px;
-}
-
 
 #image-previous {
     width: 100%;
     max-height: 700px;
     margin-bottom: 30px;
-}
-
-.btn-circle {
-    border: 1px solid #000;
-    background: var(--darker-gradient, linear-gradient(271deg, #C318FA 3%, #2B5A7E 97.8%));
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    padding: 5px;
-    width: 50px;
-    height: 50px;
-    border-radius: 60px;
-    display: flex;
-    justify-content: center;    
-    align-items: center;
 }
 
 .bi {
@@ -129,14 +94,6 @@ article {
 @media screen and (max-width: 600px) {
     #image-previous {
         max-height: 350px;
-    }
-}
-
-/* On screens that are 768px or less, set new position of footer button*/
-@media screen and (max-width: 768px) {
-    footer {
-        display: flex;
-        justify-content: center;
     }
 }
 
