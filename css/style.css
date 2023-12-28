@@ -74,54 +74,9 @@ a {
     font-size: 20px;
 }
 
-
-#image-previous {
-    width: 100%;
-    max-height: 700px;
-    margin-bottom: 30px;
-}
-
 .bi {
     color: white;
     font-size: 16px;
     width: 30px;
     height: 30px;
-}
-
-@media screen and (max-width: 992px) {
-    #image-previous {
-        max-height: 450px;
-    }
-  }
-  
-  /* On screens that are 600px or less, set the background color to olive */
-@media screen and (max-width: 600px) {
-    #image-previous {
-        max-height: 350px;
-    }
-}
-
-.add-image {
-    flex-direction: column;
-    display: flex;
-    justify-content: space-between;
-    height: 70%;
-}
-
-#added-hashtags {
-    color: #FFFFFF;
-}
-
-.info {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    width: 50%;
-}
-
-.like-and-comment {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    width: 50%;
 }
