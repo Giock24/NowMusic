@@ -1,0 +1,14 @@
+a:hover {
+    color: #282828 !important;
+    text-decoration: none;
+}
+
+.form-control, form>div>input[type="submit"] {
+    border: 1px solid black;
+}
+
+form>div>input[type="submit"] {
+    color: white;
+    background-image: linear-gradient(271deg, #C318FA, #2B5A7E);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
