@@ -46,6 +46,10 @@ button:active {
     border: 1px solid #FFFFFF;
 }
 
+.navbar-brand:hover {
+    color: #C318FA;
+}
+
 nav>a>p {
     color: white;
     font-size: 20px;
