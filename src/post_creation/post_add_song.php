@@ -14,21 +14,10 @@
     <script type="module" src="../../js/post_creation/add_song.js"></script>
 </head>
 <body>
-    <div class="container-fluid p-0 overflow-auto h-100">
-        <nav class="navbar px-2 navbar-dark bg-dark">
-            <div class="col-7 align-items-center">
-                <a class="navbar-brand" href="#">NowMusic</a>
-                <img class="nav-item" src="../../assets/images/NowMusic-Logo.png" alt="logo image" width="45" height="45"/>
-            </div>
-            <div>
-                <a class="nav-item" href="#">
-                    <img src="../../assets/images/circle-notifications.png" alt="notifications image"/>
-                </a>
-                <a class="nav-item m-2" href="#">
-                    <img src="../../assets/images/user_icon.png" alt="user image"/>
-                </a>
-            </div>
-        </nav>
+    <div class="container-fluid p-0 overflow-x-hidden h-100">
+        <?php
+            require("../core/backnav.php");
+        ?>
         <div class="row justify-content-center mt-4 h-100">
             <div class="col-10 col-md-4">
                 <header class="text-center pb-5">
