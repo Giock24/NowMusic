@@ -11,7 +11,8 @@
         <?php endif; ?>
     </div>
     <div class="nav nav-pills">
-        <div class="notifications">
+        <?php if($navParams["showlogout"] === false) : ?>
+            <div class="notifications">
             <button type="button" class="nav-item py-1 notification-button" data-bs-target="#notifications" data-bs-toggle="modal">
                 <img src="../../assets/images/circle-notifications.png" alt="notifications image"/>
             </button>
@@ -57,11 +58,16 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="account-user">
+            </div>
+            <div class="account-user">
             <a class="nav-item m-2" href="#">
                 <img src="../../assets/images/user_icon.png" alt="user-image" height="38" width="37"/>
             </a>
-        </div>
+            </div>
+        <?php else : ?>
+            <div class="nav nav-pills logout ">
+                <a href="#" class="nav-item"><span><em class="uil uil-sign-out-alt"></em></span></a>
+            </div>
+        <?php endif; ?>
     </div>
 </nav>

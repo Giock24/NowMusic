@@ -16,7 +16,7 @@
 <body>
     <div class="container-fluid p-0 overflow-x-hidden h-100">
         <?php
-            require("../core/backnav.php");
+            require("../core/nav/back_nav.php");
         ?>
         <div class="row justify-content-center mt-4 h-100">
             <div class="col-10 col-md-4">
