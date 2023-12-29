@@ -2,10 +2,10 @@
 <nav class="navbar px-2 navbar-dark bg-dark">
     <div class="col-7 align-items-center">
         <?php if($navParams["showarrow"] === false) : ?>
-            <a class="navbar-brand" href="#">NowMusic</a>
+            <a class="navbar-brand" href="../home/home.php">NowMusic</a>
             <img class="nav-item" src="../../assets/images/NowMusic-Logo.png" alt="logo image" width="45" height="45"/>
         <?php else : ?>
-            <a class="navbar-brand col-7 align-items-center" href="post_add_song.html">
+            <a class="navbar-brand col-7 align-items-center" href="../home/home.php">
                 <i class="bi bi-arrow-left-short"></i>
             </a>
         <?php endif; ?>
@@ -60,7 +60,7 @@
             </div>
             </div>
             <div class="account-user">
-            <a class="nav-item m-2" href="#">
+            <a class="nav-item m-2" href="../profile/profile_page.php">
                 <img src="../../assets/images/user_icon.png" alt="user-image" height="38" width="37"/>
             </a>
             </div>

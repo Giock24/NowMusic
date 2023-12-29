@@ -15,67 +15,9 @@
 </head>
 <body>
     <div class="container-fluid p-0 overflow-x-hidden h-100">
-        <nav class="navbar px-2 navbar-dark bg-dark">
-            <div class="col-7 align-items-center">
-                <a class="navbar-brand" href="#">NowMusic</a>
-                <img class="nav-item" src="../../assets/images/NowMusic-Logo.png" alt="logo image" width="45" height="45"/>
-            </div>
-            <div class="nav nav-pills">
-                <div class="notifications">
-                    <button type="button" class="nav-item py-1 notification-button" data-bs-target="#notifications" data-bs-toggle="modal">
-                        <img src="../../assets/images/circle-notifications.png" alt="notifications image"/>
-                    </button>
-                    <!-- Full screen modal -->
-                    <div class="modal fade" id="notifications" aria-hidden="true" tabindex="-1">
-                        <div class="modal-dialog modal-xl modal-dialog-scrollable">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="notificationsLabel">Notification</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="card card-notification">
-                                        <div class="card-body">
-                                            <div class="row align-items-center">
-                                                <div class="col-md-1 col-1 center-block">
-                                                    <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="27" height="27" alt="user-image"/>
-                                                </div>
-                                                <div class="col-md-11 col-11 py-1">
-                                                    <p class="h5">gianluca.consoli</p>
-                                                    <p>ha messo mi piace al tuo post.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card card-notification">
-                                        <div class="card-body">
-                                            <div class="row align-items-center">
-                                                <div class="col-md-1 col-1 center-block">
-                                                    <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="27" height="27" alt="user-image"/>
-                                                </div>
-                                                <div class="col-md-11 col-11 py-1">
-                                                    <p class="h5">riccardo.garde</p>
-                                                    <p>ha commentato: "Bella questa canzone"</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="account-user">
-                    <a class="nav-item m-2" href="#">
-                        <img src="../../assets/images/user_icon.png" alt="user-image" height="38" width="37"/>
-                    </a>
-                </div>
-            </div>
-
-        </nav>
+        <?php 
+            require("../core/nav/home_nav.php");
+        ?>
 
         <div class="row pt-2 justify-content-center">
             <main class="col-md-4 col-11"> <!-- DIV di tutte i post -->
@@ -159,7 +101,7 @@
         </div>
         <footer class="fixed-bottom m-3">
             <div class="btn-circle">
-                <a href="./post_creation/post_add_image.html" title="add-post"><em class="bi bi-plus"></em></a>
+                <a href="../post_creation/post_add_song.php" title="add-post"><em class="bi bi-plus"></em></a>
             </div>
         </footer>
     </div>
