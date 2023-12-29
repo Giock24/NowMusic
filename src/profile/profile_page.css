@@ -4,6 +4,7 @@ a>span>em {
 }
 
 .info-user {
+    height: 100%;
     border-right: 1px solid black; 
 }
 @media screen and (max-width: 768px) {

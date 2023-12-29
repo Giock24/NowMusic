@@ -16,7 +16,7 @@
         <?php 
             require("../core/nav/profile_nav.php");
         ?>
-        <div class="row">
+        <div class="row h-100">
             <div class="info-user col-md-4 col-12"> 
             <div class="row pt-2 justify-content-center" >
                 <div class="img-profile">
@@ -39,7 +39,6 @@
             <div class="posts col-md-7 col-12">
             <h1>YOUR POSTS</h1>
             <div class="my-posts">
-
                 <article class="card p-2"> <!-- POST UNICO -->
                     <div class="row container-fluid">
                         <section class="card-body px-3 col-md-8 col-11"> <!-- Parte centrale -->
