@@ -4,9 +4,15 @@ a>span>em {
 }
 
 .info-user {
-    height: 100%;
     border-right: 1px solid black; 
 }
+
+@media screen and (min-width: 768px) {
+    .page-content {
+        flex: 1 1 auto!important;
+    }       
+}
+
 @media screen and (max-width: 768px) {
     .info-user {
         border-right: transparent;
@@ -19,15 +25,10 @@ a>span>em {
 
 .img-profile img {
     width: 50%;
-    height: 100%;
 }
 
 ul {
     list-style: none;
-}
-
-.container-info {
-    /*height: 90%;*/
 }
 
 .container-info .posts h1 {
