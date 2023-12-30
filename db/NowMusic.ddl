@@ -26,7 +26,7 @@ create table COMMENTO (
      Id_utente varchar(100) not null,
      Id_post varchar(100) not null,
      constraint IDCOMMENTO_ID primary key (Id_Commento));
-
+/*
 create table COMMUNITY (
      Id_communty varchar(100) not null,
      Categoria varchar(100) not null,
@@ -34,16 +34,17 @@ create table COMMUNITY (
      UrlImmagine varchar(100) not null,
      Id_utente_fondatore varchar(100) not null,
      constraint IDCOMMUNITY primary key (Id_communty, Categoria));
-
+*/
 create table FOLLOW (
      Id_utente_seguace varchar(100) not null,
-     Id_utente_seeguito varchar(100) not null,
-     constraint IDFOLLOW primary key (Id_utente_seguace, Id_utente_seeguito));
+     Id_utente_seguito varchar(100) not null,
+     constraint IDFOLLOW primary key (Id_utente_seguace, Id_utente_seguito));
 
 create table MI_PIACE (
      Id_utente varchar(100) not null,
-     Id_post varchar(100) not null);
-
+     Id_post varchar(100) not null,
+     constraint IDLIKE primary key (Id_utente, Id_post));
+/*
 create table NOTIFICA (
      Id_Commento varchar(100),
      Id_risposta varchar(100),
@@ -67,19 +68,29 @@ create table PARTECIPAZIONE (
      Categoria varchar(100) not null,
      Id_utente_partcipante varchar(100) not null,
      constraint IDPARTECIPAZIONE primary key (Id_communty, Categoria, Id_utente_partcipante));
+*/
+create table TAG (
+	Id_tag varchar(100) not null primary key
+);
 
 create table POST (
      Id_post varchar(100) not null,
+     Spotify_Id varchar(100) not null,
      Testo varchar(2000) not null,
      Timestamp date not null,
-     PostImmagine char not null,
+     PostImmagine bool not null,
      Url varchar(200) not null,
      Tag varchar(100),
      Id_utente varchar(100) not null,
      Id_communty varchar(100),
      Categoria varchar(100),
      constraint IDPOST_ID primary key (Id_post));
-
+     
+create table POST_TAG (
+	Id_post varchar(100) not null,
+	Id_tag varchar(100) not null,
+	constraint IDPOST_TAG primary key (Id_tag, Id_post));
+/*
 create table RISPOSTA_COMMENTO (
      Id_risposta varchar(100) not null,
      Testo varchar(500) not null,
@@ -87,19 +98,14 @@ create table RISPOSTA_COMMENTO (
      Id_utente varchar(100) not null,
      Id_Commento varchar(100) not null,
      constraint IDRISPOSTA_COMMENTO_ID primary key (Id_risposta));
-
+*/
 create table UTENTE (
      Username char(15) not null,
      Password char(10) not null,
-     Nome char(10) not null,
-     Cognome char(20) not null,
      Email char(30) not null,
-     Telefono char(20) not null,
      UrlImmagine char(50),
      Id_utente varchar(100) not null,
-     Id_post_salvati varchar(100),
-     constraint IDUTENTE primary key (Id_utente),
-     constraint FKSALVA_ID unique (Id_post_salvati));
+     constraint IDUTENTE primary key (Id_utente));
 
 
 -- Constraints Section
@@ -117,17 +123,17 @@ alter table COMMENTO add constraint FKCREAZIONE
 alter table COMMENTO add constraint FKPOSSIEDE
      foreign key (Id_post)
      references POST (Id_post);
-
+/*
 alter table COMMUNITY add constraint FKFONDAZIONE
      foreign key (Id_utente_fondatore)
      references UTENTE (Id_utente);
-
+*/
 alter table FOLLOW add constraint FKSEGUACE
      foreign key (Id_utente_seguace)
      references UTENTE (Id_utente);
 
 alter table FOLLOW add constraint FKSEGUITO
-     foreign key (Id_utente_seeguito)
+     foreign key (Id_utente_seguito)
      references UTENTE (Id_utente);
 
 alter table MI_PIACE add constraint FKESPRESSIONE
@@ -137,7 +143,7 @@ alter table MI_PIACE add constraint FKESPRESSIONE
 alter table MI_PIACE add constraint FKPRESENTA
      foreign key (Id_post)
      references POST (Id_post);
-
+/*
 alter table NOTIFICA add constraint FKRICEZIONE_NOTIFICA
      foreign key (Id_utente)
      references UTENTE (Id_utente);
@@ -169,6 +175,7 @@ alter table PARTECIPAZIONE add constraint FKPAR_UTE
 alter table PARTECIPAZIONE add constraint FKPAR_COM
      foreign key (Id_communty, Categoria)
      references COMMUNITY (Id_communty, Categoria);
+*/
 
 -- Not implemented
 -- alter table POST add constraint IDPOST_CHK
@@ -178,7 +185,7 @@ alter table PARTECIPAZIONE add constraint FKPAR_COM
 alter table POST add constraint FKPUBBLICAZIONE
      foreign key (Id_utente)
      references UTENTE (Id_utente);
-
+/*
 alter table POST add constraint FKAPPARTENENZA_FK
      foreign key (Id_communty, Categoria)
      references COMMUNITY (Id_communty, Categoria);
@@ -199,9 +206,13 @@ alter table RISPOSTA_COMMENTO add constraint FKRISPONDE
 alter table RISPOSTA_COMMENTO add constraint FKCONTIENE
      foreign key (Id_Commento)
      references COMMENTO (Id_Commento);
+ */    
+alter table POST_TAG add constraint FKPOSTTAG_TAGID
+     foreign key (Id_tag)
+     references TAG (Id_tag);
 
-alter table UTENTE add constraint FKSALVA_FK
-     foreign key (Id_post_salvati)
+alter table POST_TAG add constraint FKPOSTTAG_POSTID
+     foreign key (Id_post)
      references POST (Id_post);
 
 
