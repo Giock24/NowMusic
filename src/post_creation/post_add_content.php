@@ -47,8 +47,8 @@
                             <label>Added Hashtags:</label>
                             <p id="added-hashtags">#NowMusic</p>
                         </div>
-                        <div>
-                            <button type="submit" class="btn btn-primary">Next</button>
+                        <div class="row h-100 pb-4">
+                            <button type="submit" class="btn btn-primary" style="align-self: flex-end">Next</button>
                         </div>
                     </form>
                 </div>
