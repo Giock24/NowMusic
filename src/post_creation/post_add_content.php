@@ -14,39 +14,43 @@
 </head>
 <body>
     <div class="container-fluid p-0 overflow-hidden h-100">
-        <?php
-            $navParams["backArrowHref"] = "post_add_image.php";
-            require("../core/nav/back_nav.php");
-        ?>
-        <div class="row justify-content-center mt-4 h-100">
-            <div class="col-10 col-md-4">
-                <div class="text-center pb-5">
-                    <h1>Create Your Post</h1>
-                </div>
-                <form action="#" class="d-flex flex-column">
-                    <div class="form-group mb-4">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" id="description" rows="3"></textarea>
+        <div class="d-flex flex-column h-100">
+            <div  class="flex-grow-0">
+                <?php
+                    $navParams["backArrowHref"] = "post_add_image.php";
+                    require("../core/nav/back_nav.php");
+                ?>
+            </div>
+            <div class="flex-fill row justify-content-center mt-4 ">
+                <div class="col-10 col-md-4 d-flex flex-column">
+                    <div class="text-center pb-5">
+                        <h1>Create Your Post</h1>
                     </div>
-                    <div class="form-group">
-                        <label class="form-label" for="hashtag">Hashtag</label>
-                        <div class="row g-3 mb-2">
-                            <div class="col-md-8">
-                                <input class="form-control" id="hashtag" type="password" placeholder="#NowMusic" style="line-height: 2em;"/>
-                            </div>
-                            <div class="col-md-4">
-                                <button type="button">Add
-                                    <i class="bi bi-plus"></i>
-                                </button>
-                            </div>
+                    <form action="#" class="flex-fill d-flex flex-column">
+                        <div class="form-group mb-4">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" id="description" rows="3"></textarea>
                         </div>
-                        <label>Added Hashtags:</label>
-                        <p id="added-hashtags">#NowMusic</p>
-                    </div>
-                    <button type="button" class="align-content-center">
-                        Create post
-                    </button>
-                </form>
+                        <div class="form-group">
+                            <label class="form-label" for="hashtag">Hashtag</label>
+                            <div class="row g-3 mb-2">
+                                <div class="col-md-8">
+                                    <input class="form-control" id="hashtag" type="password" placeholder="#NowMusic" style="line-height: 2em;"/>
+                                </div>
+                                <div class="col-md-4">
+                                    <button type="button">Add
+                                        <i class="bi bi-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <label>Added Hashtags:</label>
+                            <p id="added-hashtags">#NowMusic</p>
+                        </div>
+                        <button type="button" style="align-self: flex-end;">
+                            Create post
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
