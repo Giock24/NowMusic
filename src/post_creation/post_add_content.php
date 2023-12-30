@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./post_creation.css">
 </head>
 <body>
-    <div class="container-fluid p-0 overflow-hidden h-100">
+    <div class="container-fluid p-0 overflow-x-hidden h-100">
         <div class="d-flex flex-column h-100">
             <div  class="flex-grow-0">
                 <?php
@@ -48,8 +48,8 @@
                             <p id="added-hashtags">#NowMusic</p>
                         </div>
                         <div class="row h-100 pb-4">
-                            <label  class="submit" for="next" hidden>Next</label>
-                            <input id='next' type="submit" class="btn" value="Next" style="align-self: flex-end"/>
+                            <label  class="submit" for="create_post" hidden>Create Post</label>
+                            <input id='create_post' type="submit" class="btn" value="Create Post" style="align-self: flex-end"/>
                         </div>
                     </form>
                 </div>

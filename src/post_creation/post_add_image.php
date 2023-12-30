@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/form.css">
     <link rel="stylesheet" href="./post_creation.css">
     <script src="../../js/post_creation/add_image.js"></script>
 </head>
@@ -28,15 +29,15 @@
                         <h1>Create Your Post</h1>
                     </div>
                     <form class="flex-fill add-image" action="#">
-                        <div class="input-group mb-3">
+                        <div class="input-group">
                             <img id="image-previous" src="../../assets/images/no_image.jpg"/>
                             <label class="input-group" hidden>Upload a photo</label>
                             <input type="file" class="form-control"  accept="image/*" onchange="loadFile(event)">
                         </div>
-                        <button type="button mb-3" class="align-content-center">
-                            Next
-                            <i class="bi bi-arrow-right-short"></i>
-                        </button>
+                        <div class="row mt-3">
+                            <label class="submit" for="next" hidden>Next</label>
+                            <input id="next" type="submit" class="btn" value="Next"/>
+                        </div>
                     </form>
                 </div>
             </div>
