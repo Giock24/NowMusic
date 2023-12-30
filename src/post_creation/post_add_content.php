@@ -46,9 +46,8 @@
                             <label>Added Hashtags:</label>
                             <p id="added-hashtags">#NowMusic</p>
                         </div>
-                        <button type="button" style="align-self: flex-end;">
-                            Create post
-                        </button>
+                        <label class="form-check-label" for="create_post" hidden>Create post</label>
+                        <input id="create_post" type="submit" class="btn" value="Create post"/>
                     </form>
                 </div>
             </div>
