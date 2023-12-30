@@ -14,7 +14,7 @@
 <body>
     <div class="container-fluid overflow-x-hidden p-0 h-100">
         <div class="d-flex flex-column h-100">
-            <div  class="bg-danger flex-grow-0">
+            <div  class="flex-grow-0">
                 <?php 
                     require("../core/nav/profile_nav.php");
                 ?>
