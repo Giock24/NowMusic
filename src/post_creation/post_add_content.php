@@ -11,37 +11,40 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="./post_creation.css">
-    <script src="../../js/post_creation/add_image.js"></script>
 </head>
 <body>
     <div class="container-fluid p-0 overflow-hidden h-100">
-        <nav class="navbar px-2 navbar-dark bg-dark">
-            <a class="navbar-brand col-7 align-items-center" href="post_add_song.html">
-                <i class="bi bi-arrow-left-short"></i>
-            </a>
-            <div>
-                <a class="nav-item" href="#">
-                    <img src="../../assets/images/circle-notifications.png" alt="notifications image"/>
-                </a>
-                <a class="nav-item m-2" href="#">
-                    <img src="../../assets/images/user_icon.png" alt="user image"/>
-                </a>
-            </div>
-        </nav>
+        <?php
+            $navParams["backArrowHref"] = "post_add_image.php";
+            require("../core/nav/back_nav.php");
+        ?>
         <div class="row justify-content-center mt-4 h-100">
             <div class="col-10 col-md-4">
                 <div class="text-center pb-5">
                     <h1>Create Your Post</h1>
                 </div>
-                <form  class="add-image" action="#">
-                    <div class="input-group mb-3">
-                        <img id="image-previous" src="../../assets/images/no_image.jpg"/>
-                        <label class="input-group" hidden>Upload a photo</label>
-                        <input type="file" class="form-control"  accept="image/*" onchange="loadFile(event)">
+                <form action="#" class="d-flex flex-column">
+                    <div class="form-group mb-4">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="hashtag">Hashtag</label>
+                        <div class="row g-3 mb-2">
+                            <div class="col-md-8">
+                                <input class="form-control" id="hashtag" type="password" placeholder="#NowMusic" style="line-height: 2em;"/>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button">Add
+                                    <i class="bi bi-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <label>Added Hashtags:</label>
+                        <p id="added-hashtags">#NowMusic</p>
                     </div>
                     <button type="button" class="align-content-center">
-                        Next
-                        <i class="bi bi-arrow-right-short"></i>
+                        Create post
                     </button>
                 </form>
             </div>

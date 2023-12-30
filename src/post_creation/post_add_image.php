@@ -11,27 +11,30 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="./post_creation.css">
-    <script type="module" src="../../js/post_creation/add_song.js"></script>
+    <script src="../../js/post_creation/add_image.js"></script>
 </head>
 <body>
-    <div class="container-fluid p-0 overflow-x-hidden h-100">
+    <div class="container-fluid p-0 overflow-hidden h-100">
         <?php
-            $navParams["backArrowHref"] = "../home/home.php";
+            $navParams["backArrowHref"] = "post_add_song.php";
             require("../core/nav/back_nav.php");
         ?>
         <div class="row justify-content-center mt-4 h-100">
             <div class="col-10 col-md-4">
-                <header class="text-center pb-5">
+                <div class="text-center pb-5">
                     <h1>Create Your Post</h1>
-                </header>
-                <form id="search_song" class="mb-5">
-                    <div class="row pb-2 px-3">
-                        <label class="form-label" for="SearchSong" hidden>Search</label>
-                        <input class="form-control" id="SearchSong" type="search" placeholder="Search a song"/>
+                </div>
+                <form  class="add-image" action="#">
+                    <div class="input-group mb-3">
+                        <img id="image-previous" src="../../assets/images/no_image.jpg"/>
+                        <label class="input-group" hidden>Upload a photo</label>
+                        <input type="file" class="form-control"  accept="image/*" onchange="loadFile(event)">
                     </div>
+                    <button type="button" class="align-content-center">
+                        Next
+                        <i class="bi bi-arrow-right-short"></i>
+                    </button>
                 </form>
-                <ul id="search_results" style="list-style-type: none; padding:0;">
-                <ul>
             </div>
         </div>
     </div>
