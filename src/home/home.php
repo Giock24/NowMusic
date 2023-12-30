@@ -96,7 +96,7 @@
                         <img class="card-img-bottom" src="../../assets/images/post_image.png" alt="immagine-post">
                     </div>
                 </article>
-                
+                <h3><?php require_once("../data_source.php"); ?></h3>
             </main>
         </div>
         <footer class="fixed-bottom m-3">
