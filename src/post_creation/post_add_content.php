@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/form.css"/>
     <link rel="stylesheet" href="./post_creation.css">
 </head>
 <body>
@@ -46,8 +47,9 @@
                             <label>Added Hashtags:</label>
                             <p id="added-hashtags">#NowMusic</p>
                         </div>
-                        <label class="form-check-label" for="create_post" hidden>Create post</label>
-                        <input id="create_post" type="submit" class="btn" value="Create post"/>
+                        <div>
+                            <button type="submit" class="btn btn-primary">Next</button>
+                        </div>
                     </form>
                 </div>
             </div>
