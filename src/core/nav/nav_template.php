@@ -1,12 +1,12 @@
 
-<nav class="navbar px-2 navbar-dark bg-dark">
+<nav class="navbar px-2 navbar-dark bg-dark sticky-top">
     <div class="col-7 align-items-center">
         <?php if($navParams["showarrow"] === false) : ?>
             <a class="navbar-brand" href="../home/home.php">NowMusic</a>
             <img class="nav-item" src="../../assets/images/NowMusic-Logo.png" alt="logo image" width="45" height="45"/>
         <?php else : ?>
             <a class="navbar-brand col-7 align-items-center" href=<?php echo $navParams["backArrowHref"] ?>>
-                <i class="bi bi-arrow-left-short"></i>
+                <i class="bi bi-arrow-left-short" style="font-size:32px"></i>
             </a>
         <?php endif; ?>
     </div>
