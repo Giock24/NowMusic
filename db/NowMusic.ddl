@@ -12,8 +12,8 @@
 -- Database Section
 -- ________________ 
 
-create database NowMusic-Logico;
-use NowMusic-Logico;
+create database NowMusic;
+use NowMusic;
 
 
 -- Tables Section
