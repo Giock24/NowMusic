@@ -5,10 +5,12 @@ class DatabaseHelper {
     private $db;
 
     public function __construct($servername, $username, $password, $dbname) {
-        $this->db = new sqli($servername, $username, $password, $dbname);
+        $this->db = new mysqli($servername, $username, $password, $dbname);
 
-        if ($this->db->connect_errore) {
+        if ($this->db->connect_error) {
             die("Connection Failed: " . $db->connect_error);
+        } else {
+            die("Connection Success with DB!!!");
         }
     }
 
