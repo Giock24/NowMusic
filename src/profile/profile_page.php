@@ -39,9 +39,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="posts col-md-7 col-12">
-                <h1>YOUR POSTS</h1>
-                <div class="my-posts">
+                <div class="posts col-md-8 col-12">
+                <h1 class="text-center">YOUR POSTS</h1>
+                <div class="my-posts p-2">
                     <article class="card p-2"> <!-- POST UNICO -->
                         <div class="row container-fluid">
                             <section class="card-body px-3 col-md-8 col-11"> <!-- Parte centrale -->
@@ -63,7 +63,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <iframe src="https://open.spotify.com/embed/track/1rDgAHDX95RmylxjgVW9tN?utm_source=generator&theme=0" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                <iframe src="https://open.spotify.com/embed/track/1rDgAHDX95RmylxjgVW9tN?utm_source=generator" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                                 <div class="descriptions">
                                     <p class="card-text">This track is awesome, I suggest you to listen!!!</p>
                                 </div>
@@ -72,7 +72,7 @@
                                 </div>
                             </section>
                             <div class="update col-md-4 col-11"> <!-- Parte in basso -->
-                                <img class="card-img-bottom" src="../../assets/images/post_image.png" alt="immagine-post">
+                                <img class="card-img-bottom center-block" src="../../assets/images/post_image.png" alt="immagine-post">
                             </div>
                         </div>
                     </article>

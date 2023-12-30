@@ -51,6 +51,12 @@ ul {
     border-radius:12px;
 }
 
+.update {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 iframe {
     width: 100%;
     border-radius: 12px;
