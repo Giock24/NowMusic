@@ -16,7 +16,11 @@ class DatabaseHelper {
 
     // add a new user into database
     public function addNewUser($username, $password, $email) {
-
+        $stmt = $this->db->prepare("INSERT INTO utente (Username, Password, Email) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $username, $password, $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     // return true if that user exist otherwise false
