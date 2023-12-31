@@ -6,5 +6,12 @@
 
     $user = $dbh->login($email, $password);
 
-    header('Location: /NowMusic/src/home/home.php');
+    //check if user is not an empty array
+    if (count($user) == 0) {
+        header('Location: /NowMusic/src/auth/login.php?error=1');
+    } else {
+        session_start();
+        $_SESSION["user"] = $user[0];
+        header('Location: /NowMusic/src/home/home.php');
+    }
 ?>
