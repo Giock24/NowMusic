@@ -24,7 +24,7 @@
             </div>
         <?php else : ?>
             <div class="nav nav-pills logout ">
-                <a href="#" class="nav-item"><span><em class="uil uil-sign-out-alt"></em></span></a>
+                <a href="../auth/index.html" class="nav-item"><span><em class="uil uil-sign-out-alt"></em></span></a>
             </div>
         <?php endif; ?>
     </div>
