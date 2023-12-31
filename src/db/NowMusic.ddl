@@ -23,7 +23,7 @@ create table COMMENTO (
      Id_Commento int NOT NULL AUTO_INCREMENT,
      Testo varchar(500) not null,
      Timestamp_commento date not null,
-     Id_utente int not null,
+     Email char(30)  not null,
      Id_post int not null,
      primary key (Id_Commento));
 /*
@@ -36,14 +36,14 @@ create table COMMUNITY (
      constraint IDCOMMUNITY primary key (Id_communty, Categoria));
 */
 create table FOLLOW (
-     Id_utente_seguace int not null,
-     Id_utente_seguito int not null,
-     primary key (Id_utente_seguace, Id_utente_seguito));
+     Email_seguace char(30) not null,
+     Email_seguito char(30) not null,
+     primary key (Email_seguace, Email_seguito));
 
 create table MI_PIACE (
-     Id_utente int not null,
+     Email char(30) not null,
      Id_post int not null,
-     primary key (Id_utente, Id_post));
+     primary key (Email, Id_post));
 /*
 create table NOTIFICA (
      Id_Commento varchar(100),
@@ -79,10 +79,10 @@ create table POST (
      Spotify_Id varchar(100) not null,
      Testo varchar(2000) not null,
      Timestamp date not null,
-     PostImmagine bool not null,
+     PostImmagine boolean not null,
      Url varchar(200) not null,
      Tag varchar(100),
-     Id_utente int not null,
+     Email char(30) not null,
      Id_communty int,
      Categoria varchar(100),
      primary key (Id_post));
@@ -101,12 +101,11 @@ create table RISPOSTA_COMMENTO (
      constraint IDRISPOSTA_COMMENTO_ID primary key (Id_risposta));
 */
 create table UTENTE (
-     Id_utente int NOT NULL AUTO_INCREMENT,
+     Email char(30) NOT null,
      Username char(15) not null,
      Password char(10) not null,
-     Email char(30) not null,
      UrlImmagine char(50),
-     primary key (Id_utente));
+     primary key (Email));
 
 
 -- Constraints Section
@@ -118,8 +117,8 @@ create table UTENTE (
 --                  where NOTIFICA.Id_Commento = Id_Commento)); 
 
 alter table COMMENTO add constraint FKCREAZIONE
-     foreign key (Id_utente)
-     references UTENTE (Id_utente);
+     foreign key (Email)
+     references UTENTE (Email);
 
 alter table COMMENTO add constraint FKPOSSIEDE
      foreign key (Id_post)
@@ -130,16 +129,16 @@ alter table COMMUNITY add constraint FKFONDAZIONE
      references UTENTE (Id_utente);
 */
 alter table FOLLOW add constraint FKSEGUACE
-     foreign key (Id_utente_seguace)
-     references UTENTE (Id_utente);
+     foreign key (Email_seguace)
+     references UTENTE (Email);
 
 alter table FOLLOW add constraint FKSEGUITO
-     foreign key (Id_utente_seguito)
-     references UTENTE (Id_utente);
+     foreign key (Email_seguito)
+     references UTENTE (Email);
 
 alter table MI_PIACE add constraint FKESPRESSIONE
-     foreign key (Id_utente)
-     references UTENTE (Id_utente);
+     foreign key (Email)
+     references UTENTE (Email);
 
 alter table MI_PIACE add constraint FKPRESENTA
      foreign key (Id_post)
@@ -184,8 +183,8 @@ alter table PARTECIPAZIONE add constraint FKPAR_COM
 --                  where UTENTE.Id_post_salvati = Id_post)); 
 
 alter table POST add constraint FKPUBBLICAZIONE
-     foreign key (Id_utente)
-     references UTENTE (Id_utente);
+     foreign key (Email)
+     references UTENTE (Email);
 /*
 alter table POST add constraint FKAPPARTENENZA_FK
      foreign key (Id_communty, Categoria)
