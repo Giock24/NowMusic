@@ -9,8 +9,6 @@ class DatabaseHelper {
 
         if ($this->db->connect_error) {
             die("Connection Failed: " . $db->connect_error);
-        } else {
-            die("Connection Success with DB!!!");
         }
     }
 
@@ -19,14 +17,17 @@ class DatabaseHelper {
         $stmt = $this->db->prepare("INSERT INTO utente (Username, Password, Email) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $username, $password, $email);
         $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $this->login($email, $password);
     }
 
     // return true if that user exist otherwise false
     // and save id_user in cache variable
     public function login($email, $password) {
-
+        $stmt = $this->db->prepare("SELECT * FROM `utente` WHERE Email=? AND Password=?");
+        $stmt->bind_param("ss", $email, $password);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     // return all posts
