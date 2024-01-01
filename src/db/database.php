@@ -34,7 +34,18 @@ class DatabaseHelper {
     public function getAllPosts() {
         // PostImmagine è un booleano serve per capire se è stata caricata un'immagine o no
         // Url nome.jpg immagine
-        $stmt = $this->db->prepare("SELECT Spotify_Id, Testo, Timestamp, PostImmagine, Url, Tag, Email FROM post");
+        $query = "SELECT Spotify_Id, Testo, Timestamp, PostImmagine, Url, Tag, Username FROM post, utente
+         WHERE Id_utente=Email";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    // return all info of user by id (email)
+    public function getInfoUser($email) {
+        $stmt = $this->db->prepare("SELECT * FROM utente WHERE Email=?");
+        $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);

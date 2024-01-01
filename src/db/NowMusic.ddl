@@ -82,7 +82,7 @@ create table POST (
      PostImmagine boolean not null,
      Url varchar(200) not null,
      Tag varchar(100),
-     Email char(30) not null,
+     Id_utente char(30) not null,
      Id_communty int,
      Categoria varchar(100),
      primary key (Id_post));
@@ -183,7 +183,7 @@ alter table PARTECIPAZIONE add constraint FKPAR_COM
 --                  where UTENTE.Id_post_salvati = Id_post)); 
 
 alter table POST add constraint FKPUBBLICAZIONE
-     foreign key (Email)
+     foreign key (Id_utente)
      references UTENTE (Email);
 /*
 alter table POST add constraint FKAPPARTENENZA_FK

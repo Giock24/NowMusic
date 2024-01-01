@@ -31,7 +31,7 @@
                             <div class="navbar flex-row align-content-center"> <!-- Contenitore di tutto la parte centrale -->
                                 <div class="nav nav-pills"> <!---- FOTO E  NOME -->
                                     <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="27" height="27" alt="user-image"/>
-                                    <p class="h5 my-2 mx-2">giock</p>
+                                    <p class="h5 my-2 mx-2"><?php echo $post["Username"]; ?></p>
                                 </div>
                                 <div class="nav nav-pills"> <!--- LIKE E COMMENT -->
                                     <div class="comments">
