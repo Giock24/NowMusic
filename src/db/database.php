@@ -34,12 +34,28 @@ class DatabaseHelper {
     public function getAllPosts() {
         // PostImmagine è un booleano serve per capire se è stata caricata un'immagine o no
         // Url nome.jpg immagine
-        $query = "SELECT Spotify_Id, Testo, Timestamp, PostImmagine, Url, Tag, Username FROM post, utente
+        $query = "SELECT Id_Post, Spotify_Id, Testo, Timestamp, PostImmagine, Url, Tag, Username FROM post, utente
          WHERE Id_utente=Email";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+        $final_result = $result->fetch_all(MYSQLI_ASSOC);
+
+        $i = 0;
+        // in questo for each aggiungo per ogni post il numero di commenti in base all'id del post
+        foreach ($final_result as $elem) :
+            $stmt = $this->db->prepare("SELECT COUNT(Id_Commento) AS numcommenti FROM commento WHERE Id_Post = ?");
+            $stmt->bind_param("i", $elem["Id_Post"]);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            //var_dump($result->fetch_all(MYSQLI_ASSOC)[0]["numcommenti"]);
+            $number_comment = $result->fetch_all(MYSQLI_ASSOC)[0]["numcommenti"];
+            $final_result[$i]["numcommenti"] = $number_comment;
+            $i++;
+        endforeach;
+
+        return $final_result;
     }
 
     // return all info of user by id (email)

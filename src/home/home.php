@@ -22,7 +22,7 @@
         <div class="row pt-2 justify-content-center">
             <main class="col-md-4 col-11"> <!-- DIV di tutte i post -->
                 <?php include 'home_logic.php';?>
-                <?php foreach ($allpost as $post) : ?>
+                <?php foreach ($allpost as $post) : ?>           
                     <article class="card p-2"> <!-- POST UNICO -->
                         <div class="song"> <!-- Canzone in alto  -->
                             <iframe src="https://open.spotify.com/embed/track/<?php echo $post["Spotify_Id"]; ?>?utm_source=generator&theme=0" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -36,7 +36,7 @@
                                 <div class="nav nav-pills"> <!--- LIKE E COMMENT -->
                                     <div class="comments">
                                         <a class="nav-item my-1 mx-1" href="#">
-                                            <span><em class="uil uil-comment-dots"><small class="comment-count">1 K</small></em></span>
+                                            <span><em class="uil uil-comment-dots"><small class="comment-count"><?php echo $post["numcommenti"]; ?></small></em></span>
                                         </a>
                                     </div>
                                     <div class="likes">
@@ -69,7 +69,7 @@
                         <div class="navbar flex-row align-content-center"> <!-- Contenitore di tutto la parte centrale -->
                             <div class="nav nav-pills"> <!---- FOTO E  NOME -->
                                 <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="27" height="27" alt="user-image"/>
-                                <p class="h5 my-2 mx-2">giock</p>
+                                <p class="h5 my-2 mx-2">Username</p>
                             </div>
                             <div class="nav nav-pills"> <!--- LIKE E COMMENT -->
                                 <div class="comments">
