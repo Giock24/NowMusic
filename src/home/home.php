@@ -21,44 +21,46 @@
 
         <div class="row pt-2 justify-content-center">
             <main class="col-md-4 col-11"> <!-- DIV di tutte i post -->
-
-                <article class="card p-2"> <!-- POST UNICO -->
-                    <div class="song"> <!-- Canzone in alto  -->
-                        <iframe src="https://open.spotify.com/embed/track/1rDgAHDX95RmylxjgVW9tN?utm_source=generator&theme=0" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    </div>
-                    <section class="card-body px-3"> <!-- Parte centrale -->
-                        <div class="navbar flex-row align-content-center"> <!-- Contenitore di tutto la parte centrale -->
-                            <div class="nav nav-pills"> <!---- FOTO E  NOME -->
-                                <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="27" height="27" alt="user-image"/>
-                                <p class="h5 my-2 mx-2">username</p>
-                            </div>
-                            <div class="nav nav-pills"> <!--- LIKE E COMMENT -->
-                                <div class="comments">
-                                    <a class="nav-item my-1 mx-1" href="#">
-                                        <span><em class="uil uil-comment-dots"><small class="comment-count">12</small></em></span>
-                                    </a>
+                <?php include 'home_logic.php';?>
+                <?php foreach ($allpost as $post) : ?>
+                    <article class="card p-2"> <!-- POST UNICO -->
+                        <div class="song"> <!-- Canzone in alto  -->
+                            <iframe src="https://open.spotify.com/embed/track/<?php echo $post["Spotify_Id"]; ?>?utm_source=generator&theme=0" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        </div>
+                        <section class="card-body px-3"> <!-- Parte centrale -->
+                            <div class="navbar flex-row align-content-center"> <!-- Contenitore di tutto la parte centrale -->
+                                <div class="nav nav-pills"> <!---- FOTO E  NOME -->
+                                    <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="27" height="27" alt="user-image"/>
+                                    <p class="h5 my-2 mx-2">giock</p>
                                 </div>
-                                <div class="likes">
-                                    <a class="nav-item my-1 mx-1" href="#">
-                                        <span><em class="uil uil-heart"><small class="likes-count">120</small></em></span>
-                                    </a>
+                                <div class="nav nav-pills"> <!--- LIKE E COMMENT -->
+                                    <div class="comments">
+                                        <a class="nav-item my-1 mx-1" href="#">
+                                            <span><em class="uil uil-comment-dots"><small class="comment-count">1 K</small></em></span>
+                                        </a>
+                                    </div>
+                                    <div class="likes">
+                                        <a class="nav-item my-1 mx-1" href="#">
+                                            <span><em class="uil uil-heart"><small class="likes-count">500 K</small></em></span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="descriptions">
+                                <p class="card-text"><?php echo $post["Testo"]; ?></p>
+                            </div>
+                            <div class="tags">
+                                <p class="card-text"><?php echo $post["Tag"]; ?></p>
+                            </div>
+                        </section>
+                        <div class="update"> <!-- Parte in basso -->
+                            <div class="card-footer border-top border-light">
+                                <small class="text-muted-white"><?php echo $post["Timestamp"];?> Last Update</small>
+                            </div>
+                            <img class="card-img-bottom" src="../<?php echo UPLOAD_DIR.$post["Url"];?>" alt="immagine-post">
                         </div>
-                        <div class="descriptions">
-                            <p class="card-text">This track is awesome, I suggest you to listen!!!</p>
-                        </div>
-                        <div class="tags">
-                            <p class="card-text">#NowMusic #chill #lovemusic</p>
-                        </div>
-                    </section>
-                    <div class="update"> <!-- Parte in basso -->
-                        <div class="card-footer border-top border-light">
-                            <small class="text-muted-white">Last updated 1 min ago</small>
-                        </div>
-                        <img class="card-img-bottom" src="../../assets/images/post_image.png" alt="immagine-post">
-                    </div>
-                </article>
+                    </article>
+                <?php endforeach; ?>
                 <article class="card p-2"> <!-- POST UNICO -->
                     <div class="song"> <!-- Canzone in alto  -->
                         <iframe src="https://open.spotify.com/embed/track/0o9zmvc5f3EFApU52PPIyW?utm_source=generator&theme=0" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
