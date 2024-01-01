@@ -23,15 +23,15 @@
                 <form action="sign_up_fnz.php" method="post">
                     <div class="row pb-2 px-3">
                         <label class="form-label" for="username">Username</label>
-                        <input class="form-control" id="username" type="text" placeholder="Enter your username"/>
+                        <input class="form-control" id="username" name="username" type="text" placeholder="Enter your username"/>
                     </div>
                     <div class="row pb-2 px-3">
                         <label class="form-label" for="email">Email</label>
-                        <input class="form-control" id="email" type="text" placeholder="Enter your email"/>
+                        <input class="form-control" id="email" name="email" type="text" placeholder="Enter your email"/>
                     </div>
                     <div class="row pb-2 px-3">
                         <label class="form-label" for="password">Password</label>
-                        <input class="form-control" id="password" type="password" placeholder="Password"/>
+                        <input class="form-control" id="password" name="password" type="password" placeholder="Password"/>
                     </div>
                     <div class="row pb-2 px-3">
                         <label class="form-label" for="repeat_password">Repeat Password</label>

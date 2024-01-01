@@ -32,7 +32,7 @@ class DatabaseHelper {
 
     // return all posts
     public function getAllPosts() {
-
+        
     }
 
     // return all posts by Id_post
