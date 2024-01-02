@@ -20,17 +20,45 @@ const _createSongElement = (song) => {
     iframe.setAttribute('allow', 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture');
     iframe.setAttribute('loading', 'lazy');
 
-    // Create the button element
-    let button = document.createElement('button');
-    button.setAttribute('id', 'add_song_button');
-    button.setAttribute('type', 'button');
-    button.setAttribute('class', 'align-content-center');
-    button.innerHTML = 'Add to Post <i class="bi bi-plus"></i>';
-    button.onclick = () => _addSongToPost(song);
+    // Create the form element
+    let form = document.createElement('form');
+    form.setAttribute('action', 'post_add_image.php');
+    form.setAttribute('method', 'post');
+
+    // Create input label
+    let labelInput = document.createElement('label');
+    labelInput.setAttribute('for', 'songId_'+song_id);
+    labelInput.setAttribute('hidden', '');
+    labelInput.innerHTML = 'Song ID: ';
+
+    // Create the input element
+    let input = document.createElement('input');
+    input.setAttribute('id', 'songId_'+song_id);
+    input.setAttribute('type', 'hidden');
+    input.setAttribute('name', 'song_id');
+    input.setAttribute('value', song.id);
+    
+    // Create input label
+    let labelSubmit = document.createElement('label');
+    labelSubmit.setAttribute('for', 'songId_'+song_id);
+    labelSubmit.setAttribute('hidden', '');
+    labelSubmit.innerHTML = 'Song ID: ';
+
+    // Create the submit button
+    let submit = document.createElement('input');
+    submit.setAttribute('type', 'addSong_'+song.id);
+    submit.setAttribute('type', 'submit');
+    submit.setAttribute('value', 'Add Song');
+    submit.setAttribute('class', 'btn');
+
+    form.appendChild(labelInput);
+    form.appendChild(input);
+    form.appendChild(labelSubmit);
+    form.appendChild(submit);
 
     // Append the iframe and button to the main article element
     songElement.appendChild(iframe);
-    songElement.appendChild(button);
+    songElement.appendChild(form);
 
     return songElement;
 }

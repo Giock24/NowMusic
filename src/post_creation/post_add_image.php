@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/form.css">
     <link rel="stylesheet" href="./post_creation.css">
-    <script src="./js/post_creation/add_image.js"></script>
+    <script src="./js/add_image.js"></script>
 </head>
 <body>
     <div class="container-fluid p-0 overflow-hidden h-100">

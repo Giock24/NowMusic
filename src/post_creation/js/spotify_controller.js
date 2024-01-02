@@ -1,4 +1,4 @@
-import {SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET } from '../../config.js' 
+import {SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET } from '../../../config.js' 
 
 const APIController = (function() {
 
