@@ -70,8 +70,8 @@ create table PARTECIPAZIONE (
      constraint IDPARTECIPAZIONE primary key (Id_communty, Categoria, Id_utente_partcipante));
 */
 create table TAG (
-	Id_tag int NOT NULL AUTO_INCREMENT,
-    primary key (Id_tag)
+	Id_tag varchar(100) not null,
+     primary key (Id_tag)
 );
 
 create table POST (
@@ -81,7 +81,6 @@ create table POST (
      Timestamp date not null,
      PostImmagine boolean not null,
      Url varchar(200) not null,
-     Tag varchar(100),
      Id_utente char(30) not null,
      Id_communty int,
      Categoria varchar(100),
@@ -89,7 +88,7 @@ create table POST (
      
 create table POST_TAG (
 	Id_post int not null,
-	Id_tag int not null,
+	Id_tag varchar(100) not null,
 	primary key (Id_tag, Id_post));
 /*
 create table RISPOSTA_COMMENTO (
@@ -218,4 +217,18 @@ alter table POST_TAG add constraint FKPOSTTAG_POSTID
 
 -- Index Section
 -- _____________ 
+-- Populate Tables
 
+INSERT INTO UTENTE (Email, Username, Password) VALUES ("giock.consoli@gmail.com", "Giock", "123");
+
+INSERT INTO POST (Spotify_Id, Testo, Timestamp, PostImmagine, Url, Id_utente, Id_communty, Categoria) VALUES ("0GWNtMohuYUEHVZ40tcnHF","Itadori non diventare cattivo pls",'2024-01-01',1,"itadori.jpg","giock.consoli@gmail.com",0,"Anime");
+
+INSERT INTO COMMENTO (Testo, Timestamp_commento, Email, Id_post) VALUES ("Itadori nella prossima stagione non morire, PLS", '2024-01-02', "giock.consoli@gmail.com", 1);
+
+INSERT INTO TAG (Id_tag) VALUES ("#Freedom");
+INSERT INTO TAG (Id_tag) VALUES ("#Yuji_Itadori");
+
+INSERT INTO POST_TAG (Id_post, Id_tag) VALUES (1, "#Freedom");
+INSERT INTO POST_TAG (Id_post, Id_tag) VALUES (1, "#Yuji_Itadori");
+
+INSERT INTO MI_PIACE (Email, Id_post) VALUES ("giock.consoli@gmail.com", 1);

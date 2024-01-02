@@ -34,7 +34,7 @@ class DatabaseHelper {
     public function getAllPosts() {
         // PostImmagine è un booleano serve per capire se è stata caricata un'immagine o no
         // Url nome.jpg immagine
-        $query = "SELECT Id_Post, Spotify_Id, Testo, Timestamp, PostImmagine, Url, Tag, Username FROM post, utente
+        $query = "SELECT Id_Post, Spotify_Id, Testo, Timestamp, PostImmagine, Url, Username FROM post, utente
          WHERE Id_utente=Email";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
@@ -42,8 +42,24 @@ class DatabaseHelper {
         $final_result = $result->fetch_all(MYSQLI_ASSOC);
 
         $i = 0;
-        // in questo for each aggiungo per ogni post il numero di commenti in base all'id del post
         foreach ($final_result as $elem) :
+            // aggiungo un array di # messi sotto quel posto
+            $tag_array = array();
+            $stmt = $this->db->prepare("SELECT Id_tag FROM POST_TAG WHERE Id_post = ?");
+            $stmt->bind_param("s", $elem["Id_Post"]);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $result_query = $result->fetch_all(MYSQLI_ASSOC);
+            foreach ($result_query as $tag) :
+                // array_push() treats array as a stack, and pushes the passed variables onto the end of array
+                array_push($tag_array, $tag['Id_tag']);
+            endforeach;
+            $final_result[$i]["all_tags"] = $tag_array;
+            // ----------------------------------------------
+            //var_dump($final_result);
+
+            
+            // aggiungo per ogni post il numero di commenti in base all'id del post
             $stmt = $this->db->prepare("SELECT COUNT(Id_Commento) AS numcommenti FROM commento WHERE Id_Post = ?");
             $stmt->bind_param("i", $elem["Id_Post"]);
             $stmt->execute();
@@ -52,7 +68,19 @@ class DatabaseHelper {
             //var_dump($result->fetch_all(MYSQLI_ASSOC)[0]["numcommenti"]);
             $number_comment = $result->fetch_all(MYSQLI_ASSOC)[0]["numcommenti"];
             $final_result[$i]["numcommenti"] = $number_comment;
+            // ----------------------------------------------
+
+            // aggiungo per ogni post i likes ricevuti
+            $stmt = $this->db->prepare("SELECT COUNT(Id_post) AS numlikes FROM MI_PIACE WHERE Id_post = ?");
+            $stmt->bind_param("i", $elem["Id_Post"]);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            $number_likes = $result->fetch_all(MYSQLI_ASSOC)[0]["numlikes"];
+            $final_result[$i]["numlikes"] = $number_likes;
+            // ----------------------------------------------
             $i++;
+            //var_dump($final_result);
         endforeach;
 
         return $final_result;

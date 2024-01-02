@@ -41,7 +41,7 @@
                                     </div>
                                     <div class="likes">
                                         <a class="nav-item my-1 mx-1" href="#">
-                                            <span><em class="uil uil-heart"><small class="likes-count">500 K</small></em></span>
+                                            <span><em class="uil uil-heart"><small class="likes-count"><?php echo $post["numlikes"]; ?></small></em></span>
                                         </a>
                                     </div>
                                 </div>
@@ -50,7 +50,9 @@
                                 <p class="card-text"><?php echo $post["Testo"]; ?></p>
                             </div>
                             <div class="tags">
-                                <p class="card-text"><?php echo $post["Tag"]; ?></p>
+                                <?php foreach($post["all_tags"] as $tag) : ?>
+                                    <p class="card-text"><?php echo $tag; ?></p>
+                                <?php endforeach; ?>
                             </div>
                         </section>
                         <div class="update"> <!-- Parte in basso -->
