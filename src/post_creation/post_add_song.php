@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="./post_creation.css">
-    <script type="module" src="../../js/post_creation/add_song.js"></script>
+    <script type="module" src="./js/add_song.js"></script>
 </head>
 <body>
     <div class="container-fluid p-0 overflow-x-hidden h-100">
