@@ -41,7 +41,10 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+    //echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+    session_start();
+    $_SESSION['image_path'] = $target_file;
+    header("Location: /NowMusic/src/post_creation/post_add_content.php");
   } else {
     echo "Sorry, there was an error uploading your file.";
   }

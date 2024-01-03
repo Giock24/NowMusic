@@ -15,6 +15,10 @@
     <script src="./js/add_image.js"></script>
 </head>
 <body>
+    <?php
+        session_start();
+        $_SESSION['song_id'] = $_POST["song_id"];
+    ?>
     <div class="container-fluid p-0 overflow-hidden h-100">
         <div class="d-flex flex-column h-100">
             <div  class="flex-grow-0">
@@ -28,11 +32,13 @@
                     <div class="text-center pb-5">
                         <h1>Create Your Post</h1>
                     </div>
-                    <form  action="upload_photo.php" method="post" class="flex-fill add-image">
+                    <form  action="upload_photo.php" method="post" class="flex-fill add-image" enctype="multipart/form-data">
+                        <label for="song_id" hidden>Song Id</label>
+                        <input id="song_id" type="hidden" name="song_id" value="<?php echo $_POST["song_id"] ?>"/>
                         <div class="input-group">
-                            <img id="image-previous" src="../../assets/images/no_image.jpg"/>
+                            <img id="image-previous" src="../../assets/images/no_image.jpg" alt="previous of the image you want to upload"/>
                             <label class="input-group" hidden>Upload a photo</label>
-                            <input type="file" class="form-control"  accept="image/*" onchange="loadFile(event)">
+                            <input type="file" name="fileToUpload" id="fileToUpload" class="form-control"  accept="image/*" onchange="loadFile(event)">
                         </div>
                         <div class="row mt-3">
                             <label class="submit" for="next" hidden>Next</label>
