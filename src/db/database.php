@@ -43,7 +43,7 @@ class DatabaseHelper {
 
         $i = 0;
         foreach ($final_result as $elem) :
-            // aggiungo un array di # messi sotto quel posto
+            // aggiungo un array di # messi sotto quel post
             $tag_array = array();
             $stmt = $this->db->prepare("SELECT Id_tag FROM POST_TAG WHERE Id_post = ?");
             $stmt->bind_param("s", $elem["Id_Post"]);
@@ -95,15 +95,25 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // return all posts by Id_post
+    // return all posts by Id_utente / Email
     public function getPostsById($id) {
-
+        $stmt = $this->db->prepare("SELECT * FROM post WHERE Id_utente=?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        /* TODO Manca parte in cui si ricava quanti likes e commenti ha ricevuto
+           ogni post */
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     // add a new post into database
     public function addNewPost($track, $desc, $time, $post_img, $url_img, $array_tag, $id_user) {
+        $query = "INSERT INTO POST (Spotify_Id, Testo, Timestamp, PostImmagine, 
+        Url, Id_utente, Id_communty, Categoria) VALUES (?,?,?,?,?,?,?,?)";
+        $stmt = $this->db->prepare($query);
         // manca Id_community e Categoria
-
+        //$stmt->bind_param("sssisiis", $track, $desc, $time, $post_img, $url_img, $id_user);
+        $stmt->execute();
     }
 
 }
