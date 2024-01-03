@@ -28,7 +28,7 @@
                     <div class="text-center pb-5">
                         <h1>Create Your Post</h1>
                     </div>
-                    <form class="flex-fill add-image" action="#">
+                    <form  action="upload_photo.php" method="post" class="flex-fill add-image">
                         <div class="input-group">
                             <img id="image-previous" src="../../assets/images/no_image.jpg"/>
                             <label class="input-group" hidden>Upload a photo</label>

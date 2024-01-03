@@ -1,9 +1,5 @@
 import APIController from './spotify_controller.js';
 
-const _addSongToPost = (song) => {
-    console.log(song);
-}
-
 const _createSongElement = (song) => {
     // Create the main article element
     let songElement = document.createElement('li');
@@ -19,7 +15,7 @@ const _createSongElement = (song) => {
     iframe.setAttribute('allowfullscreen', '');
     iframe.setAttribute('allow', 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture');
     iframe.setAttribute('loading', 'lazy');
-
+    
     // Create the form element
     let form = document.createElement('form');
     form.setAttribute('action', 'post_add_image.php');
@@ -27,20 +23,20 @@ const _createSongElement = (song) => {
 
     // Create input label
     let labelInput = document.createElement('label');
-    labelInput.setAttribute('for', 'songId_'+song_id);
+    labelInput.setAttribute('for', 'songId_'+song.id);
     labelInput.setAttribute('hidden', '');
     labelInput.innerHTML = 'Song ID: ';
 
     // Create the input element
     let input = document.createElement('input');
-    input.setAttribute('id', 'songId_'+song_id);
+    input.setAttribute('id', 'songId_'+song.id);
     input.setAttribute('type', 'hidden');
     input.setAttribute('name', 'song_id');
     input.setAttribute('value', song.id);
     
     // Create input label
     let labelSubmit = document.createElement('label');
-    labelSubmit.setAttribute('for', 'songId_'+song_id);
+    labelSubmit.setAttribute('for', 'songId_'+song.id);
     labelSubmit.setAttribute('hidden', '');
     labelSubmit.innerHTML = 'Song ID: ';
 
@@ -50,6 +46,7 @@ const _createSongElement = (song) => {
     submit.setAttribute('type', 'submit');
     submit.setAttribute('value', 'Add Song');
     submit.setAttribute('class', 'btn');
+    submit.setAttribute('style', 'width:100%');
 
     form.appendChild(labelInput);
     form.appendChild(input);
@@ -77,3 +74,6 @@ document.getElementById("search_song").onsubmit = function(event) {
     });
     return false;
 };
+
+const song= {id:"0GWNtMohuYUEHVZ40tcnHF"} ;
+document.getElementById("search_results").appendChild(_createSongElement(song));
