@@ -31,7 +31,7 @@
                     <form id="add-content" action="create_post.php" method="POST" class="flex-fill d-flex flex-column">
                         <div class="form-group mb-4">
                             <label for="description">Description</label>
-                            <textarea class="form-control" id="description" rows="3"></textarea>
+                            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="hashtag">Hashtag</label>
