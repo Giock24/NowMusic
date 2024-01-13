@@ -6,19 +6,21 @@ var addHastag = function(event) {
     inputHastag.value = '';
 
     //show added hashtag in a paragraph
-    var addedHashtag = document.getElementById('added-hashtag');
+    var addedHashtag = document.getElementById('added-hashtags');
     addedHashtag.innerHTML = hashtag.join(' ');
 
+    //add hashtag to form
     _updateForm();
 };
 
 var _updateForm = function() {
     var form = document.getElementById('add-content');
-    hashtag.forEach(function(tag) {
-        var input = document.createElement('input');
-        input.setAttribute('type', 'hidden');
-        input.setAttribute('name', 'hashtags[]');
-        input.setAttribute('value', tag);
-        form.appendChild(input);
-    });
+
+    var lastTag = hashtag[hashtag.length - 1];
+
+    var input = document.createElement('input');
+    input.setAttribute('type', 'hidden');
+    input.setAttribute('name', 'hashtags[]');
+    input.setAttribute('value', lastTag);
+    form.appendChild(input);
 }

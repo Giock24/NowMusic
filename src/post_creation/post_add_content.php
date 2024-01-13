@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/form.css"/>
     <link rel="stylesheet" href="./post_creation.css">
+    <script src="./js/add_content.js"></script>
 </head>
 <body>
     <div class="container-fluid p-0 overflow-x-hidden h-100">
@@ -27,7 +28,7 @@
                     <div class="text-center pb-5">
                         <h1>Create Your Post</h1>
                     </div>
-                    <form id="add-content" action="create_post.php" class="flex-fill d-flex flex-column">
+                    <form id="add-content" action="create_post.php" method="POST" class="flex-fill d-flex flex-column">
                         <div class="form-group mb-4">
                             <label for="description">Description</label>
                             <textarea class="form-control" id="description" rows="3"></textarea>
@@ -39,13 +40,13 @@
                                     <input class="form-control" id="hashtag" placeholder="#NowMusic" style="line-height: 2em;"/>
                                 </div>
                                 <div class="col-md-4">
-                                    <button id="add-hastag" type="button">Add
+                                    <button id="add-hastag" type="button" onclick="addHastag(event)">Add
                                         <i class="bi bi-plus"></i>
                                     </button>
                                 </div>
                             </div>
                             <label>Added Hashtags:</label>
-                            <p id="added-hashtags">#NowMusic</p>
+                            <p id="added-hashtags"></p>
                         </div>
                         <div class="row h-100 pb-4">
                             <label  class="submit" for="create_post" hidden>Create Post</label>
