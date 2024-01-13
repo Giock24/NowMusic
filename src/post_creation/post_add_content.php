@@ -27,7 +27,7 @@
                     <div class="text-center pb-5">
                         <h1>Create Your Post</h1>
                     </div>
-                    <form action="#" class="flex-fill d-flex flex-column">
+                    <form id="add-content" action="create_post.php" class="flex-fill d-flex flex-column">
                         <div class="form-group mb-4">
                             <label for="description">Description</label>
                             <textarea class="form-control" id="description" rows="3"></textarea>
@@ -36,10 +36,10 @@
                             <label class="form-label" for="hashtag">Hashtag</label>
                             <div class="row g-3 mb-2">
                                 <div class="col-md-8">
-                                    <input class="form-control" id="hashtag" type="password" placeholder="#NowMusic" style="line-height: 2em;"/>
+                                    <input class="form-control" id="hashtag" placeholder="#NowMusic" style="line-height: 2em;"/>
                                 </div>
                                 <div class="col-md-4">
-                                    <button type="button">Add
+                                    <button id="add-hastag" type="button">Add
                                         <i class="bi bi-plus"></i>
                                     </button>
                                 </div>
