@@ -107,13 +107,14 @@ class DatabaseHelper {
     }
 
     // add a new post into database
-    public function addNewPost($track, $desc, $time, $post_img, $url_img, $array_tag, $id_user) {
-        $query = "INSERT INTO POST (Spotify_Id, Testo, Timestamp, PostImmagine, 
-        Url, Id_utente, Id_communty, Categoria) VALUES (?,?,?,?,?,?,?,?)";
+    public function addNewPost($track, $desc, $time, $post_img, $url_img, $id_user) {
+        $query = "INSERT INTO POST (Spotify_Id, Testo, Timestamp, PostImmagine, Url, Id_utente) VALUES ($track,$desc,CURRENT_TIMESTAMP,$post_img,$url_img,$id_user);";
         $stmt = $this->db->prepare($query);
         // manca Id_community e Categoria
         //$stmt->bind_param("sssisiis", $track, $desc, $time, $post_img, $url_img, $id_user);
         $stmt->execute();
+
+        //TODO return id of post
     }
 
 }
