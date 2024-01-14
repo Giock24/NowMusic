@@ -15,6 +15,10 @@
     <script src="./js/add_content.js"></script>
 </head>
 <body>
+    <?php
+        require_once("../auth/check_auth.php");
+        checkAuth();
+    ?>
     <div class="container-fluid p-0 overflow-x-hidden h-100">
         <div class="d-flex flex-column h-100">
             <div  class="flex-grow-0">

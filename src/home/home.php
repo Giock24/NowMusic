@@ -14,11 +14,14 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"/>
 </head>
 <body>
+    <?php
+        require_once("../auth/check_auth.php");
+        checkAuth();
+    ?>
     <div class="container-fluid p-0 overflow-x-hidden h-100">
         <?php 
             require("../core/nav/home_nav.php");
         ?>
-
         <div class="row pt-2 justify-content-center">
             <main class="col-md-4 col-11"> <!-- DIV di tutte i post -->
                 <?php include 'home_logic.php';?>

@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 </head>
 <body>
+    <?php
+        require_once("../auth/check_auth.php");
+        checkAuth();
+    ?>
     <div class="container-fluid overflow-x-hidden p-0 h-100">
         <div class="d-flex flex-column h-100">
             <div  class="flex-grow-0">

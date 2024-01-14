@@ -15,6 +15,10 @@
     <script type="module" src="./js/add_song.js"></script>
 </head>
 <body>
+    <?php
+        require_once("../auth/check_auth.php");
+        checkAuth();
+    ?>
     <div class="container-fluid p-0 overflow-x-hidden h-100">
         <?php
             $navParams["backArrowHref"] = "../home/home.php";
