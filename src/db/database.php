@@ -107,16 +107,55 @@ class DatabaseHelper {
     }
 
     // add a new post into database
-    public function addNewPost($track, $desc, $time, $post_img, $url_img, $id_user) {
-        $query = "INSERT INTO POST (Spotify_Id, Testo, Timestamp, PostImmagine, Url, Id_utente) VALUES ($track,$desc,CURRENT_TIMESTAMP,$post_img,$url_img,$id_user);";
+    public function addNewPost($track, $desc, $post_img, $url_img, $id_user) {
+        $query = "INSERT INTO POST (Spotify_Id, Testo, Timestamp, PostImmagine, Url, Id_utente) VALUES (?,?,CURRENT_TIMESTAMP,?,?,?)";
         $stmt = $this->db->prepare($query);
-        // manca Id_community e Categoria
-        //$stmt->bind_param("sssisiis", $track, $desc, $time, $post_img, $url_img, $id_user);
-        $stmt->execute();
+        $stmt->bind_param("ssiss", $track, $desc, $post_img, $url_img, $id_user);
+        $success = $stmt->execute();
 
-        //TODO return id of post
+        if($success) {
+            echo "Post added successfully";
+            return $this->getLastPostId();
+        } else {
+            return null;
+        }
     }
 
+    // return last post
+    public function getLastPostId() {
+        $stmt = $this->db->prepare("SELECT Id_post FROM POST ORDER BY Id_post DESC LIMIT 1");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0]["Id_post"];
+    }
+
+    // get all hashtags
+    public function getAllHashtags() {
+        $stmt = $this->db->prepare("SELECT * FROM TAG");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $rows = $result->fetch_all(MYSQLI_ASSOC);
+
+        $hashtags = [];
+        foreach ($rows as $row) {
+            array_push($hashtags, $row["Id_tag"]);
+        }
+        return $hashtags;
+    }
+
+    // create new Hashtag
+    public function crateHashtag($hashtag) {
+        $stmt = $this->db->prepare("INSERT INTO TAG(Id_tag) VALUES (?)");
+        $stmt->bind_param("s", $hashtag);
+        $stmt->execute();
+    }
+
+    // add hashtag to post
+    public function addHashtagToPost($id_post, $hashtag) {
+        $stmt = $this->db->prepare("INSERT INTO POST_TAG(Id_post, Id_tag) VALUES (?, ?)");
+        $stmt->bind_param("ss", $id_post, $hashtag);
+        $stmt->execute();
+    }
 }
 
 ?>

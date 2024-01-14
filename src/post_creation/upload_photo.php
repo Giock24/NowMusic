@@ -1,4 +1,10 @@
 <?php
+if($_FILES["fileToUpload"]["name"]==""){
+    session_start();
+    $_SESSION['image_path'] = "";
+    header("Location: /NowMusic/src/post_creation/post_add_content.php");
+    exit();
+}
 $target_dir = "../upload/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;

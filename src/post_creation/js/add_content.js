@@ -20,7 +20,7 @@ var _updateForm = function() {
 
     var input = document.createElement('input');
     input.setAttribute('type', 'hidden');
-    input.setAttribute('name', 'hashtags[]');
+    input.setAttribute('name', 'hashtags');
     input.setAttribute('value', lastTag);
     form.appendChild(input);
 }
