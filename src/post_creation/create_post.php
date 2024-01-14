@@ -2,6 +2,7 @@
     require_once("../data_source.php");
 
     session_start();
+    $user = $_SESSION['user'];
     $song = $_SESSION['song_id'];
     $imagePath = $_SESSION['image_path'];
     $description = "";
@@ -15,16 +16,13 @@
     }
 
     $post_img = $imagePath != "" ? 1 : 0;
-    $postId = $dbh->addNewPost($song, $description,  $post_img,  $imagePath, 'giock.consoli@gmail.com');
-
-    echo $postId;
+    $postId = $dbh->addNewPost($song, $description,  $post_img,  $imagePath, $user['Email']);
 
     // add hashtags to post
     if($postId != null){
         $allHashtags = $dbh->getAllHashtags();
         foreach ($hashtags as $hashtag) {
             if(!in_array($hashtag, $allHashtags,true)){
-                echo "creo hashtag";
                 $dbh->crateHashtag($hashtag);
             }
             $dbh->addHashtagToPost($postId, $hashtag);

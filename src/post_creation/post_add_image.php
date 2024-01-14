@@ -18,7 +18,6 @@
     <?php
         require_once("../auth/check_auth.php");
         checkAuth();
-        session_start();
         $_SESSION['song_id'] = $_POST["song_id"];
     ?>
     <div class="container-fluid p-0 overflow-hidden h-100">
