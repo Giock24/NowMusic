@@ -2,7 +2,6 @@
 
     require_once("../data_source.php");
 
-    $allpost = $dbh->getAllPosts();
+    $allpost = $dbh->getPosts();
     //$allpost[0]["numcommenti"] = 100;
-
 ?>

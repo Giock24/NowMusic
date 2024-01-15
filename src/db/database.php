@@ -30,13 +30,35 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // return all posts
-    public function getAllPosts() {
+    // return posts by user if user not specify return all posts
+    /**
+     * @param string $user     
+     * email of the user can be empty
+     * @param bool $followed  
+     * if true return only posts of followed users (user must be not empty)
+     * if false return all posts
+     */
+    public function getPosts($user = "",$followed=false) {
         // PostImmagine è un booleano serve per capire se è stata caricata un'immagine o no
         // Url nome.jpg immagine
-        $query = "SELECT Id_Post, Spotify_Id, Testo, Timestamp, PostImmagine, Url, Username FROM post, utente
-         WHERE Id_utente=Email";
+        $query = "";
+        if($user == ""){
+            $query = "SELECT Id_Post, Spotify_Id, Testo, Timestamp, PostImmagine, Url, Username FROM post, utente
+            WHERE Id_utente=Email ORDER BY Timestamp DESC";
+        } else {
+            if($followed == true){
+                $query = "SELECT Id_Post, Spotify_Id, Testo, Timestamp, PostImmagine, Url, Username FROM post, utente
+                WHERE Id_utente=Email AND Id_utente IN (SELECT Id_utente FROM follow WHERE Email_seguito = ?) ORDER BY Timestamp DESC";
+            } else {
+                $query = "SELECT Id_Post, Spotify_Id, Testo, Timestamp, PostImmagine, Url, Username FROM post, utente
+                WHERE Id_utente=Email AND Id_utente=? ORDER BY Timestamp DESC";
+            }   
+        }
+
         $stmt = $this->db->prepare($query);
+        if($user != ""){
+            $stmt->bind_param("s", $user);
+        }
         $stmt->execute();
         $result = $stmt->get_result();
         $final_result = $result->fetch_all(MYSQLI_ASSOC);
@@ -156,6 +178,7 @@ class DatabaseHelper {
         $stmt->bind_param("ss", $id_post, $hashtag);
         $stmt->execute();
     }
+
 }
 
 ?>
