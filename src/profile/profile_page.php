@@ -13,8 +13,7 @@
 </head>
 <body>
     <?php
-        require_once("../auth/check_auth.php");
-        checkAuth();
+        require_once("profile_page_logic.php")
     ?>
     <div class="container-fluid overflow-x-hidden p-0 h-100">
         <div class="d-flex flex-column h-100">
@@ -35,8 +34,8 @@
                         </div>
                         <div class="bio">
                             <ul>
-                                <li>Bio: </li>
-                                <li>Mario Rossi</li>
+                                <li><?php echo($user["Username"])?></li>
+                                <li>Email: <?php echo($user["Email"])?><li>
                                 <li>Data di Nascita --/--/---- </li>
                                 <li>Ingegneria e Scinze Informatiche - Cesena </li>
                             </ul>
@@ -45,6 +44,7 @@
                 </div>
                 <div class="posts col-md-8 col-12">
                 <h1 class="text-center">YOUR POSTS</h1>
+                <?php foreach($TemplateParams["Posts"] as $post) :?>
                 <div class="my-posts p-2">
                     <article class="card p-2"> <!-- POST UNICO -->
                         <div class="row container-fluid">
@@ -52,7 +52,7 @@
                                 <div class="navbar flex-row align-content-center"> <!-- Contenitore di tutto la parte centrale -->
                                     <div class="nav nav-pills"> <!---- FOTO E  NOME -->
                                         <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="27" height="27" alt="user-image"/>
-                                        <p class="h5 my-2 mx-2">username</p>
+                                        <p class="h5 my-2 mx-2"><?php echo $post["Username"] ?></p>
                                     </div>
                                     <div class="nav nav-pills"> <!--- LIKE E COMMENT -->
                                         <div class="comments">
@@ -69,36 +69,21 @@
                                 </div>
                                 <iframe src="https://open.spotify.com/embed/track/1rDgAHDX95RmylxjgVW9tN?utm_source=generator" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                                 <div class="descriptions">
-                                    <p class="card-text">This track is awesome, I suggest you to listen!!!</p>
+                                    <p class="card-text"><?php echo $post["Testo"] ?></p>
                                 </div>
                                 <div class="tags">
-                                    <p class="card-text">#NowMusic #chill #lovemusic</p>
+                                    <?php foreach($post["all_tags"] as $tag) : ?>
+                                        <p class="card-text"><?php echo $tag; ?></p>
+                                    <?php endforeach; ?>
                                 </div>
                             </section>
                             <div class="update col-md-4 col-11"> <!-- Parte in basso -->
-                                <img class="card-img-bottom center-block" src="../../assets/images/post_image.png" alt="immagine-post">
+                                <img class="card-img-bottom center-block" src="../upload/<?php echo $post["Url"] ?>" alt="immagine-post">
                             </div>
                         </div>
                     </article>
-                    <!--
-                    <article class="single-post">
-                        <div class="username-post">
-                            <div class="img-profile">
-                                <img src="../../assets/images/user_icon.png" alt="img-profile">
-                            </div>
-                            <div class="name-user">
-                                <p>Username</p>
-                            </div>
-                        </div>
-                        <div class="img-post">
-                            <img src="../../assets/images/post_image.png" alt="post Image">
-                        </div>
-                        <section class="info-post">
-
-                        </section>
-                    </article>
-                    -->
                 </div>
+                <?php endforeach; ?>
             </div>
         </div>
         </div>
