@@ -4,7 +4,7 @@
  checkAuth();
  $user = $_SESSION["user"];
 
- $TemplateParams["Posts"] = $dbh->getPosts($user["Email"]);
- print_r($TemplateParams["Posts"])
+ $allmypost = $dbh->getPosts($user["Email"]);
+ #print_r($allmypost);
 
 ?>

@@ -40,11 +40,60 @@
                                 <li>Ingegneria e Scinze Informatiche - Cesena </li>
                             </ul>
                         </div>
+                        <button type="button" class="btn btn-secondary py-1 btn-sm" data-bs-target="#modify_profile" data-bs-toggle="modal">
+                            <span class="profile"><i class="uil uil-cog"></i><h3>Modifica profilo</h3></span>
+                        </button>
+                        <!--modal -->
+                        
+
+
+                        <div class="modal fade" id="modify_profile" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="notificationsLabel">Edit Profile </h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row col-lg-8 border rounded mx-auto mt-5 p-2 shadow-lg">
+                                            <div class="col-md-4 text center">
+                                                <img class="img-fluid rounded" src="../../assets/images/user_icon.png" style="width: 180px; height:180px;object-fit: cover;" alt="profile_user_image"/>
+                                                <div>
+                                                    <input type="file" name="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <table class="table table-strped">
+                                                    <tr><th colspan="2">User Details</th></tr>
+                                                    <tr><th><i class="bi bi-envelope"></i> Email</th>
+                                                        <td>email@email.com</td>
+                                                    </tr>
+                                                    <tr><th><i class="bi bi-person-circle"></i> First name</th>
+                                                        <td>John</td>
+                                                    </tr>
+                                                    <tr><th><i class="bi bi-person-square"></i> Last name</th>
+                                                        <td>Doe</td>
+                                                    </tr>
+                                                    <tr><th><i class="bi bi-gender-ambiguous"></i> Gender</th>
+                                                        <td>Male</td>
+                                                    </tr>
+                                                </table>
+                                                <div class="p-2">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="posts col-md-8 col-12">
                 <h1 class="text-center">YOUR POSTS</h1>
-                <?php foreach($TemplateParams["Posts"] as $post) :?>
+                <?php foreach($allmypost as $post) :?>
                 <div class="my-posts p-2">
                     <article class="card p-2"> <!-- POST UNICO -->
                         <div class="row container-fluid">
@@ -57,17 +106,17 @@
                                     <div class="nav nav-pills"> <!--- LIKE E COMMENT -->
                                         <div class="comments">
                                             <a class="nav-item my-1 mx-1" href="#">
-                                                <span><em class="uil uil-comment-dots"><small class="comment-count">12</small></em></span>
+                                                <span><em class="uil uil-comment-dots"><small class="comment-count"><?php echo $post["numcommenti"]; ?></small></em></span>
                                             </a>
                                         </div>
                                         <div class="likes">
                                             <a class="nav-item my-1 mx-1" href="#">
-                                                <span><em class="uil uil-heart"><small class="likes-count">120</small></em></span>
+                                                <span><em class="uil uil-heart"><small class="likes-count"><?php echo $post["numlikes"]; ?></small></em></span>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <iframe src="https://open.spotify.com/embed/track/1rDgAHDX95RmylxjgVW9tN?utm_source=generator" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                <iframe src="https://open.spotify.com/embed/track/<?php echo $post["Spotify_Id"]; ?>" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                                 <div class="descriptions">
                                     <p class="card-text"><?php echo $post["Testo"] ?></p>
                                 </div>
