@@ -54,13 +54,15 @@
                                         <h1 class="modal-title fs-5" id="notificationsLabel">Edit Profile </h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body">
-                                        <div class="row col-lg-8 border rounded mx-auto mt-5 p-2 shadow-lg">
+                                    <div class="modal-body row col-lg-8 border rounded mx-auto mt-5 p-2 shadow-lg">
+                                        
                                             <div class="col-md-4 text center">
                                                 <img class="img-fluid rounded" src="../../assets/images/user_icon.png" style="width: 180px; height:180px;object-fit: cover;" alt="profile_user_image"/>
-                                                <div>
-                                                    <input type="file" name="">
-                                                </div>
+                                                    <div class="mb-3">
+                                                        <label for="formFile" class="form-label">Click to select an image</label>
+                                                        <input  class="form-control" type="file" id="formfile">
+
+                                                    </div>
                                             </div>
                                             <div class="col-md-8">
                                                 <table class="table table-strped">
@@ -82,7 +84,7 @@
 
                                                 </div>
                                             </div>
-                                        </div>
+                                       
                                     </div>
                                     <div class="modal-footer">
                                     </div>
