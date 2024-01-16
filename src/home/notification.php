@@ -1,5 +1,11 @@
 <?php
     require_once("../data_source.php");
+    session_start();
+    $email = $_SESSION['user']['Email'];
 
-    echo json_encode($dbh->getAllHashtags());
+    $likesAndComments['likes'] = $dbh->getLikesToMyPosts($email);
+    $likesAndComments['comments'] = $dbh->getCommentsToMyPosts($email);
+
+    $json = json_encode($likesAndComments);
+    echo $json;
 ?>
