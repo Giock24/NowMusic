@@ -179,6 +179,22 @@ class DatabaseHelper {
         $stmt->execute();
     }
 
+    //get all like to my post
+    public function getLikesToMyPosts($email) {
+        $stmt = $this->db->prepare("SELECT P.Id_post,MP.indice,MP.Email as LikeEmail,Username FROM mi_piace as MP,post as P,utente as U WHERE MP.Id_post = P.Id_post AND P.Id_utente=? AND MP.Email=U.Email;");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getCommentsToMyPosts($email) {
+        $stmt = $this->db->prepare("SELECT C.Id_Commento,C.Testo,C.Id_post,C.Email as CommentEmail,Username FROM commento as C,post as P,utente as U WHERE C.Id_post = P.Id_post AND P.Id_utente=? AND C.Email=U.Email;");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 
 ?>

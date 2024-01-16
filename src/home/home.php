@@ -12,34 +12,13 @@
     <link rel="stylesheet" href="./home.css"/>
     <link rel="stylesheet" href="../../css/style.css"/>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"/>
+    <script src="notification_ajax.js"></script>
 </head>
 <body>
     <?php
         require_once("../auth/check_auth.php");
         checkAuth();
     ?>
-    <script>
-        setInterval(function() {
-            var xmlhttp, myObj;
-            xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    myObj = JSON.parse(this.responseText);
-
-                    //console.log(this.responseText);
-                    console.log(myObj);
-
-                    //var outPutMessaggio = document.getElementById("messagioCriptato");
-                    //var outPutOraMessaggio = document.getElementById("oraMessagioCriptato");
-                    //outPutMessaggio.innerHTML = "    " + myObj.messaggio;
-                    //outPutOraMessaggio.innerHTML = "ora battitura messaggio: " + myObj.orario;
-
-                }
-            };
-            xmlhttp.open("GET", "notification.php", true);
-            xmlhttp.send();
-        }, 1000);
-    </script>
     <div class="container-fluid p-0 overflow-x-hidden h-100">
         <?php 
             require("../core/nav/home_nav.php");

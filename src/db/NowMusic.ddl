@@ -41,9 +41,12 @@ create table FOLLOW (
      primary key (Email_seguace, Email_seguito));
 
 create table MI_PIACE (
+     indice int NOT NULL AUTO_INCREMENT,
      Email char(30) not null,
      Id_post int not null,
-     primary key (Email, Id_post));
+     primary key (Email, Id_post),
+     unique(indice)
+     );
 /*
 create table NOTIFICA (
      Id_Commento varchar(100),
