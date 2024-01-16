@@ -97,8 +97,8 @@
                 <h1 class="text-center">YOUR POSTS</h1>
                 <?php foreach($allmypost as $post) :?>
                 <div class="my-posts p-2">
-                    <article class="card p-2"> <!-- POST UNICO -->
-                        <div class="row container-fluid">
+                    <article class="card p-2 container-fluid"> <!-- POST UNICO -->
+                        <div class="row">
                             <section class="card-body px-3 col-md-8 col-11"> <!-- Parte centrale -->
                                 <div class="navbar flex-row align-content-center"> <!-- Contenitore di tutto la parte centrale -->
                                     <div class="nav nav-pills"> <!---- FOTO E  NOME -->
@@ -128,7 +128,7 @@
                                     <?php endforeach; ?>
                                 </div>
                             </section>
-                            <div class="update col-md-4 col-11"> <!-- Parte in basso -->
+                            <div class="update col-md-4 col-12"> <!-- Parte in basso -->
                                 <img class="card-img-bottom center-block" src="../upload/<?php echo $post["Url"] ?>" alt="immagine-post">
                             </div>
                         </div>
