@@ -10,6 +10,6 @@
 
     session_start();
     $_SESSION["user"] = $user;
-    header('Location: /NowMusic/src/profile/profile_page.php');
+    header("Refresh:0");
 
 ?>
