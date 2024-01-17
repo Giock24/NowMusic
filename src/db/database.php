@@ -213,12 +213,14 @@ class DatabaseHelper {
         return $resultq->num_rows;
     }
 
+    // add new like on a post
     public function addNewLike($email, $id_post) {
         $stmt = $this->db->prepare("INSERT INTO MI_PIACE (Email, Id_post) VALUES (?, ?)");
         $stmt->bind_param("si", $email, $id_post);
         $stmt->execute();
     }
 
+    // remove a like on a post
     public function removeLike($email, $id_post) {
         $stmt = $this->db->prepare("DELETE FROM MI_PIACE WHERE Email = ? AND Id_post = ?");
         $stmt->bind_param("si", $email, $id_post);

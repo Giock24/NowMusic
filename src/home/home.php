@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="nav nav-pills"> <!--- LIKE E COMMENT -->
                                         <div class="comments">
-                                            <a class="nav-item my-1 mx-1" href="#">
+                                            <a class="nav-item my-1 mx-1" href="../comment/comments.php">
                                                 <span><em class="uil uil-comment-dots"><small class="comment-count"><?php echo $post["numcommenti"]; ?></small></em></span>
                                             </a>
                                         </div>
