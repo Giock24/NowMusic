@@ -1,4 +1,4 @@
-import {createCookie, getCookie} from "../core/cookie_utils.js";
+import {createCookie, getCookie, delete_cookie} from "../core/cookie_utils.js";
 
 function create_notification(username, message){
     var notification = {
@@ -35,7 +35,6 @@ setInterval(function() {
                 var newNotification = false;
                 if(likesAndComments.likes.length > likes.length){
                     var newLikes = likesAndComments.likes.slice(likes.length);
-                    likes = likesAndComments.likes;
                     for(var i=0; i<newLikes.length; i++){
                         var newLike = newLikes[i];
                         var notification = create_notification(newLike.Username, "ha messo mi piace al tuo post.");
@@ -45,7 +44,6 @@ setInterval(function() {
                 }
                 if(likesAndComments.comments.length > comments.length){
                     var newComments = likesAndComments.comments.slice(comments.length);
-                    comments = likesAndComments.comments;
                     for(var i=0; i<newComments.length; i++){
                         var newComment = newComments[i];
                         var notification = create_notification(newComment.Username, 'ha commentato: "' + newComment.comment +'"');
@@ -58,9 +56,20 @@ setInterval(function() {
                     createCookie("notification", JSON.stringify(notificationList), 1);
                     location.reload();
                 }
+                likes = likesAndComments.likes;
+                comments = likesAndComments.comments;
             }
         }
     };
     xmlhttp.open("GET", "notification.php", true);
     xmlhttp.send();
 }, 1000);
+
+
+document.getElementById("notification_icon").addEventListener("click", function(){
+    delete_cookie("notification", "/");
+});
+
+document.getElementById("notifications").addEventListener('hidden.bs.modal', function () {
+    location.reload();
+});

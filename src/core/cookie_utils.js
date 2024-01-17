@@ -18,11 +18,16 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
-function delete_cookie( name, path, domain ) {
-    if( get_cookie( name ) ) {
+function cookie_exist(name){
+    return document.cookie.split(';').some(c => {
+        return c.trim().startsWith(name + '=');
+    });
+}
+
+function delete_cookie(name, path) {
+    if( cookie_exist( name ) ) {
       document.cookie = name + "=" +
         ((path) ? ";path="+path:"")+
-        ((domain)?";domain="+domain:"") +
         ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
     }
 }
