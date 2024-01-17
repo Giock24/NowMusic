@@ -63,7 +63,7 @@ setInterval(function() {
     };
     xmlhttp.open("GET", "notification.php", true);
     xmlhttp.send();
-}, 1000);
+}, 500);
 
 
 document.getElementById("notification_icon").addEventListener("click", function(){

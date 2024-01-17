@@ -24,7 +24,12 @@ for (let i = 0; i < all_heart.length; i++) {
         var elementID = "post_"+post_id;
         console.log(location.href +" "+elementID)
 
-        //$(elementID).load(location.href +" "+elementID);
+        //after 1 second reload the page
+        setTimeout(function() {
+            location.reload();
+        }, 1000);
+
+        //
         //location.reload();
     });
 }
