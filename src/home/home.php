@@ -29,10 +29,10 @@
             <main class="col-md-11 col-11"> <!-- DIV di tutte i post -->
                 <?php include 'home_logic.php';?>
                 <?php foreach ($allpost as $post) : ?>           
-                    <article class="card p-2 container-fluid"> <!-- POST UNICO -->
+                    <article class="card container-fluid"> <!-- POST UNICO -->
                         <div class="row">
-                            <section class="card-body px-3 col-md-8 col-11"> <!-- Parte centrale -->
-                                <div class="navbar flex-row align-content-center"> <!-- Contenitore di tutto la parte centrale -->
+                            <section class="card-body p-0 col-md-8 col-11"> <!-- Parte centrale -->
+                                <div class="navbar nav-user-like p-2 flex-row align-content-center"> <!-- Contenitore di tutto la parte centrale -->
                                     <div class="nav nav-pills"> <!---- FOTO E  NOME -->
                                         <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="27" height="27" alt="user-image"/>
                                         <p class="h5 my-2 mx-2"><?php echo $post["Username"]; ?></p>
@@ -50,22 +50,22 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="song"> <!-- Canzone in mezzo  -->
+                                <div class="song p-2"> <!-- Canzone in mezzo  -->
                                     <iframe src="https://open.spotify.com/embed/track/<?php echo $post["Spotify_Id"]; ?>?utm_source=generator&theme=0" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                                 </div>
-                                <div class="descriptions">
-                                    <p class="card-text"><?php echo $post["Testo"]; ?></p>
-                                </div>
-                                <div class="tags">
-                                    <?php foreach($post["all_tags"] as $tag) : ?>
-                                        <p class="card-text"><?php echo $tag; ?></p>
-                                    <?php endforeach; ?>
-                                </div>
-                                <div class="card-footer border-top border-light">
+                                <div class="card-footer p-3">
+                                    <div class="descriptions">
+                                        <p class="card-text"><?php echo $post["Testo"]; ?></p>
+                                    </div>
+                                    <div class="tags">
+                                        <?php foreach($post["all_tags"] as $tag) : ?>
+                                            <p class="card-text tag"><?php echo $tag; ?></p>
+                                        <?php endforeach; ?>
+                                    </div>
                                     <small class="text-muted-white"><?php echo $post["Timestamp"];?> Last Update</small>
                                 </div>
                             </section>
-                            <div class="update col-md-4 col-12"> <!-- Parte in basso -->
+                            <div class="update col-md-4 col-12 p-2"> <!-- Parte in basso -->
                                 <img class="card-img-bottom center-block" src="../<?php echo UPLOAD_DIR.$post["Url"];?>" alt="immagine-post">
                             </div>
                         </div>
