@@ -104,7 +104,6 @@ class DatabaseHelper {
             $i++;
             //var_dump($final_result);
         endforeach;
-
         return $final_result;
     }
 
@@ -201,10 +200,16 @@ class DatabaseHelper {
         $stmt->bind_param("ss",$bio,$user);
         $stmt->execute();
    }
-    public function youPutLike($email, $id_post) {
-        $result = false;
 
-        return $result;
+    public function youPutLike($email, $id_post) {
+        $stmt = $this->db->prepare("SELECT indice FROM mi_piace WHERE EXISTS (SELECT indice FROM mi_piace WHERE Email = ? AND Id_Post = ?);");
+        $stmt->bind_param("si", $email, $id_post);
+        $stmt->execute();
+        $resultq = $stmt->get_result();
+        $resultq->fetch_all(MYSQLI_ASSOC);
+
+        //var_dump($resultq->num_rows);
+        return $resultq->num_rows;
     }
 }
 

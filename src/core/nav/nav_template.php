@@ -1,5 +1,5 @@
 <?php
-    if(isset($_COOKIE["notification"]) || count(json_decode($_COOKIE["notification"], true))) {
+    if(isset($_COOKIE["notification"]) && count(json_decode($_COOKIE["notification"], true))) {
         $_POST["notification"] = json_decode($_COOKIE["notification"], true);
         //echo json_decode($_COOKIE["notification"], true);
     }

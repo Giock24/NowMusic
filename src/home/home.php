@@ -33,7 +33,9 @@
         <div class="row pt-2 justify-content-center">
             <main class="col-md-11 col-11"> <!-- DIV di tutte i post -->
                 <?php include 'home_logic.php';?>
-                <?php foreach ($allpost as $post) : ?>           
+                <?php $index = 0; ?>
+                <?php foreach ($allpost as $post) : ?>
+                    <!-- set Id Post for likes that you give -->         
                     <article class="card container-fluid"> <!-- POST UNICO -->
                         <div class="row">
                             <section class="card-body p-0 col-md-8 col-11"> <!-- Parte centrale -->
@@ -49,8 +51,21 @@
                                             </a>
                                         </div>
                                         <div class="likes">
+                                            
                                             <a class="nav-item my-1 mx-1" href="#">
-                                                <span><em class="uil uil-heart"><small class="likes-count"><?php echo $post["numlikes"]; ?></small></em></span>
+                                                <span>
+                                                    <!-- TODO aggiungere parte dinamica del cuore -->
+                                                    <?php if($all_likes[$index] == 1) :?>
+                                                        <em class="uil uil-heart">
+                                                            <small class="likes-count"><?php echo $post["numlikes"]; ?></small>
+                                                        </em>
+                                                    <?php else :?>
+                                                        <em class="uil uil-heart-break">
+                                                            <small class="likes-count"><?php echo $post["numlikes"]; ?></small>
+                                                        </em>
+                                                    <?php endif; ?>
+                                                    <?php $index++; ?>
+                                                </span>
                                             </a>
                                         </div>
                                     </div>
