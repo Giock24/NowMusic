@@ -40,7 +40,7 @@
                         <input id="song_id" type="hidden" name="song_id" value="<?php echo $_SESSION['song_id'] ?>"/>
                         <div class="input-group">
                             <img id="image-previous" src="../../assets/images/no_image.jpg" alt="previous of the image you want to upload"
-                                style="max-width: 40%, max-height: 70%;"/>
+                                style="max-width: 40%, max-height: 50%;"/>
                             <label class="input-group" hidden>Upload a photo</label>
                             <input type="file" name="fileToUpload" id="fileToUpload" class="form-control"  accept="image/*" onchange="loadFile(event)">
                         </div>
