@@ -52,6 +52,7 @@ setInterval(function() {
                 console.log(likes);
                 console.log(comments);
             } else {
+                var newNotification = false;
                 if(likesAndComments.likes.length > likes.length){
                     var newLikes = likesAndComments.likes.slice(likes.length);
                     likes = likesAndComments.likes;
@@ -59,6 +60,7 @@ setInterval(function() {
                         var newLike = newLikes[i];
                         var notification = create_notification(newLike.user, "ha messo mi piace al tuo post.");
                         notificationList.push(notification);
+                        newNotification = true;
                     }
                 }
                 if(likesAndComments.comments.length > comments.length){
@@ -68,10 +70,14 @@ setInterval(function() {
                         var newComment = newComments[i];
                         var notification = create_notification(newComment.user, 'ha commentato: "' + newComment.comment +'"');
                         notificationList.push(notification);
+                        newNotification = true;
                     }
                 }
-                console.log("new notification : "+notificationList);
-                createCookie("notification", JSON.stringify(notificationList), 1);
+                if(newNotification){
+                    console.log("new notification : "+notificationList);
+                    createCookie("notification", JSON.stringify(notificationList), 1);
+                    location.reload();
+                }
             }
         }
     };
@@ -81,11 +87,11 @@ setInterval(function() {
 
 
 
-/*
+/* 
 var x = ["1","2"];
 var y = JSON.stringify(x);
 
-//createCookie("notification", y, 1);
+createCookie("notification", y, 1);
 
 console.log("COOKIE:  "+document.cookie);
 

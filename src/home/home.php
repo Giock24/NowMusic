@@ -19,7 +19,12 @@
     <?php
         require_once("../auth/check_auth.php");
         checkAuth();
-        //echo $_COOKIE["notification"]; 
+        /*
+        if(isset($_COOKIE["notification"])){
+            $notification = json_decode($_COOKIE["notification"], true);
+            echo count($notification);
+        }
+        */
     ?>
     <div class="container-fluid p-0 overflow-x-hidden h-100">
         <?php 

@@ -1,3 +1,9 @@
+<?php
+    if(isset($_COOKIE["notification"]) || count(json_decode($_COOKIE["notification"], true))) {
+        $_POST["notification"] = json_decode($_COOKIE["notification"], true);
+        //echo json_decode($_COOKIE["notification"], true);
+    }
+?>
 
 <nav class="navbar px-2 navbar-dark bg-dark sticky-top">
     <div class="col-7 align-items-center">
@@ -13,9 +19,11 @@
     <div class="nav nav-pills">
         <?php if($navParams["showlogout"] === false) : ?>
             <div class="notifications" style="position: relative; padding-left:10px">
-                <?php /* if(count($_COOKIE["notification"]) > 0) : */?>
-                <span class='badge' id='notification_count' style="position: absolute; top: 0; left: 0; height: 24px; width: 24px; border-radius:25px; background:#C318FA; border: 1px solid #000000;"> 5 </span>
-                <?php /* endif;*/ ?>
+                <?php if(isset($_POST["notification"])) : ?>
+                <span class='badge' id='notification_count' style="position: absolute; top: 0; left: 0; height: 24px; width: 24px; border-radius:25px; background:#C318FA; border: 1px solid #000000;">
+                    <?php echo count($_POST["notification"]); ?>
+                </span>
+                <?php endif; ?>
                 <button type="button" class="nav-item py-1 notification-button" data-bs-target="#notifications" data-bs-toggle="modal">
                     <img src="../../assets/images/circle-notifications.png" alt="notifications image"/>
                 </button>
@@ -41,6 +49,9 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
+                                <?php if(isset($_POST["notification"])) : ?>
+                                   <p> <?php echo $_POST["notification"]; ?> </p>
+                                <?php endif; ?>
                                 <div class="card card-notification">
                                     <div class="card-body">
                                         <div class="row align-items-center">
