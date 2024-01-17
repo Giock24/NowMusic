@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./profile_page.css">
     <link rel="stylesheet" href="../../css/style.css"/>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <?php
@@ -41,56 +42,75 @@
                             </ul>
                         </div>
                         <button type="button" class="btn btn-secondary py-1 btn-sm" data-bs-target="#modify_profile" data-bs-toggle="modal">
-                            <span class="profile"><i class="uil uil-cog"></i><h3>Modifica profilo</h3></span>
+                            <span class="profile"><i class="fa-solid fa-user-gear"></i><h3>Modifica profilo</h3></span>
                         </button>
                         <!--modal -->
                         
-
-
                         <div class="modal fade" id="modify_profile" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                                <!-- Conteuto della modale -->
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h1 class="modal-title fs-5" id="notificationsLabel">Edit Profile </h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
+                                    <!-- Body della modale  -->
                                     <div class="modal-body row col-lg-8 border rounded mx-auto mt-5 p-2 shadow-lg">
-                                        
                                             <div class="col-md-4 text center">
-                                                <img class="img-fluid rounded" src="../../assets/images/user_icon.png" style="width: 180px; height:180px;object-fit: cover;" alt="profile_user_image"/>
+                                                <img class="js-image img-fluid rounded" src="../../assets/images/user_icon.png" style="width: 180px; height:180px;object-fit: cover;" alt="profile_user_image"/>
                                                     <div class="mb-3">
-                                                        <label for="formFile" class="form-label">Click to select an image</label>
-                                                        <input  class="form-control" type="file" id="formfile">
-
+                                                        <label for="formFile" class="form-label">Click below to select an image</label>
+                                                        <input onchange="display_image(this.files[0])" class="form-control" type="file" id="formFile">
                                                     </div>
                                             </div>
                                             <div class="col-md-8">
-                                                <table class="table table-strped">
-                                                    <tr><th colspan="2">User Details</th></tr>
-                                                    <tr><th><i class="bi bi-envelope"></i> Email</th>
-                                                        <td>email@email.com</td>
-                                                    </tr>
-                                                    <tr><th><i class="bi bi-person-circle"></i> First name</th>
-                                                        <td>John</td>
-                                                    </tr>
-                                                    <tr><th><i class="bi bi-person-square"></i> Last name</th>
-                                                        <td>Doe</td>
-                                                    </tr>
-                                                    <tr><th><i class="bi bi-gender-ambiguous"></i> Gender</th>
-                                                        <td>Male</td>
-                                                    </tr>
-                                                </table>
-                                                <div class="p-2">
-
-                                                </div>
+                                                <form method="post">
+                                                    <table class="table table-strped">
+                                                        <tr><th colspan="2">User Details:</th></tr>
+                                                        <tr><th><i class="fa-regular fa-envelope"></i> Email</th>
+                                                            <td>
+                                                            <input type="text" class="form-control" name="email"    placeholder="Email">                                        
+                                                            </td>
+                                                        </tr>
+                                                        <tr><th><i class="fa-solid fa-user"></i> Username</th>
+                                                            <td>
+                                                                <input type="text" class="form-control" name="username"     placeholder="Username">
+                                                            </td>
+                                                        </tr>
+                                                        <tr><th><i class="fa-solid fa-venus"></i> Gender</th>
+                                                            <td>
+                                                                <select class="form-select form-select mb-3"    arial-label="form-select-lg       example" >
+                                                                <option selected value="">--Select Gender--</option>
+                                                                <option value="Male">Male</option>
+                                                                <option value="Female">Female</option>
+                                                                <option value="Other">Other</option>
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr><th><i class="fa-solid fa-cake-candles"></i> Data di Nascita</th>
+                                                            <td>
+                                                                <input type="date" class="form-control" name="birthday date" >
+                                                            </td>
+                                                        </tr>
+                                                        <tr><th><i class="fa-regular fa-pen-to-square"></i> Biografia</th>
+                                                            <td>
+                                                                <textarea name="biografia" id="biografia" cols="40" rows="4"> Enter Text here..</textarea>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <div class="p-2">
+                                                        <button class="btn btn-primary float-end">Save</button>
+                                                    </div>
+                                                </form>    
                                             </div>
-                                       
                                     </div>
-                                    <div class="modal-footer">
+                                    <div class="modal-footer ">
+                            
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
                 <div class="posts col-md-8 col-12">
@@ -142,3 +162,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
+
+<script>
+    console.log(URL);
+    function display_image(file)
+    {
+        var img = document.querySelector(".js-image");
+        img.src = URL.createObjectURL(file);
+    }
+</script>
