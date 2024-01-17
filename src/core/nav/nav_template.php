@@ -23,7 +23,7 @@
                     <?php echo count($_POST["notifications"]); ?>
                 </span>
                 <?php endif; ?>
-                <button type="button" class="nav-item py-1 notification-button" data-bs-target="#notifications" data-bs-toggle="modal">
+                <button type="button" class="nav-item py-1 notification-button" data-bs-target="#notifications" data-bs-toggle="modal" onclick="alert('Hello world!')">
                     <img src="../../assets/images/circle-notifications.png" alt="notifications image"/>
                 </button>
             </div>
