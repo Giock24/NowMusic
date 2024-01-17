@@ -107,7 +107,11 @@ create table UTENTE (
      Username char(15) not null,
      Password char(10) not null,
      UrlImmagine char(50),
+     DateOfBirth date,
+     Biografia varchar(500),
+     Gender boolean,
      primary key (Email));
+
 
 
 -- Constraints Section
@@ -222,7 +226,7 @@ alter table POST_TAG add constraint FKPOSTTAG_POSTID
 -- _____________ 
 -- Populate Tables
 
-INSERT INTO UTENTE (Email, Username, Password) VALUES ("giock.consoli@gmail.com", "Giock", "123");
+INSERT INTO UTENTE (Email, Username, Password,Biografia,Gender) VALUES ("giock.consoli@gmail.com", "Giock", "123","Studente Ingegneria e scienze informatiche",TRUE);
 
 INSERT INTO POST (Spotify_Id, Testo, Timestamp, PostImmagine, Url, Id_utente, Id_communty, Categoria) VALUES ("0GWNtMohuYUEHVZ40tcnHF","Itadori non diventare cattivo pls",'2024-01-01',1,"itadori.jpg","giock.consoli@gmail.com",0,"Anime");
 
