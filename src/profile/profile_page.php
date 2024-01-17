@@ -100,7 +100,10 @@
                                                         </tr>
                                                         <tr><th><i class="fa-regular fa-pen-to-square"></i> Biografia</th>
                                                             <td>
-                                                                <textarea name="biografia" id="biografia" cols="40" rows="4" placeholder="Enter Text here.."></textarea>
+                                                                <div class="form-group">
+                                                                    <label for="biografia" hidden>Bio</label>
+                                                                    <textarea class="form-control" id="biografia" name="biografia" rows="3" placeholder="Enter Text here.."></textarea>
+                                                                </div>
                                                             </td>
                                                         </tr>
                                                     </table>
