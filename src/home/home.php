@@ -31,7 +31,6 @@
                 <?php foreach ($allpost as $post) : ?>
                     <!-- set Id Post for likes that you give -->         
                     <article id="<?php echo "post_{$post['Id_Post']}"; ?>" class="card container-fluid"> <!-- POST UNICO -->
-                        <?php updateMyPost($index); ?>
                         <div class="row">
                             <section class="card-body p-0 col-md-8 col-11"> <!-- Parte centrale -->
                                 <div class="navbar nav-user-like p-2 flex-row align-content-center"> <!-- Contenitore di tutto la parte centrale -->
