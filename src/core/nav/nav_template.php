@@ -17,7 +17,7 @@
     </div>
     <div class="nav nav-pills">
         <?php if($navParams["showlogout"] === false) : ?>
-            <div class="notifications" style="position: relative; padding-left:10px">
+            <div id="notification_icon_container" class="notifications" style="position: relative; padding-left:10px">
                 <?php if(isset($_POST["notifications"])) : ?>
                 <span class='badge' id='notification_count' style="position: absolute; top: 0; left: 0; height: 24px; width: 24px; border-radius:25px; background:#C318FA; border: 1px solid #000000;">
                     <?php echo count($_POST["notifications"]); ?>

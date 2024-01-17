@@ -54,7 +54,7 @@ setInterval(function() {
                 if(newNotification){
                     console.log("new notification : "+notificationList);
                     createCookie("notification", JSON.stringify(notificationList), 1);
-                    location.reload();
+                    $("#notification_icon_container").load(location.href +" #notification_icon_container");
                 }
                 likes = likesAndComments.likes;
                 comments = likesAndComments.comments;
@@ -71,5 +71,5 @@ document.getElementById("notification_icon").addEventListener("click", function(
 });
 
 document.getElementById("notifications").addEventListener('hidden.bs.modal', function () {
-    location.reload();
+    $("#notification_icon_container").load(location.href +" #notification_icon_container");
 });
