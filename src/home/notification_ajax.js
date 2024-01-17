@@ -4,6 +4,8 @@ function create_notification(user, message){
         user: user,
         message: message
     }
+    console.log("notification: "+notification);
+    console.log("notification stringify: "+JSON.stringify(notification));
     return JSON.stringify(notification);
 }
 

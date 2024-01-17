@@ -1,7 +1,6 @@
 <?php
     if(isset($_COOKIE["notification"]) && count(json_decode($_COOKIE["notification"], true))) {
-        $_POST["notification"] = json_decode($_COOKIE["notification"], true);
-        //echo json_decode($_COOKIE["notification"], true);
+        $_POST["notifications"] = json_decode($_COOKIE["notification"], true);
     }
 ?>
 
@@ -19,9 +18,9 @@
     <div class="nav nav-pills">
         <?php if($navParams["showlogout"] === false) : ?>
             <div class="notifications" style="position: relative; padding-left:10px">
-                <?php if(isset($_POST["notification"])) : ?>
+                <?php if(isset($_POST["notifications"])) : ?>
                 <span class='badge' id='notification_count' style="position: absolute; top: 0; left: 0; height: 24px; width: 24px; border-radius:25px; background:#C318FA; border: 1px solid #000000;">
-                    <?php echo count($_POST["notification"]); ?>
+                    <?php echo count($_POST["notifications"]); ?>
                 </span>
                 <?php endif; ?>
                 <button type="button" class="nav-item py-1 notification-button" data-bs-target="#notifications" data-bs-toggle="modal">
@@ -49,35 +48,27 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <?php if(isset($_POST["notification"])) : ?>
-                                   <p> <?php echo $_POST["notification"]; ?> </p>
+                                <?php if(isset($_POST["notifications"])) : ?>
+                                    <?php foreach($_POST["notifications"] as $notification) : 
+                                        $notificationJson = json_decode($notification);
+                                        $username = $notificationJson->username;
+                                        $message = $notificationJson->message; 
+                                    ?>
+                                        <div class="card card-notification">
+                                            <div class="card-body">
+                                                <div class="row align-items-center">
+                                                    <div class="col-md-1 col-1 center-block">
+                                                        <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="27" height="27" alt="user-image"/>
+                                                    </div>
+                                                    <div class="col-md-11 col-11 py-1">
+                                                        <p class="h5"><?php echo $username ?></p>
+                                                        <p><?php echo $message; ?></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
                                 <?php endif; ?>
-                                <div class="card card-notification">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-md-1 col-1 center-block">
-                                                <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="27" height="27" alt="user-image"/>
-                                            </div>
-                                            <div class="col-md-11 col-11 py-1">
-                                                <p class="h5">gianluca.consoli</p>
-                                                <p>ha messo mi piace al tuo post.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card card-notification">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-md-1 col-1 center-block">
-                                                <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="27" height="27" alt="user-image"/>
-                                            </div>
-                                            <div class="col-md-11 col-11 py-1">
-                                                <p class="h5">riccardo.garde</p>
-                                                <p>ha commentato: "Bella questa canzone"</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div class="modal-footer">
                             
