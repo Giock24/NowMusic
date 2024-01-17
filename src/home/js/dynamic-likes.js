@@ -1,9 +1,6 @@
 
 let all_heart = document.getElementsByClassName("like");
-//let all_heart_break = document.getElementsByClassName("uil uil-heart-break");
-//let all_a = document.getElementsByClassName("like");
-console.log(all_heart);
-//console.log(all_heart_break);
+//console.log(all_heart);
 
 for (let i = 0; i < all_heart.length; i++) {
     all_heart[i].addEventListener("click", function() {

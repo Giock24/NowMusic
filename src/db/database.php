@@ -201,7 +201,7 @@ class DatabaseHelper {
         $stmt->execute();
    }
 
-    // this function return 1 if you have put like to a post and 0 otherwise
+    // this function return id_post if you have put like to a post and 0 otherwise
     public function youPutLike($email, $id_post) {
         $stmt = $this->db->prepare("SELECT indice FROM mi_piace WHERE EXISTS (SELECT indice FROM mi_piace WHERE Email = ? AND Id_Post = ?);");
         $stmt->bind_param("si", $email, $id_post);
@@ -215,12 +215,14 @@ class DatabaseHelper {
 
     public function addNewLike($email, $id_post) {
         $stmt = $this->db->prepare("INSERT INTO MI_PIACE (Email, Id_post) VALUES (?, ?)");
-        $stmt->bind_param("ss", $email, $id_post);
+        $stmt->bind_param("si", $email, $id_post);
         $stmt->execute();
     }
 
     public function removeLike($email, $id_post) {
-
+        $stmt = $this->db->prepare("DELETE FROM MI_PIACE WHERE Email = ? AND Id_post = ?");
+        $stmt->bind_param("si", $email, $id_post);
+        $stmt->execute();
     }
 }
 
