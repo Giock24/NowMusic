@@ -5,6 +5,5 @@
  $user = $_SESSION["user"];
 
  $allmypost = $dbh->getPosts($user["Email"]);
- #print_r($allmypost);
-
+ 
 ?>

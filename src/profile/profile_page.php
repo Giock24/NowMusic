@@ -38,7 +38,7 @@
                                 <li><?php echo($user["Username"])?></li>
                                 <li>Email: <?php echo($user["Email"])?><li>
                                 <li>Data di Nascita --/--/---- </li>
-                                <li>Ingegneria e Scinze Informatiche - Cesena </li>
+                                <li>Bio: <?php echo($user["Biografia"])?></li>
                             </ul>
                         </div>
                         <button type="button" class="btn btn-secondary py-1 btn-sm" data-bs-target="#modify_profile" data-bs-toggle="modal">
@@ -60,46 +60,41 @@
                                                 <img class="js-image img-fluid rounded" src="../../assets/images/user_icon.png" style="width: 180px; height:180px;object-fit: cover;" alt="profile_user_image"/>
                                                     <div class="mb-3">
                                                         <label for="formFile" class="form-label">Click below to select an image</label>
-                                                        <input onchange="display_image(this.files[0])" class="form-control" type="file" id="formFile">
+                                                        <input onchange="display_image(this.files[0])" class="form-control" type="file" id="formFile" name="imageProfile">
                                                     </div>
                                             </div>
                                             <div class="col-md-8">
-                                                <form method="post">
+                                                <form action="profile_page_fnz.php" method="post">
                                                     <table class="table table-strped">
                                                         <tr><th colspan="2">User Details:</th></tr>
-                                                        <tr><th><i class="fa-regular fa-envelope"></i> Email</th>
-                                                            <td>
-                                                            <input type="text" class="form-control" name="email"    placeholder="Email">                                        
-                                                            </td>
-                                                        </tr>
                                                         <tr><th><i class="fa-solid fa-user"></i> Username</th>
                                                             <td>
-                                                                <input type="text" class="form-control" name="username"     placeholder="Username">
+                                                                <input type="text" class="form-control" name="username" placeholder="Username">
                                                             </td>
                                                         </tr>
                                                         <tr><th><i class="fa-solid fa-venus"></i> Gender</th>
                                                             <td>
-                                                                <select class="form-select form-select mb-3"    arial-label="form-select-lg       example" >
-                                                                <option selected value="">--Select Gender--</option>
-                                                                <option value="Male">Male</option>
-                                                                <option value="Female">Female</option>
-                                                                <option value="Other">Other</option>
+                                                                <select class="form-select form-select mb-3" name="gender" arial-label="form-select-lg example" >
+                                                                    <option selected value="">--Select Gender--</option>
+                                                                    <option value="Male">Male</option>
+                                                                    <option value="Female">Female</option>
+                                                                    <option value="Other">Other</option>
                                                                 </select>
                                                             </td>
                                                         </tr>
                                                         <tr><th><i class="fa-solid fa-cake-candles"></i> Data di Nascita</th>
                                                             <td>
-                                                                <input type="date" class="form-control" name="birthday date" >
+                                                                <input type="date" class="form-control" name="birthdaydate" >
                                                             </td>
                                                         </tr>
                                                         <tr><th><i class="fa-regular fa-pen-to-square"></i> Biografia</th>
                                                             <td>
-                                                                <textarea name="biografia" id="biografia" cols="40" rows="4"> Enter Text here..</textarea>
+                                                                <textarea name="biografia" id="biografia" cols="40" rows="4" placeholder="Enter Text here.."></textarea>
                                                             </td>
                                                         </tr>
                                                     </table>
                                                     <div class="p-2">
-                                                        <button class="btn btn-primary float-end">Save</button>
+                                                        <button class="btn btn-primary float-end" name="save">Save</button>
                                                     </div>
                                                 </form>    
                                             </div>

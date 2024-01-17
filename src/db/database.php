@@ -195,6 +195,12 @@ class DatabaseHelper {
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+   public function modifyProfile($bio, $user){
+        $stmt = $this->db->prepare("UPDATE utente SET Biografia = ? WHERE Email=?;");
+        $stmt->bind_param("ss",$bio,$user);
+        $stmt->execute();
+   }
 }
 
 ?>
