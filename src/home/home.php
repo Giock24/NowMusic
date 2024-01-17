@@ -45,15 +45,15 @@
                                         </div>
                                         <div class="likes">
                                             
-                                            <a class="like nav-item my-1 mx-1" href="#">
+                                            <a class="nav-item my-1 mx-1" href="#">
                                                 <span>
                                                     <!-- TODO aggiungere parte dinamica del cuore -->
                                                     <?php if($all_likes[$index] == 1) :?>
-                                                        <em class="uil uil-heart">
+                                                        <em class="like uil uil-heart-break" data="<?php echo $post['Id_Post']; ?>">
                                                             <small class="likes-count"><?php echo $post["numlikes"]; ?></small>
                                                         </em>
                                                     <?php else :?>
-                                                        <em class="uil uil-heart-break">
+                                                        <em class="like uil uil-heart" data="<?php echo $post['Id_Post']; ?>">
                                                             <small class="likes-count"><?php echo $post["numlikes"]; ?></small>
                                                         </em>
                                                     <?php endif; ?>

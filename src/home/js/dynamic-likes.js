@@ -1,0 +1,24 @@
+
+let all_heart = document.getElementsByClassName("like");
+//let all_heart_break = document.getElementsByClassName("uil uil-heart-break");
+//let all_a = document.getElementsByClassName("like");
+console.log(all_heart);
+//console.log(all_heart_break);
+
+for (let i = 0; i < all_heart.length; i++) {
+    all_heart[i].addEventListener("click", function() {
+        //all_heart[i].setAttribute("class", "uil uil-heart-break");
+        console.log(all_heart[i]);
+
+        var xmlhttp, likesAndComments;
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+            }
+        };
+        xmlhttp.open("POST", "add_remove_likes.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
+        xmlhttp.send("like_idpost="+all_heart[i].getAttribute("data"));
+    });
+}
