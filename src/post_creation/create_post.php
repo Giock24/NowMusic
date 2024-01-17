@@ -16,7 +16,7 @@
     }
 
     $post_img = $imagePath != "" ? 1 : 0;
-    $postId = $dbh->addNewPost($song, $description,  $post_img,  $imagePath, $user['Email']);
+    //$postId = $dbh->addNewPost($song, $description,  $post_img,  $imagePath, $user['Email']);
 
     // add hashtags to post
     if($postId != null){
@@ -29,6 +29,6 @@
         }
         header('Location: /NowMusic/src/home/home.php');
     } else {
-        header('Location: /NowMusic/src/home/home.php?error=1');
+        header('Location: /NowMusic/src/post_creation/post_add_content.php?error=1');
     }
 ?>
