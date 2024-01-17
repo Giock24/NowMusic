@@ -37,13 +37,19 @@
                             <ul>
                                 <li><?php echo($user["Username"])?></li>
                                 <li>Email: <?php echo($user["Email"])?><li>
-                                <li>Data di Nascita --/--/---- </li>
+                                <!--<li>Data di Nascita --/--/---- </li>-->
                                 <li>Bio: <?php echo($user["Biografia"])?></li>
                             </ul>
                         </div>
-                        <button type="button" class="btn btn-secondary py-1 btn-sm" data-bs-target="#modify_profile" data-bs-toggle="modal">
-                            <span class="profile"><i class="fa-solid fa-user-gear"></i><h3>Modifica profilo</h3></span>
-                        </button>
+                        <?php if($user["Email"] == $_SESSION["user"]["Email"]) : ?>
+                            <button type="button" class="btn btn-secondary mt-2 mb-5 py-1 btn-sm" data-bs-target="#modify_profile" data-bs-toggle="modal" style="max-width:50%">
+                                <span class="profile"><i class="fa-solid fa-user-gear"></i><h3>Edit Profile</h3></span>
+                            </button>
+                        <?php else : ?>
+                            <button type="button" class="btn btn-secondary mt-2 mb-5 py-1 btn-sm" style="max-width:50%" disabled>
+                                <span class="profile"><h3>Follow</h3></span>
+                            </button>
+                        <?php endif; ?>
                         <!--modal -->
                         
                         <div class="modal fade" id="modify_profile" tabindex="-1" aria-hidden="true">

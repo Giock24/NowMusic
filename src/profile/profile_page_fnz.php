@@ -3,7 +3,7 @@
     require_once("../auth/check_auth.php");
     checkAuth();
 
-    $bio = $_POST["biografia"];    
+    $bio = $_POST["biografia"];
     $user = $_SESSION["user"];
 
     $dbh->modifyProfile($bio,$user["Email"]);
