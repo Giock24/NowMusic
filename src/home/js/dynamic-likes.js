@@ -19,6 +19,5 @@ for (let i = 0; i < all_heart.length; i++) {
         xmlhttp.send("like_idpost="+all_heart[i].getAttribute("data"));
 
         //$("#post_like_icon").load(location.href +" #post_like_icon");
-        location.reload();
     });
 }
