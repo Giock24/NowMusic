@@ -7,8 +7,10 @@
 
  if(isset($_GET["user_profile_email"])){
    $user = $dbh->getProfile($_GET["user_profile_email"]);
-   $isFollowed = count($dbh->isFollow($_SESSION["user"]["Email"],$user["Email"])) > 0;
+   $isFollowed = $dbh->isFollow($_SESSION["user"]["Email"],$user["Email"]);
  }     
+
+ $followers = count($dbh->getFollowers($user["Email"]));
 
  $allmypost = $dbh->getPosts($user["Email"]);
  

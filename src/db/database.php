@@ -263,7 +263,7 @@ class DatabaseHelper {
         $stmt->bind_param("ss", $email, $id_user);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return count($result->fetch_all(MYSQLI_ASSOC)) > 0;
     }
 
     // add a new follow
@@ -278,6 +278,15 @@ class DatabaseHelper {
         $stmt = $this->db->prepare("DELETE FROM FOLLOW WHERE Email_seguace = ? AND Email_seguito = ?");
         $stmt->bind_param("ss", $email, $id_user);
         $stmt->execute();
+    }
+
+    // return all users followed by a user
+    public function getFollowers($email) {
+        $stmt = $this->db->prepare("SELECT Email_seguito FROM FOLLOW WHERE Email_seguace = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
 

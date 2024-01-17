@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="../../css/style.css"/>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="./profile_page_logic.js"></script>
 </head>
 <body>
     <?php
@@ -32,7 +31,7 @@
                         </div>
                         <div class="edge-info">
                             <p class="text-center"><strong><?php echo($user["Username"])?></strong></p>
-                            <p class="text-center"><strong>100k</strong> Followers <strong><?php echo count($allmypost) ?> </strong>Post</p>
+                            <p class="text-center"><strong><?php echo $followers ?></strong> Followers <strong><?php echo count($allmypost) ?> </strong>Post</p>
                         </div>
                         <div class="bio">
                             <ul>
@@ -46,7 +45,7 @@
                                 <span class="profile"><i class="fa-solid fa-user-gear"></i><h3>Edit Profile</h3></span>
                             </button>
                         <?php else : ?>
-                            <button type="button" class="btn btn-secondary mt-2 mb-5 py-1 btn-sm" style="max-width:50%" disabled>
+                            <button type="button" class="follow_unfollow btn btn-secondary mt-2 mb-5 py-1 btn-sm" style="max-width:50%" data=<?php echo $user["Email"] ?>>
                                 <span class="profile">
                                     <?php if($isFollowed) : ?>
                                         <h3>Unfollow</h3>
@@ -166,6 +165,7 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="./profile_page_logic.js"></script>
 </body>
 </html>
 
