@@ -30,7 +30,8 @@
                 <?php $index = 0; ?>
                 <?php foreach ($allpost as $post) : ?>
                     <!-- set Id Post for likes that you give -->         
-                    <article class="card container-fluid"> <!-- POST UNICO -->
+                    <article id="<?php echo "post_{$post['Id_Post']}"; ?>" class="card container-fluid"> <!-- POST UNICO -->
+                        <?php updateMyPost($index); ?>
                         <div class="row">
                             <section class="card-body p-0 col-md-8 col-11"> <!-- Parte centrale -->
                                 <div class="navbar nav-user-like p-2 flex-row align-content-center"> <!-- Contenitore di tutto la parte centrale -->
@@ -45,11 +46,10 @@
                                             </a>
                                         </div>
                                         <div class="likes">
-                                            
                                             <a class="nav-item my-1 mx-1" href="#">
-                                                <span id="<?php echo "post_{$post['Id_Post']}_like_icon"; ?>">
+                                                <span>
                                                     <!-- TODO aggiungere parte dinamica del cuore -->
-                                                    <?php if($all_likes[$index] == 1) :?>
+                                                    <?php if($all_my_likes[$index] == 1) :?>
                                                         <em class="like uil uil-heart-break" data="<?php echo $post['Id_Post']; ?>">
                                                             <small class="likes-count"><?php echo $post["numlikes"]; ?></small>
                                                         </em>
