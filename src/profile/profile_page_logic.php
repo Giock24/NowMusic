@@ -4,8 +4,8 @@
  checkAuth();
  $user = $_SESSION["user"];
 
- if(isset($_POST["user_profile"])){
-    $user = $_POST["user_profile"];
+ if(isset($_POST["user_profile_email"])){
+    $user = $dbh->getProfile($_POST["user_profile_email"]);
  }    
 
  $allmypost = $dbh->getPosts($user["Email"]);

@@ -195,11 +195,11 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-   public function modifyProfile($bio, $user){
-        $stmt = $this->db->prepare("UPDATE utente SET Biografia = ? WHERE Email=?;");
-        $stmt->bind_param("ss",$bio,$user);
-        $stmt->execute();
-   }
+    public function modifyProfile($bio, $user){
+            $stmt = $this->db->prepare("UPDATE utente SET Biografia = ? WHERE Email=?;");
+            $stmt->bind_param("ss",$bio,$user);
+            $stmt->execute();
+    }
 
     // this function return id_post if you have put like to a post and 0 otherwise
     public function youPutLike($email, $id_post) {
@@ -237,6 +237,14 @@ class DatabaseHelper {
         $result = $stmt->get_result();
 
         //var_dump($result->fetch_all(MYSQLI_ASSOC));
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getProfile($email) {
+        $stmt = $this->db->prepare("SELECT `Email`, `Username`, `UrlImmagine`, `DateOfBirth`, `Biografia`, `Gender` FROM `utente` WHERE Email=?");
+        $stmt->bind_param("ss", $email, $password);
+        $stmt->execute();
+        $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
