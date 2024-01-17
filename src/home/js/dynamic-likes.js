@@ -17,5 +17,8 @@ for (let i = 0; i < all_heart.length; i++) {
         xmlhttp.open("POST", "add_remove_likes.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
         xmlhttp.send("like_idpost="+all_heart[i].getAttribute("data"));
+
+        //$("#post_like_icon").load(location.href +" #post_like_icon");
+        location.reload();
     });
 }

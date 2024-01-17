@@ -47,7 +47,7 @@
                                         <div class="likes">
                                             
                                             <a class="nav-item my-1 mx-1" href="#">
-                                                <span>
+                                                <span id="<?php echo "post_{$post['Id_Post']}_like_icon"; ?>">
                                                     <!-- TODO aggiungere parte dinamica del cuore -->
                                                     <?php if($all_likes[$index] == 1) :?>
                                                         <em class="like uil uil-heart-break" data="<?php echo $post['Id_Post']; ?>">
