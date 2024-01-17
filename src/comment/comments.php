@@ -30,10 +30,14 @@
                     <div class="row comment container-fluid"> <!-- COMMENTO UNICO -->
                         <div class="img-picture col-md-1 col-2">
                             <!-- nella query getCommentsById manca nella SELECT l'url dell'immagine di profile dello user -->
-                            <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="50" height="50" alt="user-image"/>
+                            <a href=<?php echo "../profile/profile_page.php?user_profile_email={$comment["CommentEmail"]}"?> alt=<?php "go to the profile of {$comment["CommentEmail"]}"?>>
+                                <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="50" height="50" alt="user-image"/>
+                            </a>
                         </div>
                         <div class="user-comment col-md-11 col-10">
-                            <p class="h5 my-2 mx-2"><?php echo $comment["Username"]; ?></p>
+                            <a href=<?php echo "../profile/profile_page.php?user_profile_email={$comment["CommentEmail"]}"?> alt=<?php "go to the profile of {$comment["CommentEmail"]}"?>>
+                                <p class="h5 my-2 mx-2"><?php echo $comment["Username"]; ?></p>
+                            </a>
                             <p class="card-text"><?php echo $comment["Testo"]; ?></p>
                         </div>
                     </div>
