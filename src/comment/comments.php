@@ -25,17 +25,19 @@
         <div class="row justify-content-center">
             <main class="col-md-12 col-12"> <!-- DIV di tutte i post -->
                 <?php include 'comments_logic.php';?>
-                <?php $index = 0; ?>
                 <h1 class="text-center">Comments</h1>
-                <div class="row comment container-fluid"> <!-- COMMENTO UNICO -->
-                    <div class="img-picture col-md-1 col-2">
-                        <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="50" height="50" alt="user-image"/>
+                <?php foreach($allPostById as $comment) : ?>
+                    <div class="row comment container-fluid"> <!-- COMMENTO UNICO -->
+                        <div class="img-picture col-md-1 col-2">
+                            <!-- nella query getCommentsById manca nella SELECT l'url dell'immagine di profile dello user -->
+                            <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="50" height="50" alt="user-image"/>
+                        </div>
+                        <div class="user-comment col-md-11 col-10">
+                            <p class="h5 my-2 mx-2"><?php echo $comment["Username"]; ?></p>
+                            <p class="card-text"><?php echo $comment["Testo"]; ?></p>
+                        </div>
                     </div>
-                    <div class="user-comment col-md-11 col-10">
-                        <p class="h5 my-2 mx-2">Username</p>
-                        <p class="card-text">Questo è un bel commento</p>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </main>
         </div>
         <footer class="fixed-bottom container-fluid justify-content-center">
