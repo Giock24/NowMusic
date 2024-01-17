@@ -242,10 +242,10 @@ class DatabaseHelper {
 
     public function getProfile($email) {
         $stmt = $this->db->prepare("SELECT `Email`, `Username`, `UrlImmagine`, `DateOfBirth`, `Biografia`, `Gender` FROM `utente` WHERE Email=?");
-        $stmt->bind_param("ss", $email, $password);
+        $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $result->fetch_all(MYSQLI_ASSOC)["0"];
     }
     
     // add new comment in a post
