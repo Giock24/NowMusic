@@ -45,10 +45,30 @@ article {
     font-size: 30px;
 }
 
+.card-body {
+    border-right: 1px solid white;
+}
+
+.nav-user-like {
+    border-bottom: 1px solid white;
+}
+
+.tag {
+    display: inline-block;
+}
+
 /* On screens that are 768px or less, set new position of footer button*/
 @media screen and (max-width: 768px) {
     footer {
         display: flex;
         justify-content: center;
+    }
+
+    .card-body {
+        border-right: none;
+    }
+
+    .nav-user-like {
+        border-bottom: none;
     }
 }
