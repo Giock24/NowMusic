@@ -18,7 +18,9 @@
     <?php
         require_once("../auth/check_auth.php");
         checkAuth();
-        $_SESSION['song_id'] = $_POST["song_id"];
+        if(isset($_POST["song_id"])){
+            $_SESSION['song_id'] = $_POST["song_id"];
+        }
     ?>
     <div class="container-fluid p-0 overflow-hidden h-100">
         <div class="d-flex flex-column h-100">
@@ -35,19 +37,25 @@
                     </div>
                     <form  action="upload_photo.php" method="post" class="flex-fill add-image" enctype="multipart/form-data">
                         <label for="song_id" hidden>Song Id</label>
-                        <input id="song_id" type="hidden" name="song_id" value="<?php echo $_POST["song_id"] ?>"/>
+                        <input id="song_id" type="hidden" name="song_id" value="<?php echo $_SESSION['song_id'] ?>"/>
                         <div class="input-group">
-                            <img id="image-previous" src="../../assets/images/no_image.jpg" alt="previous of the image you want to upload"/>
+                            <img id="image-previous" src="../../assets/images/no_image.jpg" alt="previous of the image you want to upload"
+                                style="max-width: 40%, max-height: 70%;"/>
                             <label class="input-group" hidden>Upload a photo</label>
                             <input type="file" name="fileToUpload" id="fileToUpload" class="form-control"  accept="image/*" onchange="loadFile(event)">
                         </div>
-                        <div class="row mt-3">
+                        <div class="row mt-3 mb-4">
                             <label class="submit" for="next" hidden>Next</label>
                             <input id="next" type="submit" class="btn" value="Next"/>
                         </div>
                     </form>
                 </div>
             </div>
+            <?php if(isset($_GET["error"]) && $_GET["error"]==1) : ?>
+                <script>
+                    alert("Sorry, there was an error uploading your file.");
+                </script>
+            <?php endif; ?>
         </div>
        
        
