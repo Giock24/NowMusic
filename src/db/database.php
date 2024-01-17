@@ -227,7 +227,7 @@ class DatabaseHelper {
         $stmt->execute();
     }
 
-
+    // get all comments by id_post
     public function getCommentsById($id_post) {
         $stmt = $this->db->prepare("SELECT C.Id_Commento,C.Testo,C.Id_post,C.Email as CommentEmail , 
         Username FROM commento as C, utente as U WHERE 
@@ -246,6 +246,15 @@ class DatabaseHelper {
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    
+    // add new comment in a post
+    public function addNewComment($testo, $email, $id_post) {
+        $query = "INSERT INTO COMMENTO (Testo, Timestamp_commento, Email, Id_post) 
+        VALUES (?, CURRENT_TIMESTAMP, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ssi", $testo, $email, $id_post);
+        $success = $stmt->execute();
     }
 }
 
