@@ -43,14 +43,14 @@ class DatabaseHelper {
         // Url nome.jpg immagine
         $query = "";
         if($user == ""){
-            $query = "SELECT Id_Post, Spotify_Id, Testo, Timestamp, PostImmagine, Url, Username FROM post, utente
+            $query = "SELECT Id_Post, Spotify_Id, Testo, Timestamp, PostImmagine, Url, Username, Email FROM post, utente
             WHERE Id_utente=Email ORDER BY Timestamp DESC";
         } else {
             if($followed == true){
-                $query = "SELECT Id_Post, Spotify_Id, Testo, Timestamp, PostImmagine, Url, Username FROM post, utente
+                $query = "SELECT Id_Post, Spotify_Id, Testo, Timestamp, PostImmagine, Url, Username, Email FROM post, utente
                 WHERE Id_utente=Email AND Id_utente IN (SELECT Id_utente FROM follow WHERE Email_seguace = ?) ORDER BY Timestamp DESC";
             } else {
-                $query = "SELECT Id_Post, Spotify_Id, Testo, Timestamp, PostImmagine, Url, Username FROM post, utente
+                $query = "SELECT Id_Post, Spotify_Id, Testo, Timestamp, PostImmagine, Url, Username, Email FROM post, utente
                 WHERE Id_utente=Email AND Id_utente=? ORDER BY Timestamp DESC";
             }   
         }

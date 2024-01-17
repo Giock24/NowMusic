@@ -35,12 +35,16 @@
                             <section class="card-body p-0 col-md-8 col-11"> <!-- Parte centrale -->
                                 <div class="navbar nav-user-like p-2 flex-row align-content-center"> <!-- Contenitore di tutto la parte centrale -->
                                     <div class="nav nav-pills"> <!---- FOTO E  NOME -->
-                                        <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="27" height="27" alt="user-image"/>
-                                        <p class="h5 my-2 mx-2"><?php echo $post["Username"]; ?></p>
+                                        <a href=<?php echo "../profile/profile_page.php?user_profile_email={$post["Email"]}"?> alt=<?php "go to the profile of {$post["Email"]}"?>>
+                                            <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="27" height="27" alt="user-image"/>
+                                        </a>
+                                        <a href=<?php echo "../profile/profile_page.php?user_profile_email={$post["Email"]}"?> alt=<?php "go to the profile of {$post["Email"]}"?>>
+                                            <p class="h5 my-2 mx-2"><?php echo $post["Username"]; ?></p>    
+                                        </a>
                                     </div>
                                     <div class="nav nav-pills"> <!--- LIKE E COMMENT -->
                                         <div class="comments">
-                                            <a class="nav-item my-1 mx-1" href="../comment/comments.php?id_post=<?php echo $post['Id_Post']; ?>">
+                                            <a class="nav-item my-1 mx-1" href="../comment/comments.php?id_post=<?php echo $post['Id_Post']; ?>" alt="visualize comment">
                                                 <span><em class="uil uil-comment-dots"><small class="comment-count"><?php echo $post["numcommenti"]; ?></small></em></span>
                                             </a>
                                         </div>
