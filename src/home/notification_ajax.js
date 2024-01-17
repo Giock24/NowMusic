@@ -1,11 +1,51 @@
+function create_notification(user, message){
+    console.log("create notification");
+    var notification = {
+        user: user,
+        message: message
+    }
+    return JSON.stringify(notification);
+}
+
+function createCookie(name, value, days) {
+    let expires;
+    if (days) {
+        let date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    }
+    else {
+        expires = "";
+    }
+    document.cookie = encodeURIComponent(name) + "=" +
+    encodeURIComponent(value) + expires + "; path=/";
+}
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+
+
 var likes=null, comments=null;
+var notificationList = [];
+var currentNotifications = getCookie("notification")
+console.log(currentNotifications);
+if(currentNotifications===undefined){
+    console.log("cookie undefined");
+    createCookie("notification", JSON.stringify(notificationList), 1);
+} else {
+    notificationList = JSON.parse(decodeURIComponent(currentNotifications));
+    console.log("notification list: "+notificationList);
+}
+
 setInterval(function() {
     var xmlhttp, likesAndComments;
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             likesAndComments = JSON.parse(this.responseText);
-
             if(likes == null || comments == null){
                 likes = likesAndComments.likes;
                 comments = likesAndComments.comments;
@@ -17,7 +57,8 @@ setInterval(function() {
                     likes = likesAndComments.likes;
                     for(var i=0; i<newLikes.length; i++){
                         var newLike = newLikes[i];
-                        create_notification(newLike.user, "ha messo mi piace al tuo post.");
+                        var notification = create_notification(newLike.user, "ha messo mi piace al tuo post.");
+                        notificationList.push(notification);
                     }
                 }
                 if(likesAndComments.comments.length > comments.length){
@@ -25,9 +66,12 @@ setInterval(function() {
                     comments = likesAndComments.comments;
                     for(var i=0; i<newComments.length; i++){
                         var newComment = newComments[i];
-                        create_notification(newComment.user, 'ha commentato: "' + newComment.comment +'"');
+                        var notification = create_notification(newComment.user, 'ha commentato: "' + newComment.comment +'"');
+                        notificationList.push(notification);
                     }
                 }
+                console.log("new notification : "+notificationList);
+                createCookie("notification", JSON.stringify(notificationList), 1);
             }
         }
     };
@@ -36,11 +80,14 @@ setInterval(function() {
 }, 1000);
 
 
-function create_notification($user, $message){
-    console.log("create notification");
-    var notification = document.createElement("div");
-    notification.className = "alert alert-success fixed-bottom mh-4";
-    notification.role = "alert";
-    notification.innerHTML = $message;
-    document.body.appendChild(notification);
-}
+
+/*
+var x = ["1","2"];
+var y = JSON.stringify(x);
+
+//createCookie("notification", y, 1);
+
+console.log("COOKIE:  "+document.cookie);
+
+console.log("COOKIE NOTIFICATION:  "+decodeURIComponent(getCookie("notification")));
+*/

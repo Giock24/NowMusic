@@ -12,7 +12,10 @@
     </div>
     <div class="nav nav-pills">
         <?php if($navParams["showlogout"] === false) : ?>
-            <div class="notifications">
+            <div class="notifications" style="position: relative; padding-left:10px">
+                <?php /* if(count($_COOKIE["notification"]) > 0) : */?>
+                <span class='badge' id='notification_count' style="position: absolute; top: 0; left: 0; height: 24px; width: 24px; border-radius:25px; background:#C318FA; border: 1px solid #000000;"> 5 </span>
+                <?php /* endif;*/ ?>
                 <button type="button" class="nav-item py-1 notification-button" data-bs-target="#notifications" data-bs-toggle="modal">
                     <img src="../../assets/images/circle-notifications.png" alt="notifications image"/>
                 </button>
