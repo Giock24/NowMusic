@@ -13,11 +13,13 @@
     <link rel="stylesheet" href="../../css/style.css"/>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"/>
     <script src="notification_ajax.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
     <?php
         require_once("../auth/check_auth.php");
         checkAuth();
+        //echo $_COOKIE["notification"]; 
     ?>
     <div class="container-fluid p-0 overflow-x-hidden h-100">
         <?php 
