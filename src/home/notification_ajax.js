@@ -1,10 +1,8 @@
-function create_notification(user, message){
-    console.log("create notification");
+function create_notification(username, message){
     var notification = {
-        user: user,
+        username: username,
         message: message
     }
-    console.log("notification: "+notification);
     console.log("notification stringify: "+JSON.stringify(notification));
     return JSON.stringify(notification);
 }
@@ -60,7 +58,7 @@ setInterval(function() {
                     likes = likesAndComments.likes;
                     for(var i=0; i<newLikes.length; i++){
                         var newLike = newLikes[i];
-                        var notification = create_notification(newLike.user, "ha messo mi piace al tuo post.");
+                        var notification = create_notification(newLike.Username, "ha messo mi piace al tuo post.");
                         notificationList.push(notification);
                         newNotification = true;
                     }
@@ -70,7 +68,7 @@ setInterval(function() {
                     comments = likesAndComments.comments;
                     for(var i=0; i<newComments.length; i++){
                         var newComment = newComments[i];
-                        var notification = create_notification(newComment.user, 'ha commentato: "' + newComment.comment +'"');
+                        var notification = create_notification(newComment.Username, 'ha commentato: "' + newComment.comment +'"');
                         notificationList.push(notification);
                         newNotification = true;
                     }
@@ -86,16 +84,3 @@ setInterval(function() {
     xmlhttp.open("GET", "notification.php", true);
     xmlhttp.send();
 }, 1000);
-
-
-
-/* 
-var x = ["1","2"];
-var y = JSON.stringify(x);
-
-createCookie("notification", y, 1);
-
-console.log("COOKIE:  "+document.cookie);
-
-console.log("COOKIE NOTIFICATION:  "+decodeURIComponent(getCookie("notification")));
-*/
