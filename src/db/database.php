@@ -201,6 +201,11 @@ class DatabaseHelper {
         $stmt->bind_param("ss",$bio,$user);
         $stmt->execute();
    }
+    public function youPutLike($email, $id_post) {
+        $result = false;
+
+        return $result;
+    }
 }
 
 ?>
