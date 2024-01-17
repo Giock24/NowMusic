@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../../css/style.css"/>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="./profile_page_logic.js"></script>
 </head>
 <body>
     <?php
@@ -30,12 +31,11 @@
                             <img src="../../assets/images/user_icon.png" class="rounded mx-auto d-block" alt="Profile Image">
                         </div>
                         <div class="edge-info">
-                            <p class="text-center"><strong>Username</strong></p>
-                            <p class="text-center"><strong>100k</strong> Followers <strong>1</strong>Post</p>
+                            <p class="text-center"><strong><?php echo($user["Username"])?></strong></p>
+                            <p class="text-center"><strong>100k</strong> Followers <strong><?php echo count($allmypost) ?> </strong>Post</p>
                         </div>
                         <div class="bio">
                             <ul>
-                                <li><?php echo($user["Username"])?></li>
                                 <li>Email: <?php echo($user["Email"])?><li>
                                 <!--<li>Data di Nascita --/--/---- </li>-->
                                 <li>Bio: <?php echo($user["Biografia"])?></li>
@@ -47,11 +47,16 @@
                             </button>
                         <?php else : ?>
                             <button type="button" class="btn btn-secondary mt-2 mb-5 py-1 btn-sm" style="max-width:50%" disabled>
-                                <span class="profile"><h3>Follow</h3></span>
+                                <span class="profile">
+                                    <?php if($isFollowed) : ?>
+                                        <h3>Unfollow</h3>
+                                    <?php else : ?>
+                                        <h3>Follow</h3>
+                                    <?php endif; ?>
+                                </span>
                             </button>
                         <?php endif; ?>
                         <!--modal -->
-                        
                         <div class="modal fade" id="modify_profile" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog modal-xl modal-dialog-scrollable">
                                 <!-- Conteuto della modale -->

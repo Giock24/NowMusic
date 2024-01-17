@@ -256,6 +256,29 @@ class DatabaseHelper {
         $stmt->bind_param("ssi", $testo, $email, $id_post);
         $success = $stmt->execute();
     }
+
+    // return if you follow a user
+    public function isFollow($email, $id_user) {
+        $stmt = $this->db->prepare("SELECT * FROM FOLLOW WHERE Email_seguace = ? AND Email_seguito = ?");
+        $stmt->bind_param("ss", $email, $id_user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    // add a new follow
+    public function addNewFollow($email, $id_user) {
+        $stmt = $this->db->prepare("INSERT INTO FOLLOW (Email_seguace, Email_seguito) VALUES (?, ?)");
+        $stmt->bind_param("ss", $email, $id_user);
+        $stmt->execute();
+    }
+
+    // remove a follow
+    public function removeFollow($email, $id_user) {
+        $stmt = $this->db->prepare("DELETE FROM FOLLOW WHERE Email_seguace = ? AND Email_seguito = ?");
+        $stmt->bind_param("ss", $email, $id_user);
+        $stmt->execute();
+    }
 }
 
 ?>
