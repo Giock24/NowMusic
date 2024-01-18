@@ -7,9 +7,9 @@
     <title>Profile-Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../css/form.css"/>
     <link rel="stylesheet" href="./profile_page.css">
     <link rel="stylesheet" href="../../css/style.css"/>
-    <link rel="stylesheet" href="../../css/form.css"/>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -168,7 +168,13 @@
                             <section class="card-body px-3 col-md-8 col-11"> <!-- Parte centrale -->
                                 <div class="navbar flex-row align-content-center"> <!-- Contenitore di tutto la parte centrale -->
                                     <div class="nav nav-pills"> <!---- FOTO E  NOME -->
-                                        <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="27" height="27" alt="user-image"/>
+                                        <div class="img-profile2">
+                                            <?php if($post["UrlImmagine"] != "") :?>
+                                                <img class="nav-item my-2 mx-1" src="../<?php echo UPLOAD_DIR.$post["UrlImmagine"];?>" width="27" height="27" alt="user-image"/>
+                                            <?php else : ?>
+                                                <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="27" height="27" alt="user-image"/>
+                                            <?php endif; ?>
+                                        </div>
                                         <p class="h5 my-2 mx-2"><?php echo $post["Username"] ?></p>
                                     </div>
                                     <div class="nav nav-pills"> <!--- LIKE E COMMENT -->
@@ -206,7 +212,11 @@
                                 </div>
                             </section>
                             <div class="update col-md-4 col-12"> <!-- Parte in basso -->
-                                <img class="card-img-bottom center-block" src="../upload/<?php echo $post["Url"] ?>" alt="immagine-post">
+                                <?php if($post["Url"] != "") :?>
+                                    <img class="card-img-bottom center-block" src="../<?php echo UPLOAD_DIR.$post["Url"];?>" alt="post-image"/>
+                                <?php else : ?>
+                                    <img class="card-img-bottom center-block" src="../../assets/images/default_music_icon.png" alt="post-image"/>
+                                <?php endif;?>
                             </div>
                         </div>
                     </article>

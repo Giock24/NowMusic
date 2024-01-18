@@ -41,6 +41,10 @@ article {
     align-items: center;
 }
 
+.img-profile img {
+    border-radius: 120px;
+}
+
 .btn-circle>a>em {
     font-size: 30px;
 }

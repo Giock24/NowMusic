@@ -35,7 +35,7 @@
                             <section class="card-body p-0 col-md-8 col-11"> <!-- Parte centrale -->
                                 <div class="navbar nav-user-like p-2 flex-row align-content-center"> <!-- Contenitore di tutto la parte centrale -->
                                     <div class="nav nav-pills"> <!---- FOTO E  NOME -->
-                                        <a href=<?php echo "../profile/profile_page.php?user_profile_email={$post["Email"]}"?> alt=<?php "go to the profile of {$post["Email"]}"?>>
+                                        <a class="img-profile" href=<?php echo "../profile/profile_page.php?user_profile_email={$post["Email"]}"?> alt=<?php "go to the profile of {$post["Email"]}"?>>
                                             <?php if($post["UrlImmagine"] != "") :?>
                                                 <img class="nav-item my-2 mx-1" src="../<?php echo UPLOAD_DIR.$post["UrlImmagine"];?>" width="27" height="27" alt="user-image"/>
                                             <?php else : ?>
