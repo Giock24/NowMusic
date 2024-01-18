@@ -1,6 +1,9 @@
 <?php
+  require_once("../data_source.php");
+  session_start();
+  $user = $_SESSION["user"];
 
-function upload_photo($file) {
+  $file = $_FILES["imageProfile"];
 
   $target_dir = "../upload/";
   $target_file = $target_dir . basename($file["name"]);
@@ -31,12 +34,14 @@ function upload_photo($file) {
 
   // Check if $uploadOk is set to 0 by an error  
   if ($uploadOk = 0){
-    return false;
+    header('Location: /NowMusic/src/profile/profile_page.php?error=1');
   } else if(!file_exists($target_file)) {
-      return move_uploaded_file($file["tmp_name"], $target_file);
-    }
-    return true; 
+    move_uploaded_file($file["tmp_name"], $target_file);
+  } 
 
-}
-
+  # This function returns true if the variable exists and is not NULL
+  $imgProfileFile = $file["name"];
+  $dbh->modifyProfile($user["Email"], "", "", $imgProfileFile, "", "");
+  $_SESSION["user"] = $dbh->login($user["Email"], $user["Password"])[0];
+  header('Location: /NowMusic/src/profile/profile_page.php');
 ?>

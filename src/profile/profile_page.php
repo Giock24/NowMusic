@@ -14,7 +14,8 @@
 </head>
 <body>
     <?php
-        require_once("profile_page_logic.php")
+        require_once("profile_page_logic.php");
+
     ?>
     <?php if(isset($_GET["error"]) && $_GET["error"]==1) : ?>
                 <script>
@@ -32,7 +33,14 @@
                 <div class="info-user col-md-4 col-12"> 
                     <div class="row pt-2 justify-content-center" >
                         <div class="img-profile">
-                            <img src="../../assets/images/user_icon.png" alt="Profile Image">
+                            <img src=<?php 
+                                if($user["UrlImmagine"] == null){
+                                    echo "../../assets/images/user_icon.png";
+                                }else{
+                                    echo "../upload/{$user['UrlImmagine']}";
+                                }
+                                    
+                            ?> alt="Profile Image">
                         </div>
                         <div class="edge-info">
                             <p class="text-center"><strong><?php echo($user["Username"])?></strong></p>
@@ -70,16 +78,22 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <!-- Body della modale  -->
-                                    <div class="modal-body col-lg-8 border rounded mx-auto mt-5 p-2 shadow-lg">
-                                            <form class="row" action="profile_page_fnz.php" method="post">
+                                    <div class="modal-body row col-lg-8 border rounded mx-auto mt-5 p-2 shadow-lg">
                                                 <div class="col-md-4 text center">
-                                                <img class="js-image img-fluid rounded" src="../../assets/images/user_icon.png" style="width: 180px; height:180px;object-fit: cover;" alt="profile_user_image"/>
-                                                <div class="mb-3">
-                                                    <label for="formFile" class="form-label">Click below to select an image</label>
-                                                    <input onchange="display_image(this.files[0])" class="form-control" type="file" id="imageProfile" name="imageProfile" accept="image/*">
-                                                </div>
+                                                    <form action="upload_photo.php" method="post" enctype="multipart/form-data">
+                                                        <img class="js-image img-fluid rounded" src="../../assets/images/user_icon.png" style="width: 180px; height:180px;object-fit: cover;" alt="profile_user_image"/>
+                                                        <div class="mb-3">
+                                                            <label for="formFile" class="form-label">Click below to select an image</label>
+                                                            <input onchange="display_image(this.files[0])" class="form-control" type="file" id="imageProfile" name="imageProfile" accept="image/*">
+                                                        </div>
+                                                        <div class="row pb-2 px-3">
+                                                            <label class="submit" for="change_image" hidden>Change photo</label>
+                                                            <input id="change_image" type="submit" class="btn" value="Change photo"/>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                                 <div class="col-md-8">
+                                                    <form class="row" action="profile_page_fnz.php" method="post">
                                                     <table class="table table-strped">
                                                         <tr><th colspan="2">User Details:</th></tr>
                                                         <tr><th><i class="fa-solid fa-user"></i> Username</th>
@@ -114,8 +128,8 @@
                                                     <div class="p-2">
                                                         <button class="btn btn-primary float-end" name="save">Save</button>
                                                     </div>  
+                                                    </form>
                                                 </div>
-                                            </form>
                                     </div>
                                     <div class="modal-footer ">
                             
