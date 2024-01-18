@@ -2,7 +2,11 @@ const hashtag = [];
 
 var addHastag = function(event) {
     var inputHastag = document.getElementById('hashtag');
-    hashtag.push(inputHastag.value);
+    newHashtag = inputHastag.value.split(" ")[0];
+    if (newHashtag[0] != '#') {
+        newHashtag = '#' + newHashtag;
+    }
+    hashtag.push(newHashtag);
     inputHastag.value = '';
 
     //show added hashtag in a paragraph
@@ -15,7 +19,6 @@ var addHastag = function(event) {
 
 var _updateForm = function() {
     var form = document.getElementById('add-content');
-
     var lastTag = hashtag[hashtag.length - 1];
 
     var input = document.createElement('input');
