@@ -105,7 +105,7 @@ create table RISPOSTA_COMMENTO (
 create table UTENTE (
      Email char(30) NOT null,
      Username char(15) not null,
-     Password char(10) not null,
+     Password char(100) not null,
      UrlImmagine char(50),
      DateOfBirth date,
      Biografia varchar(500),

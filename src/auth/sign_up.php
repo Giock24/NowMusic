@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/form.css"/>
+    <script type="module" src="./sign_up.js"></script>
 </head>
 <body>
     <div class="container-fluid overflow-x-hidden h-100">
@@ -32,19 +33,31 @@
                     <div class="row pb-2 px-3">
                         <label class="form-label" for="password">Password</label>
                         <input class="form-control" id="password" name="password" type="password" placeholder="Password"/>
+                        <label class="form-label" for="crypt_password" hidden>Crypted Password</label>
+                        <input name="crypt_password" type="hidden" id="crypt_password"/>
                     </div>
                     <div class="row pb-2 px-3">
                         <label class="form-label" for="repeat_password">Repeat Password</label>
-                        <input class="form-control" id="repeat_password" type="password" placeholder="Repeat Password"/>
+                        <input class="form-control" id="repeat_password" name="repeat_password" type="password" placeholder="Repeat Password"/>
                     </div>
                     <div class="text-center pb-2">
-                        <strong><a href="index.html">Login</a></strong>
+                        <strong><a href="login.php">Login</a></strong>
                     </div>
                     <div class="row pb-2 px-3">
                         <label class="form-check-label" for="sign_up" hidden>sign_up</label>
                         <input id="sign_up" type="submit" class="btn" value="Sign up"/>
                     </div>
                 </form>
+                <?php if(isset($_GET["error"]) && ($_GET["error"]==1)) : ?>
+                    <script>
+                        alert("Passwords don't match!");
+                    </script>
+                <?php endif; ?>
+                <?php if(isset($_GET["error"]) && ($_GET["error"]==2)) : ?>
+                    <script>
+                        alert("Error creating user!");
+                    </script>
+                <?php endif; ?>
             </main>
         </div>
     </div>

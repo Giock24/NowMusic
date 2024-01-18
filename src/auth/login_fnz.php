@@ -2,7 +2,7 @@
     require_once("../data_source.php");
 
     $email = $_POST["email"];
-    $password = $_POST["password"];
+    $password = $_POST["crypt_password"];
 
     $user = $dbh->login($email, $password);
 
