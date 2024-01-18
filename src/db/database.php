@@ -253,7 +253,7 @@ class DatabaseHelper {
     // get all comments by id_post
     public function getCommentsById($id_post) {
         $stmt = $this->db->prepare("SELECT C.Id_Commento,C.Testo,C.Id_post,C.Email as CommentEmail , 
-        Username FROM commento as C, utente as U WHERE 
+        Username, U.UrlImmagine FROM commento as C, utente as U WHERE 
         C.Id_post = ? AND C.Email=U.Email;");
         $stmt->bind_param("i", $id_post);
         $stmt->execute();

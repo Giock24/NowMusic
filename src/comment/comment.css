@@ -12,3 +12,7 @@ form>div>input[type="submit"], form>input[type="submit"] {
 .fixed-bottom {
     background-color: #282828;
 }
+
+.img-picture img {
+    border-radius: 120px;
+}

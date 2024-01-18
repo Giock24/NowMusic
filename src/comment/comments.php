@@ -31,7 +31,11 @@
                         <div class="img-picture col-md-1 col-2">
                             <!-- nella query getCommentsById manca nella SELECT l'url dell'immagine di profile dello user -->
                             <a href=<?php echo "../profile/profile_page.php?user_profile_email={$comment["CommentEmail"]}"?> alt=<?php "go to the profile of {$comment["CommentEmail"]}"?>>
-                                <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="50" height="50" alt="user-image"/>
+                                <?php if($comment["UrlImmagine"] != "") :?>
+                                    <img class="nav-item my-2 mx-1" src="../<?php echo UPLOAD_DIR.$comment["UrlImmagine"];?>" width="50" height="50" alt="user-image"/>
+                                <?php else : ?>
+                                    <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="50" height="50" alt="user-image"/>
+                                <?php endif; ?>
                             </a>
                         </div>
                         <div class="user-comment col-md-11 col-10">
