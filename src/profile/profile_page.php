@@ -14,8 +14,7 @@
 </head>
 <body>
     <?php
-        require_once("profile_page_logic.php");
-
+        require_once("./profile_page_logic.php");
     ?>
     <?php if(isset($_GET["error"]) && $_GET["error"]==1) : ?>
                 <script>
@@ -49,7 +48,25 @@
                         <div class="bio">
                             <ul>
                                 <li>Email: <?php echo($user["Email"])?><li>
-                                <!--<li>Data di Nascita --/--/---- </li>-->
+                                <li>Data di Nascita: <?php
+                                    if($user["DateOfBirth"] == null){
+                                        echo("Not specified");
+                                    }else{
+                                        $date = date_create($user["DateOfBirth"]);
+                                        echo date_format($date,"d/m/Y");
+                                    }
+                                ?> </li>
+                                <li>Genere: <?php 
+                                    if($user["Gender"] == 0){
+                                        echo "Other";
+                                    }else{
+                                        if($user["Gender"] ==1 ){
+                                            echo "Male";
+                                        } else {
+                                            echo "Female";
+                                        }
+                                    }
+                                ?></li>
                                 <li>Bio: <?php echo($user["Biografia"])?></li>
                             </ul>
                         </div>
@@ -93,7 +110,7 @@
                                                     </form>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <form class="row" action="profile_page_fnz.php" method="post">
+                                                    <form class="row" action="change_profile_data.php" method="post">
                                                     <table class="table table-strped">
                                                         <tr><th colspan="2">User Details:</th></tr>
                                                         <tr><th><i class="fa-solid fa-user"></i> Username</th>
