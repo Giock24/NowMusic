@@ -36,7 +36,11 @@
                                 <div class="navbar nav-user-like p-2 flex-row align-content-center"> <!-- Contenitore di tutto la parte centrale -->
                                     <div class="nav nav-pills"> <!---- FOTO E  NOME -->
                                         <a href=<?php echo "../profile/profile_page.php?user_profile_email={$post["Email"]}"?> alt=<?php "go to the profile of {$post["Email"]}"?>>
-                                            <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="27" height="27" alt="user-image"/>
+                                            <?php if($post["UrlImmagine"] != "") :?>
+                                                <img class="nav-item my-2 mx-1" src="../<?php echo UPLOAD_DIR.$post["UrlImmagine"];?>" width="27" height="27" alt="user-image"/>
+                                            <?php else : ?>
+                                                <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="27" height="27" alt="user-image"/>
+                                            <?php endif; ?>
                                         </a>
                                         <a href=<?php echo "../profile/profile_page.php?user_profile_email={$post["Email"]}"?> alt=<?php "go to the profile of {$post["Email"]}"?>>
                                             <p class="h5 my-2 mx-2"><?php echo $post["Username"]; ?></p>    
@@ -82,7 +86,11 @@
                                 </div>
                             </section>
                             <div class="update col-md-4 col-12 p-2"> <!-- Parte in basso -->
-                                <img class="card-img-bottom center-block" src="../<?php echo UPLOAD_DIR.$post["Url"];?>" alt="immagine-post">
+                                <?php if($post["Url"] != "") :?>
+                                    <img class="card-img-bottom center-block" src="../<?php echo UPLOAD_DIR.$post["Url"];?>" alt="post-image"/>
+                                <?php else : ?>
+                                    <img class="card-img-bottom center-block" src="../../assets/images/default_music_icon.png" alt="post-image"/>
+                                <?php endif;?>
                             </div>
                         </div>
                     </article>
