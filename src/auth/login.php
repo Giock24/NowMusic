@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
     <link rel="stylesheet" href="../../css/style.css"/>
     <link rel="stylesheet" href="../../css/form.css"/>
+    <script type="module" src="./login.js"></script>
 </head>
 <body>
     <div class="container-fluid overflow-x-hidden p-0 h-100">
@@ -28,6 +29,7 @@
                     <div class="row pb-2 px-3">
                         <label class="form-label" for="password">Password</label>
                         <input class="form-control" id="password" name="password" type="password" placeholder="Password"/>
+                        <input name="crypt_password" type="hidden" id="crypt_password"/>
                     </div>
                     <div class="text-center pb-2">
                         <strong><a href="./sign_up.php">Sing up</a></strong>

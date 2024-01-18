@@ -8,10 +8,10 @@
 
     //check if user is not an empty array
     if (count($user) == 0) {
-        header('Location: /NowMusic/src/auth/login.php?error=1');
+        //header('Location: /NowMusic/src/auth/login.php?error=1');
     } else {
         session_start();
         $_SESSION["user"] = $user[0];
-        header('Location: /NowMusic/src/home/home.php');
+        //header('Location: /NowMusic/src/home/home.php');
     }
 ?>
