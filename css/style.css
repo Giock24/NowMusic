@@ -11,6 +11,10 @@ h1, form>div>label, a {
     color: #282828;
 }
 
+.account-user img {
+    border-radius: 120px; 
+}
+
 button {
     border-radius: 15px;
     border: 1px solid #000;

@@ -29,9 +29,13 @@
                 </button>
             </div>
             <div class="account-user">
-            <a class="nav-item m-2" href="../profile/profile_page.php">
-                <img src="../../assets/images/user_icon.png" alt="user-image" height="38" width="37"/>
-            </a>
+                <a class="nav-item m-2" href="../profile/profile_page.php">
+                    <?php if($_SESSION['user']["UrlImmagine"] != "") :?>
+                        <img class="nav-item" src=<?php echo "../upload/{$_SESSION['user']['UrlImmagine']}"?> height="38" width="37" alt="user-image"/>
+                    <?php else : ?>
+                        <img class="nav-item" src="../../assets/images/user_icon.png" height="38" width="37" alt="user-image"/>
+                    <?php endif; ?>
+                </a>
             </div>
         <?php else : ?>
             <div class="nav nav-pills logout ">

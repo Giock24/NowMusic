@@ -49,11 +49,8 @@
             </main>
         </div>
         <footer class="fixed-bottom container-fluid justify-content-center">
-            <div class="row write-comment align-items-center">
-                <div class="img-picture col-md-1 col-2">
-                    <img class="nav-item my-2 mx-1" src="../../assets/images/user_icon.png" width="50" height="50" alt="user-image"/>
-                </div>
-                <div class="input-comment col-md-11 col-10">
+            <div class="row write-comment align-items-center p-3">
+                <div class="input-comment col-md-12 col-12">
                     <form action="#" method="post" class="row container-fluid">
                         <div class="col-md-10 col-10">
                             <label class="form-label" for="your-comment" hidden>Commento</label>
