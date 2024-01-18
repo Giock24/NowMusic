@@ -16,6 +16,11 @@
     <?php
         require_once("profile_page_logic.php")
     ?>
+    <?php if(isset($_GET["error"]) && $_GET["error"]==1) : ?>
+                <script>
+                    alert("Fail download Image !");
+                </script>
+    <?php endif; ?>
     <div class="container-fluid overflow-x-hidden p-0 h-100">
         <div class="d-flex flex-column h-100">
             <div  class="flex-grow-0">
@@ -71,7 +76,7 @@
                                                 <img class="js-image img-fluid rounded" src="../../assets/images/user_icon.png" style="width: 180px; height:180px;object-fit: cover;" alt="profile_user_image"/>
                                                 <div class="mb-3">
                                                     <label for="formFile" class="form-label">Click below to select an image</label>
-                                                    <input onchange="display_image(this.files[0])" class="form-control" type="file" id="formFile" name="imageProfile" accept="image/*">
+                                                    <input onchange="display_image(this.files[0])" class="form-control" type="file" id="imageProfile" name="imageProfile" accept="image/*">
                                                 </div>
                                                 </div>
                                                 <div class="col-md-8">
@@ -118,7 +123,7 @@
                                 </div>
                             </div>
                         </div>
-
+                    
                     </div>
                 </div>
                 <div class="posts col-md-8 col-12">
