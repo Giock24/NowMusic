@@ -28,7 +28,7 @@
             <main class="col-md-11 col-11"> <!-- DIV di tutte i post -->
                 <?php include 'home_logic.php';?>
                 <?php $index = 0; ?>
-                <?php foreach ($allpost as $post) : ?>
+                <?php foreach ($homePost as $post) : ?>
                     <!-- set Id Post for likes that you give -->         
                     <article id="<?php echo "post_{$post['Id_Post']}"; ?>" class="card container-fluid"> <!-- POST UNICO -->
                         <div class="row">

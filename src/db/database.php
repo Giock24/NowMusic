@@ -36,7 +36,7 @@ class DatabaseHelper {
      * email of the user can be empty
      * @param bool $followed  
      * if true return only posts of followed users (user must be not empty)
-     * if false return all posts
+     * if false return post of the user (user must be not empty)
      */
     public function getPosts($user = "",$followed=false) {
         // PostImmagine è un booleano serve per capire se è stata caricata un'immagine o no
@@ -48,7 +48,7 @@ class DatabaseHelper {
         } else {
             if($followed == true){
                 $query = "SELECT Id_Post, Spotify_Id, Testo, Timestamp, PostImmagine, Url, Username, Email FROM post, utente
-                WHERE Id_utente=Email AND Id_utente IN (SELECT Id_utente FROM follow WHERE Email_seguace = ?) ORDER BY Timestamp DESC";
+                WHERE Id_utente=Email AND Id_utente IN (SELECT Email_seguito FROM follow WHERE Email_seguace = ?) ORDER BY Id_Post DESC";
             } else {
                 $query = "SELECT Id_Post, Spotify_Id, Testo, Timestamp, PostImmagine, Url, Username, Email FROM post, utente
                 WHERE Id_utente=Email AND Id_utente=? ORDER BY Timestamp DESC";
