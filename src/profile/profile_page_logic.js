@@ -12,6 +12,8 @@ document.querySelector(".follow_unfollow").addEventListener("click", function() 
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
     xmlhttp.send("follow_email="+followEmail);
 
-    location.reload();
+    setTimeout(function() {
+        location.reload();
+    },500);
 });
 

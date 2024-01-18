@@ -304,7 +304,7 @@ class DatabaseHelper {
 
     // return all users followed by a user
     public function getFollowers($email) {
-        $stmt = $this->db->prepare("SELECT Email_seguito FROM FOLLOW WHERE Email_seguace = ?");
+        $stmt = $this->db->prepare("SELECT Email_seguito FROM FOLLOW WHERE Email_seguito = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
