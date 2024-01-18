@@ -17,7 +17,7 @@ class DatabaseHelper {
         $stmt = $this->db->prepare("INSERT INTO utente (Username, Password, Email) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $username, $password, $email);
         $stmt->execute();
-        return $this->login($email, $password);
+        //return $this->login($email, $password);
     }
 
     // return true if that user exist otherwise false

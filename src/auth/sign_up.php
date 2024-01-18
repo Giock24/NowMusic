@@ -38,16 +38,26 @@
                     </div>
                     <div class="row pb-2 px-3">
                         <label class="form-label" for="repeat_password">Repeat Password</label>
-                        <input class="form-control" id="repeat_password" type="password" placeholder="Repeat Password"/>
+                        <input class="form-control" id="repeat_password" name="repeat_password" type="password" placeholder="Repeat Password"/>
                     </div>
                     <div class="text-center pb-2">
-                        <strong><a href="index.html">Login</a></strong>
+                        <strong><a href="login.php">Login</a></strong>
                     </div>
                     <div class="row pb-2 px-3">
                         <label class="form-check-label" for="sign_up" hidden>sign_up</label>
                         <input id="sign_up" type="submit" class="btn" value="Sign up"/>
                     </div>
                 </form>
+                <?php if(isset($_GET["error"]) && ($_GET["error"]==1)) : ?>
+                    <script>
+                        alert("Passwords don't match!");
+                    </script>
+                <?php endif; ?>
+                <?php if(isset($_GET["error"]) && ($_GET["error"]==2)) : ?>
+                    <script>
+                        alert("Error creating user!");
+                    </script>
+                <?php endif; ?>
             </main>
         </div>
     </div>
