@@ -38,3 +38,16 @@
     padding: 10px;
     margin-bottom: 10px;
 }
+
+#added-hashtags li p {
+    display: inline-block;
+    margin-right: 10px; /* Add some space between the p and i elements */
+}
+
+#added-hashtags li i {
+    display: inline-block;
+    font-size: 12px;
+    max-width: 12px;
+    max-height: 12px;
+    margin-right: 5px;
+}

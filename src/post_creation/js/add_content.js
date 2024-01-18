@@ -10,15 +10,25 @@ var addHastag = function(event) {
     inputHastag.value = '';
 
     //show added hashtag in list
-    var addedHashtag = document.getElementById('added-hashtags');
-    var newHashtagElement = document.createElement('li');
-    newHashtagElement.innerHTML = newHashtag;
-    newHashtagElement.addEventListener('click', removeHashtag);
-    addedHashtag.appendChild(newHashtagElement);
+    _addHashtagToList(newHashtag);
 
     //add hashtag to form
     _updateForm();
 };
+
+var _addHashtagToList = function (newHashtag){
+    var addedHashtag = document.getElementById('added-hashtags');
+    var newHashtagElement = document.createElement('li');
+    var p = document.createElement('p');
+    p.innerHTML = newHashtag;
+    var icon = document.createElement('i');
+    icon.classList.add('bi');
+    icon.classList.add('bi-x-lg');
+    newHashtagElement.appendChild(p);
+    newHashtagElement.appendChild(icon);
+    newHashtagElement.addEventListener('click', removeHashtag);
+    addedHashtag.appendChild(newHashtagElement);
+}
 
 var _updateForm = function() {
     var form = document.getElementById('add-content');
@@ -33,14 +43,17 @@ var _updateForm = function() {
 
 
 var removeHashtag = function(event) {
-    var index = hashtag.indexOf(event.target.innerHTML);
-    console.log(hashtag);
+    var target = event.target;
+    if(event.target.tagName == 'P' || event.target.tagName == 'I') {
+        target = event.target.parentElement;
+    }
+    var p = target.querySelector('p');
+    var index = hashtag.indexOf(p.innerHTML);
     hashtag.splice(index, 1);
-    console.log(hashtag);
 
     //remove hashtag in list
     var addedHashtag = document.getElementById('added-hashtags');
-    addedHashtag.removeChild(event.target);
+    addedHashtag.removeChild(target);
 
     //remove hashtag from form
     var form = document.getElementById('add-content');
