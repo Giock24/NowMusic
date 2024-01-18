@@ -29,6 +29,7 @@
                     <div class="row pb-2 px-3">
                         <label class="form-label" for="password">Password</label>
                         <input class="form-control" id="password" name="password" type="password" placeholder="Password"/>
+                        <label class="form-label" for="crypt_password" hidden>Crypted Password</label>
                         <input name="crypt_password" type="hidden" id="crypt_password"/>
                     </div>
                     <div class="text-center pb-2">
