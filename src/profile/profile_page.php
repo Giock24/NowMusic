@@ -65,16 +65,16 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <!-- Body della modale  -->
-                                    <div class="modal-body row col-lg-8 border rounded mx-auto mt-5 p-2 shadow-lg">
-                                            <div class="col-md-4 text center">
+                                    <div class="modal-body col-lg-8 border rounded mx-auto mt-5 p-2 shadow-lg">
+                                            <form class="row" action="profile_page_fnz.php" method="post">
+                                                <div class="col-md-4 text center">
                                                 <img class="js-image img-fluid rounded" src="../../assets/images/user_icon.png" style="width: 180px; height:180px;object-fit: cover;" alt="profile_user_image"/>
-                                                    <div class="mb-3">
-                                                        <label for="formFile" class="form-label">Click below to select an image</label>
-                                                        <input onchange="display_image(this.files[0])" class="form-control" type="file" id="formFile" name="imageProfile">
-                                                    </div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <form action="profile_page_fnz.php" method="post">
+                                                <div class="mb-3">
+                                                    <label for="formFile" class="form-label">Click below to select an image</label>
+                                                    <input onchange="display_image(this.files[0])" class="form-control" type="file" id="formFile" name="imageProfile" accept="image/*">
+                                                </div>
+                                                </div>
+                                                <div class="col-md-8">
                                                     <table class="table table-strped">
                                                         <tr><th colspan="2">User Details:</th></tr>
                                                         <tr><th><i class="fa-solid fa-user"></i> Username</th>
@@ -108,9 +108,9 @@
                                                     </table>
                                                     <div class="p-2">
                                                         <button class="btn btn-primary float-end" name="save">Save</button>
-                                                    </div>
-                                                </form>    
-                                            </div>
+                                                    </div>  
+                                                </div>
+                                            </form>
                                     </div>
                                     <div class="modal-footer ">
                             

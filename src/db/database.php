@@ -195,10 +195,32 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function modifyProfile($bio, $user){
+    public function modifyProfile($user, $bio, $username, $urlimg, $date, $gender){
+        if ($bio != "") {
             $stmt = $this->db->prepare("UPDATE utente SET Biografia = ? WHERE Email=?;");
             $stmt->bind_param("ss",$bio,$user);
             $stmt->execute();
+        }
+        if ($username != "") {
+            $stmt = $this->db->prepare("UPDATE utente SET Username = ? WHERE Email=?;");
+            $stmt->bind_param("ss",$username,$user);
+            $stmt->execute();
+        }
+        if ($urlimg != "") {
+            $stmt = $this->db->prepare("UPDATE utente SET UrlImmagine = ? WHERE Email=?;");
+            $stmt->bind_param("ss",$urlimg,$user);
+            $stmt->execute();
+        }
+        if ($date != "") {
+            $stmt = $this->db->prepare("UPDATE utente SET DateOfBirth = ? WHERE Email=?;");
+            $stmt->bind_param("ss",$date,$user);
+            $stmt->execute();
+        }
+        if ($gender != "") {
+            $stmt = $this->db->prepare("UPDATE utente SET Gender = ? WHERE Email=?;");
+            $stmt->bind_param("ss",$gender,$user);
+            $stmt->execute();
+        }
     }
 
     // this function return id_post if you have put like to a post and 0 otherwise
