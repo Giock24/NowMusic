@@ -27,7 +27,7 @@
                 <div class="info-user col-md-4 col-12"> 
                     <div class="row pt-2 justify-content-center" >
                         <div class="img-profile">
-                            <img src="../../assets/images/user_icon.png" class="rounded mx-auto d-block" alt="Profile Image">
+                            <img src="../../assets/images/user_icon.png" alt="Profile Image">
                         </div>
                         <div class="edge-info">
                             <p class="text-center"><strong><?php echo($user["Username"])?></strong></p>

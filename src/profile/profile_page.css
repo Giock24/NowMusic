@@ -24,11 +24,16 @@ a>span>em {
 }
 
 .img-profile {
-    background:transparent;
+    background: transparent;
+    display: flex;
+    justify-content: center;    
+    align-items: center;
 }
 
 .img-profile img {
     width: 50%;
+    border: 1px solid #000;
+    border-radius: 120px;
 }
 
 ul {
