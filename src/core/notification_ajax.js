@@ -1,4 +1,4 @@
-import {createCookie, getCookie, delete_cookie} from "../core/cookie_utils.js";
+import {createCookie, getCookie, delete_cookie} from "./cookie_utils.js";
 
 function create_notification(username, message){
     let notification = {
@@ -71,7 +71,7 @@ setInterval(function() {
             }
         }
     };
-    xmlhttp.open("GET", "notification.php", true);
+    xmlhttp.open("GET", "../core/notification.php", true);
     xmlhttp.send();
 }, 500);
 

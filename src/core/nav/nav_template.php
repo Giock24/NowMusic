@@ -1,3 +1,5 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script type="module" src="../core/notification_ajax.js"></script>
 <?php
     if(isset($_COOKIE["notification"]) && count(json_decode($_COOKIE["notification"], true))) {
         $_POST["notifications"] = json_decode($_COOKIE["notification"], true);

@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="./home.css"/>
     <link rel="stylesheet" href="../../css/style.css"/>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"/>
-    <script type="module" src="notification_ajax.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
     <?php
