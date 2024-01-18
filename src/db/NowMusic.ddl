@@ -227,7 +227,6 @@ alter table POST_TAG add constraint FKPOSTTAG_POSTID
 -- Populate Tables
 
 INSERT INTO UTENTE (Email, Username, Password,Biografia,Gender) VALUES ("giock.consoli@gmail.com", "Giock", "44cd46cdccbed8518badcfe36834a7649484b10","Studente Ingegneria e scienze informatiche",TRUE);
-INSERT INTO UTENTE (Email, Username, Password,Biografia,Gender) VALUES ("ricca.garde@gmail.com", "SonOfGillas", "321","Studente Ingegneria e scienze informatiche",TRUE);
 
 INSERT INTO POST (Spotify_Id, Testo, Timestamp, PostImmagine, Url, Id_utente, Id_communty, Categoria) VALUES ("0GWNtMohuYUEHVZ40tcnHF","Itadori non diventare cattivo pls",'2024-01-01',1,"itadori.jpg","giock.consoli@gmail.com",0,"Anime");
 
@@ -240,4 +239,3 @@ INSERT INTO POST_TAG (Id_post, Id_tag) VALUES (1, "#Freedom");
 INSERT INTO POST_TAG (Id_post, Id_tag) VALUES (1, "#Yuji_Itadori");
 
 INSERT INTO MI_PIACE (Email, Id_post) VALUES ("giock.consoli@gmail.com", 1);
-INSERT INTO MI_PIACE (Email, Id_post) VALUES ("ricca.garde@gmail.com", 1);

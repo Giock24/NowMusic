@@ -112,7 +112,7 @@ Gli scenarios ci aiutano a capire il contesto di ogni singola personas e di cosa
 + Eseguire ``` git clone ``` della repo nella cartella xampp/htdocs/
 + Eseguire le query che sono all'interno del file Nowmusic/src/bd/NowMusic.ddl (C'è sia la creazione delle tabelle che l'inserimento dei dati nel DB)
 + Connetersi a localhost/NowMusic/src/auth/login.php
-+ Registrarsi ed effetture il Log In con i seguinti account già disponibili:
++ Copiare NowMusic/src/example.config.js, rinominare la copia in config.js e metterci i valori delle chiavi corrette: per otternerle contattare l'email riccardo.gardenghi@studio.unibo.it
++ Registrarsi ed effetture il Log In con il seguinte account già disponibile:
 
 1. Email: giock.consoli@gmail.com Pw: 123
-1. Email: ricca.garde@gmail.com Pw: 321
