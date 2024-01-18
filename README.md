@@ -50,7 +50,7 @@ Gli scenarios ci aiutano a capire il contesto di ogni singola personas e di cosa
 + Contesto:
     - Kevin utilizza il sito principalmente durante i momenti di pausa tra le lezioni universitarie o durante le sessioni di studio. Naviga attraverso le ultime uscite musicali mentre sorseggia il suo caffè preferito. Durante la sera, dedica del tempo extra per partecipare attivamente alle discussioni sulla piattaforma, condividendo le sue opinioni e interagendo con gli altri membri della comunità. La possibilità di connettersi con persone da tutto il mondo attraverso la musica è una componente fondamentale della sua esperienza online.
 
-### Emily Johnson Turner: "SonicHarmony21"
+### Emily Johnson Turner: "EHarmony"
 + Obiettivi:
     - Promozione Musicale: L'obiettivo principale di Emily è promuovere la sua musica e i suoi album, aumentando la visibilità e la conoscenza del suo lavoro tra il pubblico. Vuole raggiungere nuovi ascoltatori e farsi apprezzare per il suo stile unico.
     - Comunicazione Diretta: Utilizza il sito per comunicare direttamente con i suoi fan, informandoli sugli eventi futuri, concerti e nuove uscite. Vuole instaurare una relazione autentica con il suo pubblico, consentendo loro di sentirsi più coinvolti nella sua carriera.
@@ -61,7 +61,7 @@ Gli scenarios ci aiutano a capire il contesto di ogni singola personas e di cosa
 + Contesto:
     - Emily utilizza il sito principalmente nei momenti in cui sta lavorando su nuove produzioni musicali o durante le fasi di promozione degli album. Durante le pause dai tour o quando è in studio, dedica del tempo alla gestione del suo profilo sul sito, caricando nuove canzoni, condividendo notizie sulla sua carriera e rispondendo ai commenti dei fan.
 
-### Sarah Thompson: "MelodyExplorer"
+### Sarah Thompson: "MelodySarah"
 + Obiettivi:
     - Esplorazione Musicale: L'obiettivo principale di Sarah è scoprire nuove tracce J-POP e K-POP e rimanere aggiornata sulle ultime uscite degli artisti che ama. Vuole allargare la sua collezione musicale e condividere le sue scoperte con altri appassionati.
     - Condivisione della Passione: Sarah vuole condividere la sua passione per la musica giapponese e coreana con altri utenti del sito. Carica i suoi brani preferiti, mettendo in evidenza le canzoni e gli artisti che ama, al fine di connettersi con persone che condividono gusti simili.
