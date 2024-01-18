@@ -3,9 +3,10 @@
     session_start();
     $email = $_SESSION['user']['Email'];
 
-    $likesAndComments['likes'] = $dbh->getLikesToMyPosts($email);
-    $likesAndComments['comments'] = $dbh->getCommentsToMyPosts($email);
+    $likesCommentsFollowers['likes'] = $dbh->getLikesToMyPosts($email);
+    $likesCommentsFollowers['comments'] = $dbh->getCommentsToMyPosts($email);
+    $likesCommentsFollowers['followers'] = $dbh->getFollowers($email);
 
-    $json = json_encode($likesAndComments);
+    $json = json_encode($likesCommentsFollowers);
     echo $json;
 ?>
