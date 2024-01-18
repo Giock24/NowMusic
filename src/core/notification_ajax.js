@@ -56,6 +56,7 @@ setInterval(function() {
                     let newFollowers = likesCommentsFollowers.followers.slice(followers.length);
                     for(let i=0; i<newFollowers.length; i++){
                         let newFollower = newFollowers[i];
+                        console.log(newFollower);
                         let notification = create_notification(newFollower.Username, "ora ti segue.");
                         notificationList.push(notification);
                         newNotification = true;
@@ -64,16 +65,17 @@ setInterval(function() {
                 if(newNotification){
                     console.log("new notification : "+notificationList);
                     createCookie("notification", JSON.stringify(notificationList), 1);
-                    $("#notification_icon_container").load(location.href +" #notification_icon_container");
+                    location.reload();
                 }
                 likes = likesCommentsFollowers.likes;
                 comments = likesCommentsFollowers.comments;
+                followers = likesCommentsFollowers.followers;
             }
         }
     };
     xmlhttp.open("GET", "../core/notification.php", true);
     xmlhttp.send();
-}, 500);
+}, 100);
 
 
 document.getElementById("notification_icon").addEventListener("click", function(){
