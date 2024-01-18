@@ -1,7 +1,7 @@
 import {createCookie, getCookie, delete_cookie} from "../core/cookie_utils.js";
 
 function create_notification(username, message){
-    var notification = {
+    let notification = {
         username: username,
         message: message
     }
@@ -9,9 +9,9 @@ function create_notification(username, message){
     return JSON.stringify(notification);
 }
 
-var likes=null, comments=null;
-var notificationList = [];
-var currentNotifications = getCookie("notification");
+let likes=null, comments=null, followers=null;
+let notificationList = [];
+let currentNotifications = getCookie("notification");
 if(currentNotifications===undefined){
     console.log("cookie undefined");
     createCookie("notification", JSON.stringify(notificationList), 1);
@@ -21,32 +21,42 @@ if(currentNotifications===undefined){
 }
 
 setInterval(function() {
-    var xmlhttp, likesAndComments;
+    let xmlhttp, likesCommentsFollowers;
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            likesAndComments = JSON.parse(this.responseText);
+            likesCommentsFollowers = JSON.parse(this.responseText);
             if(likes == null || comments == null){
-                likes = likesAndComments.likes;
-                comments = likesAndComments.comments;
+                likes = likesCommentsFollowers.likes;
+                comments = likesCommentsFollowers.comments;
+                followers = likesCommentsFollowers.followers;
                 console.log(likes);
                 console.log(comments);
             } else {
-                var newNotification = false;
-                if(likesAndComments.likes.length > likes.length){
-                    var newLikes = likesAndComments.likes.slice(likes.length);
-                    for(var i=0; i<newLikes.length; i++){
-                        var newLike = newLikes[i];
-                        var notification = create_notification(newLike.Username, "ha messo mi piace al tuo post.");
+                let newNotification = false;
+                if(likesCommentsFollowers.likes.length > likes.length){
+                    let newLikes = likesCommentsFollowers.likes.slice(likes.length);
+                    for(let i=0; i<newLikes.length; i++){
+                        let newLike = newLikes[i];
+                        let notification = create_notification(newLike.Username, "ha messo mi piace al tuo post.");
                         notificationList.push(notification);
                         newNotification = true;
                     }
                 }
-                if(likesAndComments.comments.length > comments.length){
-                    var newComments = likesAndComments.comments.slice(comments.length);
-                    for(var i=0; i<newComments.length; i++){
-                        var newComment = newComments[i];
-                        var notification = create_notification(newComment.Username, 'ha commentato: "' + newComment.comment +'"');
+                if(likesCommentsFollowers.comments.length > comments.length){
+                    let newComments = likesCommentsFollowers.comments.slice(comments.length);
+                    for(let i=0; i<newComments.length; i++){
+                        let newComment = newComments[i];
+                        let notification = create_notification(newComment.Username, 'ha commentato: "' + newComment.comment +'"');
+                        notificationList.push(notification);
+                        newNotification = true;
+                    }
+                }
+                if(likesCommentsFollowers.followers.length > followers.length){
+                    let newFollowers = likesCommentsFollowers.followers.slice(followers.length);
+                    for(let i=0; i<newFollowers.length; i++){
+                        let newFollower = newFollowers[i];
+                        let notification = create_notification(newFollower.Username, "ora ti segue.");
                         notificationList.push(notification);
                         newNotification = true;
                     }
@@ -56,8 +66,8 @@ setInterval(function() {
                     createCookie("notification", JSON.stringify(notificationList), 1);
                     $("#notification_icon_container").load(location.href +" #notification_icon_container");
                 }
-                likes = likesAndComments.likes;
-                comments = likesAndComments.comments;
+                likes = likesCommentsFollowers.likes;
+                comments = likesCommentsFollowers.comments;
             }
         }
     };

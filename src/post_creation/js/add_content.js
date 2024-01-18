@@ -1,7 +1,7 @@
 const hashtag = [];
 
-var addHastag = function(event) {
-    var inputHastag = document.getElementById('hashtag');
+let addHastag = function(event) {
+    let inputHastag = document.getElementById('hashtag');
     newHashtag = inputHastag.value.split(" ")[0];
     if (newHashtag[0] != '#') {
         newHashtag = '#' + newHashtag;
@@ -16,12 +16,12 @@ var addHastag = function(event) {
     _updateForm();
 };
 
-var _addHashtagToList = function (newHashtag){
-    var addedHashtag = document.getElementById('added-hashtags');
-    var newHashtagElement = document.createElement('li');
-    var p = document.createElement('p');
+let _addHashtagToList = function (newHashtag){
+    let addedHashtag = document.getElementById('added-hashtags');
+    let newHashtagElement = document.createElement('li');
+    let p = document.createElement('p');
     p.innerHTML = newHashtag;
-    var icon = document.createElement('i');
+    let icon = document.createElement('i');
     icon.classList.add('bi');
     icon.classList.add('bi-x-lg');
     newHashtagElement.appendChild(p);
@@ -30,11 +30,11 @@ var _addHashtagToList = function (newHashtag){
     addedHashtag.appendChild(newHashtagElement);
 }
 
-var _updateForm = function() {
-    var form = document.getElementById('add-content');
-    var lastTag = hashtag[hashtag.length - 1];
+let _updateForm = function() {
+    let form = document.getElementById('add-content');
+    let lastTag = hashtag[hashtag.length - 1];
 
-    var input = document.createElement('input');
+    let input = document.createElement('input');
     input.setAttribute('type', 'hidden');
     input.setAttribute('name', 'hashtags[]');
     input.setAttribute('value', lastTag);
@@ -42,21 +42,21 @@ var _updateForm = function() {
 }
 
 
-var removeHashtag = function(event) {
-    var target = event.target;
+let removeHashtag = function(event) {
+    let target = event.target;
     if(event.target.tagName == 'P' || event.target.tagName == 'I') {
         target = event.target.parentElement;
     }
-    var p = target.querySelector('p');
-    var index = hashtag.indexOf(p.innerHTML);
+    let p = target.querySelector('p');
+    let index = hashtag.indexOf(p.innerHTML);
     hashtag.splice(index, 1);
 
     //remove hashtag in list
-    var addedHashtag = document.getElementById('added-hashtags');
+    let addedHashtag = document.getElementById('added-hashtags');
     addedHashtag.removeChild(target);
 
     //remove hashtag from form
-    var form = document.getElementById('add-content');
-    var input = form.querySelectorAll('input[type="hidden"]');
+    let form = document.getElementById('add-content');
+    let input = form.querySelectorAll('input[type="hidden"]');
     input[index].remove();
 }
