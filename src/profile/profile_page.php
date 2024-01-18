@@ -123,6 +123,7 @@
                 </div>
                 <div class="posts col-md-8 col-12">
                 <h1 class="text-center">YOUR POSTS</h1>
+                <?php $index = 0; ?>
                 <?php foreach($allmypost as $post) :?>
                 <div class="my-posts p-2">
                     <article class="card p-2 container-fluid"> <!-- POST UNICO -->
@@ -135,13 +136,24 @@
                                     </div>
                                     <div class="nav nav-pills"> <!--- LIKE E COMMENT -->
                                         <div class="comments">
-                                            <a class="nav-item my-1 mx-1" href="#">
+                                            <a class="nav-item my-1 mx-1" href="../comment/comments.php?id_post=<?php echo $post['Id_Post']; ?>" alt="visualize comment">
                                                 <span><em class="uil uil-comment-dots"><small class="comment-count"><?php echo $post["numcommenti"]; ?></small></em></span>
                                             </a>
                                         </div>
                                         <div class="likes">
                                             <a class="nav-item my-1 mx-1" href="#">
-                                                <span><em class="uil uil-heart"><small class="likes-count"><?php echo $post["numlikes"]; ?></small></em></span>
+                                                <span>
+                                                    <?php if($all_my_likes[$index] == 0) :?>
+                                                        <em class="like uil uil-heart-break" data="<?php echo $post['Id_Post']; ?>">
+                                                            <small class="likes-count"><?php echo $post["numlikes"]; ?></small>
+                                                        </em>
+                                                    <?php else :?>
+                                                        <em class="like uil uil-heart" data="<?php echo $post['Id_Post']; ?>">
+                                                            <small class="likes-count"><?php echo $post["numlikes"]; ?></small>
+                                                        </em>
+                                                    <?php endif; ?>
+                                                    <?php $index++; ?>
+                                                </span>
                                             </a>
                                         </div>
                                     </div>
@@ -169,9 +181,9 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="./profile_page_logic.js"></script>
+    <script src="./dynamic-likes-profile.js"></script>
 </body>
 </html>
-
 <script>
     console.log(URL);
     function display_image(file)

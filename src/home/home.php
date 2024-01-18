@@ -51,7 +51,6 @@
                                         <div class="likes">
                                             <a class="nav-item my-1 mx-1" href="#">
                                                 <span>
-                                                    <!-- TODO aggiungere parte dinamica del cuore -->
                                                     <?php if($all_my_likes[$index] == 0) :?>
                                                         <em class="like uil uil-heart-break" data="<?php echo $post['Id_Post']; ?>">
                                                             <small class="likes-count"><?php echo $post["numlikes"]; ?></small>

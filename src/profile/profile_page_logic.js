@@ -14,3 +14,4 @@ document.querySelector(".follow_unfollow").addEventListener("click", function() 
 
     location.reload();
 });
+

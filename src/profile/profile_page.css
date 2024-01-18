@@ -1,6 +1,10 @@
+a:hover {
+    color: red;
+    text-decoration: none;
+}
+
 a>span>em {
     font-size: 20px;
-    color: white;
 }
 
 .info-user {

@@ -6,6 +6,7 @@ for (let i = 0; i < all_heart.length; i++) {
     all_heart[i].addEventListener("click", function() {
         //all_heart[i].setAttribute("class", "uil uil-heart-break");
         console.log(all_heart[i]);
+        //console.log("OLAAAA MI");
 
         var xmlhttp, post_id;
         post_id = all_heart[i].getAttribute("data");
@@ -25,10 +26,13 @@ for (let i = 0; i < all_heart.length; i++) {
         console.log(location.href +" "+elementID);
 
         //after 1 second reload the page
-        
-        setTimeout(function() {
+        location.reload();
+        /*
+                setTimeout(function() {
             location.reload();
         }, 1000);
+        */
+
         
 
     });
