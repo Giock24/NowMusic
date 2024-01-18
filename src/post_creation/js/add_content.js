@@ -9,9 +9,12 @@ var addHastag = function(event) {
     hashtag.push(newHashtag);
     inputHastag.value = '';
 
-    //show added hashtag in a paragraph
+    //show added hashtag in list
     var addedHashtag = document.getElementById('added-hashtags');
-    addedHashtag.innerHTML = hashtag.join(' ');
+    var newHashtagElement = document.createElement('li');
+    newHashtagElement.innerHTML = newHashtag;
+    newHashtagElement.addEventListener('click', removeHashtag);
+    addedHashtag.appendChild(newHashtagElement);
 
     //add hashtag to form
     _updateForm();
@@ -26,4 +29,21 @@ var _updateForm = function() {
     input.setAttribute('name', 'hashtags[]');
     input.setAttribute('value', lastTag);
     form.appendChild(input);
+}
+
+
+var removeHashtag = function(event) {
+    var index = hashtag.indexOf(event.target.innerHTML);
+    console.log(hashtag);
+    hashtag.splice(index, 1);
+    console.log(hashtag);
+
+    //remove hashtag in list
+    var addedHashtag = document.getElementById('added-hashtags');
+    addedHashtag.removeChild(event.target);
+
+    //remove hashtag from form
+    var form = document.getElementById('add-content');
+    var input = form.querySelectorAll('input[type="hidden"]');
+    input[index].remove();
 }

@@ -50,7 +50,7 @@
                                 </div>
                             </div>
                             <label>Added Hashtags:</label>
-                            <p id="added-hashtags"></p>
+                            <ul id="added-hashtags"></ul>
                         </div>
                         <div class="row h-100 pb-4">
                             <label  class="submit" for="create_post" hidden>Create Post</label>

@@ -25,4 +25,16 @@
 
 #added-hashtags {
     color: #FFFFFF;
+    list-style-type: none;
+    padding: 0;
+}
+
+#added-hashtags li {
+    margin-right: 5px;
+    display:inline-block;
+    border-radius: 15px;
+    border: 1px solid #000;
+    background: var(--darker-gradient, linear-gradient(271deg, #C318FA 3%, #2B5A7E 97.8%));
+    padding: 10px;
+    margin-bottom: 10px;
 }
