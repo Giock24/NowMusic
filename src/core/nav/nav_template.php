@@ -1,4 +1,4 @@
-<script type="module" src="../core/notification_ajax.js"></script>
+
 <?php
     if(isset($_COOKIE["notification"]) && count(json_decode($_COOKIE["notification"], true))) {
         $_POST["notifications"] = json_decode($_COOKIE["notification"], true);
@@ -20,9 +20,13 @@
         <?php if($navParams["showlogout"] === false) : ?>
             <div id="notification_icon_container" class="notifications" style="position: relative; padding-left:10px">
                 <?php if(isset($_POST["notifications"])) : ?>
-                <span class='badge' id='notification_count' style="position: absolute; top: 0; left: 0; height: 24px; width: 24px; border-radius:25px; background:#C318FA; border: 1px solid #000000;">
-                    <?php echo count($_POST["notifications"]); ?>
-                </span>
+                    <span class='badge' id='notification_count' style="position: absolute; top: 0; left: 0; height: 24px; width: 24px; border-radius:25px; background:#C318FA; border: 1px solid #000000;">
+                        <?php echo count($_POST["notifications"]); ?>
+                    </span>
+                <?php else: ?>
+                    <span class='badge' id='notification_count' hidden="true" style="position: absolute; top: 0; left: 0; height: 24px; width: 24px; border-radius:25px; background:#C318FA; border: 1px solid #000000;">
+                        0
+                    </span>
                 <?php endif; ?>
                 <button id="notification_icon" type="button" class="nav-item py-1 notification-button" data-bs-target="#notifications" data-bs-toggle="modal">
                     <img src="../../assets/images/circle-notifications.png" alt="notifications image"/>
@@ -52,7 +56,7 @@
                                 <h1 class="modal-title fs-5" id="notificationsLabel">Notification</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body" id="body">
                                 <?php if(isset($_POST["notifications"])) : ?>
                                     <?php foreach($_POST["notifications"] as $notification) : 
                                         $notificationJson = json_decode($notification);
@@ -81,3 +85,4 @@
                         </div>
     </div>
 </div>
+<script type="module" src="../core/notification_ajax.js"></script>
