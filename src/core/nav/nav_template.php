@@ -33,7 +33,7 @@
                 </button>
             </div>
             <div class="account-user">
-                <a class="nav-item m-2" href="../profile/profile_page.php" alt="go to login page">
+                <a class="nav-item m-2" href="../profile/profile_page.php" title="go to login page">
                     <?php if($_SESSION['user']["UrlImmagine"] != "") :?>
                         <img class="nav-item" src=<?php echo "../upload/{$_SESSION['user']['UrlImmagine']}"?> height="38" width="37" alt="user-image"/>
                     <?php else : ?>
@@ -43,7 +43,7 @@
             </div>
         <?php else : ?>
             <div class="nav nav-pills logout ">
-                <a href="../auth/login.php" class="nav-item" alt="go to login page"><span><em class="uil uil-sign-out-alt"></em></span></a>
+                <a href="../auth/login.php" class="nav-item" title="go to login page"><span><em class="uil uil-sign-out-alt"></em></span></a>
             </div>
         <?php endif; ?>
     </div>

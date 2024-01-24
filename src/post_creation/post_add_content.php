@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <button id="add-hastag" type="button" onclick="addHastag(event)">Add
-                                        <i class="bi bi-plus"></i>
+                                        <em class="bi bi-plus"></em>
                                     </button>
                                 </div>
                             </div>

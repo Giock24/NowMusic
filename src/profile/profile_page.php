@@ -92,7 +92,7 @@
                                 <!-- Conteuto della modale -->
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="notificationsLabel">Edit Profile </h1>
+                                        <h1 class="modal-title fs-5" id="Edit_Profile">Edit Profile </h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <!-- Body della modale  -->
@@ -133,7 +133,7 @@
                                                         </tr>
                                                         <tr><th><emclass="fa-solid fa-cake-candles"></em>Data di Nascita</th>
                                                             <td>
-                                                                <label class="birthdaydate" for="gender" hidden>gender</label>
+                                                                <label class="birthdaydate" for="birthdaydate" hidden>gender</label>
                                                                 <input id="birthdaydate" type="date" class="form-control" name="birthdaydate" >
                                                             </td>
                                                         </tr>
