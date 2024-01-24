@@ -11,6 +11,18 @@ for (let i = 0; i < all_heart.length; i++) {
         var xmlhttp, post_id;
         post_id = all_heart[i].getAttribute("data");
 
+        let likeCount = all_heart[i].getElementsByClassName("likes-count")[0];
+
+        if (all_heart[i].getAttribute("class") === "like uil uil-heart-break") {
+            // add like
+            all_heart[i].setAttribute("class", "like uil uil-heart");
+            likeCount.innerHTML = parseInt(likeCount.innerHTML) + 1;
+        } else {
+            // remove like
+            all_heart[i].setAttribute("class", "like uil uil-heart-break");
+            likeCount.innerHTML = parseInt(likeCount.innerHTML) - 1;
+        }
+
         xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
@@ -26,7 +38,7 @@ for (let i = 0; i < all_heart.length; i++) {
         console.log(location.href +" "+elementID);
 
         //after 1 second reload the page
-        location.reload();
+        //location.reload();
         /*
                 setTimeout(function() {
             location.reload();

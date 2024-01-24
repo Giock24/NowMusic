@@ -5,7 +5,7 @@ function create_notification(username, message){
         username: username,
         message: message
     }
-    console.log("notification stringify: "+JSON.stringify(notification));
+    //console.log("notification stringify: "+JSON.stringify(notification));
     return JSON.stringify(notification);
 }
 
@@ -62,13 +62,14 @@ setInterval(function() {
                         newNotification = true;
                     }
                 }
+                likes = likesCommentsFollowers.likes;
+                comments = likesCommentsFollowers.comments;
+                followers = likesCommentsFollowers.followers;
                 if(newNotification){
                     console.log("new notification : "+notificationList);
                     createCookie("notification", JSON.stringify(notificationList), 1);
-                    //location.reload();
                     let elem_notification = document.getElementById("notification_count");
                     //console.log(elem_notification);
-                    console.log(notificationList.length);
                     
                     if (parseInt(elem_notification.innerHTML) > 0) {
                         elem_notification.innerHTML = notificationList.length;
@@ -87,11 +88,7 @@ setInterval(function() {
                         modal.innerHTML =  `<p>prova</p>`;
                         //console.log(modal);
                     }
-                    
                 }
-                likes = likesCommentsFollowers.likes;
-                comments = likesCommentsFollowers.comments;
-                followers = likesCommentsFollowers.followers;
             }
         }
     };
@@ -135,5 +132,4 @@ document.getElementById("notifications").addEventListener('hidden.bs.modal', fun
     elem_notification.innerHTML = 0;
 
     notificationList = [];
-    //location.reload();
 });

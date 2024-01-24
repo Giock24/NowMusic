@@ -35,10 +35,5 @@ for (let i = 0; i < all_heart.length; i++) {
 
         let elementID = "post_"+post_id;
         console.log(location.href +" "+elementID);
-        /*
-        setTimeout(function() {
-            location.reload();
-        }, 200);
-        */
     });
 }
