@@ -13,6 +13,14 @@
     <script type="module" src="./login.js"></script>
 </head>
 <body>
+    <?php
+        if (isset($_COOKIE['notification'])) {
+            unset($_COOKIE['notification']); 
+        }
+        if (isset($_SESSION['user'])) {
+            unset($_SESSION['user']); 
+        }
+    ?>
     <div class="container-fluid overflow-x-hidden p-0 h-100">
         <div class="row justify-content-center align-items-center h-100">
             <main class="col-10 col-md-4">

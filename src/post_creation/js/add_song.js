@@ -74,6 +74,3 @@ document.getElementById("search_song").onsubmit = function(event) {
     });
     return false;
 };
-
-const song= {id:"5RzB3KcfvZgvsWcsETVsqG"} ;
-document.getElementById("search_results").appendChild(_createSongElement(song));
