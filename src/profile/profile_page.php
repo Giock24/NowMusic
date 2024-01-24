@@ -73,7 +73,7 @@
                         </div>
                         <?php if($user["Email"] == $_SESSION["user"]["Email"]) : ?>
                             <button type="button" class="btn btn-secondary mt-2 mb-5 py-1 btn-sm" data-bs-target="#modify_profile" data-bs-toggle="modal" style="max-width:50%">
-                                <span class="profile"><i class="fa-solid fa-user-gear"></i><h3>Edit Profile</h3></span>
+                                <span class="profile"><emclass="fa-solid fa-user-gear"></i><h3>Edit Profile</h3></span>
                             </button>
                         <?php else : ?>
                             <button type="button" class="follow_unfollow btn btn-secondary mt-2 mb-5 py-1 btn-sm" style="max-width:50%" data=<?php echo $user["Email"] ?>>
@@ -101,7 +101,7 @@
                                                     <form action="upload_photo.php" method="post" enctype="multipart/form-data">
                                                         <img class="js-image img-fluid rounded" src="../../assets/images/user_icon.png" style="width: 180px; height:180px;object-fit: cover;" alt="profile_user_image"/>
                                                         <div class="mb-3">
-                                                            <label for="formFile" class="form-label">Click below to select an image</label>
+                                                            <label for="imageProfile" class="form-label">Click below to select an image</label>
                                                             <input onchange="display_image(this.files[0])" class="form-control" type="file" id="imageProfile" name="imageProfile" accept="image/*">
                                                         </div>
                                                         <div class="row pb-2 px-3">
@@ -114,14 +114,16 @@
                                                     <form class="row" action="change_profile_data.php" method="post">
                                                     <table class="table table-strped">
                                                         <tr><th colspan="2">User Details:</th></tr>
-                                                        <tr><th><i class="fa-solid fa-user"></i> Username</th>
+                                                        <tr><th><emclass="fa-solid fa-user"></em>Username</th>
                                                             <td>
-                                                                <input type="text" class="form-control" name="username" placeholder="Username">
+                                                                <label class="submit" for="username" hidden>username</label>
+                                                                <input id="username" type="text" class="form-control" name="username" placeholder="Username">
                                                             </td>
                                                         </tr>
-                                                        <tr><th><i class="fa-solid fa-venus"></i> Gender</th>
+                                                        <tr><th><emclass="fa-solid fa-venus"></em>Gender</th>
                                                             <td>
-                                                                <select class="form-select form-select mb-3" name="gender" arial-label="form-select-lg example" >
+                                                                <label class="submit" for="gender" hidden>gender</label>
+                                                                <select id="gender" class="form-select form-select mb-3" name="gender" arial-label="form-select-lg example" >
                                                                     <option selected value="">--Select Gender--</option>
                                                                     <option value="Male">Male</option>
                                                                     <option value="Female">Female</option>
@@ -129,12 +131,13 @@
                                                                 </select>
                                                             </td>
                                                         </tr>
-                                                        <tr><th><i class="fa-solid fa-cake-candles"></i> Data di Nascita</th>
+                                                        <tr><th><emclass="fa-solid fa-cake-candles"></em>Data di Nascita</th>
                                                             <td>
-                                                                <input type="date" class="form-control" name="birthdaydate" >
+                                                                <label class="birthdaydate" for="gender" hidden>gender</label>
+                                                                <input id="birthdaydate" type="date" class="form-control" name="birthdaydate" >
                                                             </td>
                                                         </tr>
-                                                        <tr><th><i class="fa-regular fa-pen-to-square"></i> Biografia</th>
+                                                        <tr><th><emclass="fa-regular fa-pen-to-square"></em>Biografia</th>
                                                             <td>
                                                                 <div class="form-group">
                                                                     <label for="biografia" hidden>Bio</label>
@@ -144,7 +147,8 @@
                                                         </tr>
                                                     </table>
                                                     <div class="p-2">
-                                                        <button class="btn btn-primary float-end" name="save">Save</button>
+                                                        <label class="submit" for="save_profile_change" hidden>Save</label>
+                                                        <input id="save_profile_change" type="submit" class="btn" value="save" style="width:100%"/>
                                                     </div>  
                                                     </form>
                                                 </div>

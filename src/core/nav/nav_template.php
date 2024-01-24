@@ -8,11 +8,11 @@
 <nav class="navbar px-2 navbar-dark bg-dark sticky-top">
     <div class="col-7 align-items-center">
         <?php if($navParams["showarrow"] === false) : ?>
-            <a class="navbar-brand" href="../home/home.php">NowMusic</a>
+            <a class="navbar-brand" href="../home/home.php" title ="go to home page">NowMusic</a>
             <img class="nav-item" src="../../assets/images/NowMusic-Logo.png" alt="logo image" width="45" height="45"/>
         <?php else : ?>
-            <a class="navbar-brand col-7 align-items-center" href=<?php echo $navParams["backArrowHref"] ?>>
-                <i class="bi bi-arrow-left-short" style="font-size:32px"></i>
+            <a class="navbar-brand col-7 align-items-center" href=<?php echo $navParams["backArrowHref"] ?>  title="go back">
+                <em class="bi bi-arrow-left-short" style="font-size:32px" alt="go back icon"></em>
             </a>
         <?php endif; ?>
     </div>
@@ -33,7 +33,7 @@
                 </button>
             </div>
             <div class="account-user">
-                <a class="nav-item m-2" href="../profile/profile_page.php">
+                <a class="nav-item m-2" href="../profile/profile_page.php" alt="go to login page">
                     <?php if($_SESSION['user']["UrlImmagine"] != "") :?>
                         <img class="nav-item" src=<?php echo "../upload/{$_SESSION['user']['UrlImmagine']}"?> height="38" width="37" alt="user-image"/>
                     <?php else : ?>
@@ -43,7 +43,7 @@
             </div>
         <?php else : ?>
             <div class="nav nav-pills logout ">
-                <a href="../auth/login.php" class="nav-item"><span><em class="uil uil-sign-out-alt"></em></span></a>
+                <a href="../auth/login.php" class="nav-item" alt="go to login page"><span><em class="uil uil-sign-out-alt"></em></span></a>
             </div>
         <?php endif; ?>
     </div>
