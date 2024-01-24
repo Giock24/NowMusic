@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="../../css/style.css"/>
     <link rel="stylesheet" href="./comment.css"/>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script  src="./addComment.js"></script>
 </head>
 <body>
     <?php
@@ -23,7 +25,7 @@
             require("../core/nav/home_nav.php");
         ?>
         <div class="row justify-content-center">
-            <main class="col-md-12 col-12"> <!-- DIV di tutte i post -->
+            <main id="commentsList" class="col-md-12 col-12"> <!-- DIV di tutte i post -->
                 <?php include 'comments_logic.php';?>
                 <h1 class="text-center">Comments</h1>
                 <?php foreach($allPostById as $comment) : ?>
@@ -51,7 +53,7 @@
         <footer class="fixed-bottom container-fluid justify-content-center">
             <div class="row write-comment align-items-center p-3">
                 <div class="input-comment col-md-12 col-12">
-                    <form action="#" method="post" class="row container-fluid">
+                    <form action="#" method="post" class="row container-fluid" onsubmit="return  addComment()">
                         <div class="col-md-10 col-10">
                             <label class="form-label" for="your-comment" hidden>Commento</label>
                             <input class="form-control" id="your-comment" name="your-comment" type="text" placeholder="Add a new comment..."/>
